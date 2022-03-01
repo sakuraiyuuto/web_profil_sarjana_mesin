@@ -50,7 +50,6 @@ class JurnalController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'judul' => 'required',
-            'author' => 'required',
             'tahun' => 'required',
             'nomor_volume' => 'required',
             'url' => 'required',
@@ -60,38 +59,15 @@ class JurnalController extends Controller
         if ($validator->fails()) {
             return redirect('/admin/jurnal')->with('alert', 'Ada kesalahan data, coba lagi.');
         } else {
-            if ($request->nama_file == "") {
+            Jurnal::create([
+                'judul' => $request->judul,
+                'tahun' => $request->tahun,
+                'nomor_volume' => $request->nomor_volume,
+                'url' => $request->url,
+                'release_date' => $request->release_date,
+            ]);
 
-                Jurnal::create([
-                    'judul' => $request->judul,
-                    'author' => $request->author,
-                    'tahun' => $request->tahun,
-                    'nomor_volume' => $request->nomor_volume,
-                    'url' => $request->url,
-                    'release_date' => $request->release_date,
-                ]);
-
-                return redirect('/admin/jurnal')->with('status', 'Dokumen Prodi Berhasil Diubah');
-            } else {
-                $path_url = 'files/jurnal/';
-
-                $originName = $request->nama_file->getClientOriginalName();
-                $fileName = pathinfo($originName, PATHINFO_FILENAME);
-                $extension = $request->nama_file->getClientOriginalExtension();
-                $fileName = Str::slug($fileName) . '_' . time() . '.' . $extension;
-                $request->nama_file->move(public_path($path_url), $fileName);
-
-                Jurnal::create([
-                    'nama_file' => 'files/jurnal/' . $fileName,
-                    'judul' => $request->judul,
-                    'author' => $request->author,
-                    'tahun' => $request->tahun,
-                    'nomor_volume' => $request->nomor_volume,
-                    'url' => $request->url,
-                    'release_date' => $request->release_date,
-                ]);
-                return redirect('/admin/jurnal')->with('status', 'Dokumen Prodi Berhasil Ditambahkan');
-            }
+            return redirect('/admin/jurnal')->with('status', 'Dokumen Prodi Berhasil Diubah');
         }
     }
 
@@ -132,7 +108,6 @@ class JurnalController extends Controller
         $validator = Validator::make($request->all(), [
             'id' => 'required',
             'judul' => 'required',
-            'author' => 'required',
             'tahun' => 'required',
             'nomor_volume' => 'required',
             'url' => 'required',
@@ -142,52 +117,16 @@ class JurnalController extends Controller
         if ($validator->fails()) {
             return redirect('/admin/jurnal')->with('alert', 'Ada kesalahan data, coba lagi.');
         } else {
-            $jurnals = Jurnal::all()
-                ->where('id', $request->id)
-                ->first();
+            Jurnal::where('id', $request->id)
+                ->update([
+                    'judul' => $request->judul,
+                    'tahun' => $request->tahun,
+                    'nomor_volume' => $request->nomor_volume,
+                    'url' => $request->url,
+                    'release_date' => $request->release_date,
+                ]);
 
-            if ($request->nama_file == "") {
-                $fileName = $jurnals->nama_file;
-
-                Jurnal::where('id', $request->id)
-                    ->update([
-                        'nama_file' => $fileName,
-                        'judul' => $request->judul,
-                        'author' => $request->author,
-                        'tahun' => $request->tahun,
-                        'nomor_volume' => $request->nomor_volume,
-                        'url' => $request->url,
-                        'release_date' => $request->release_date,
-                    ]);
-
-                return redirect('/admin/jurnal')->with('status', 'Dokumen Prodi Berhasil Diubah');
-            } else {
-                $file = $jurnals->nama_file;
-                if (file_exists($file)) {
-                    @unlink($file);
-                }
-
-                $path_url = 'files/jurnal/';
-
-                $originName = $request->nama_file->getClientOriginalName();
-                $fileName = pathinfo($originName, PATHINFO_FILENAME);
-                $extension = $request->nama_file->getClientOriginalExtension();
-                $fileName = Str::slug($fileName) . '_' . time() . '.' . $extension;
-                $request->nama_file->move(public_path($path_url), $fileName);
-
-                Jurnal::where('id', $request->id)
-                    ->update([
-                        'nama_file' => 'files/jurnal/' . $fileName,
-                        'judul' => $request->judul,
-                        'author' => $request->author,
-                        'tahun' => $request->tahun,
-                        'nomor_volume' => $request->nomor_volume,
-                        'url' => $request->url,
-                        'release_date' => $request->release_date,
-                    ]);
-
-                return redirect('/admin/jurnal')->with('status', 'Dokumen Prodi Berhasil Diubah');
-            }
+            return redirect('/admin/jurnal')->with('status', 'Dokumen Prodi Berhasil Diubah');
         }
     }
 
@@ -219,12 +158,6 @@ class JurnalController extends Controller
             ->where('id', $id)
             ->first();
 
-        $file = $jurnal->nama_file;
-
-        if (file_exists($file)) {
-            @unlink($file);
-        }
-
         $jurnal->forceDelete();
         return redirect('/admin/jurnal')->with('status', 'Dokumen Prodi Berhasil Dihapus Permanen');
     }
@@ -249,7 +182,7 @@ class JurnalController extends Controller
         $laboratoriumHeaders = Laboratorium::where('release_date', '<=', date('Y-m-d'))
             ->orderBy('release_date', 'DESC')
             ->get();
-        return view('portal.jurnal.index',  compact('jurnals', 'informasiTerbarus',  'aplikasiIntegrasis', 'profilSingkat', 'kontak','laboratoriumHeaders'));
+        return view('portal.jurnal.index',  compact('jurnals', 'informasiTerbarus',  'aplikasiIntegrasis', 'profilSingkat', 'kontak', 'laboratoriumHeaders'));
     }
 
     public function menuDetailJurnal($slug)

@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Pencarian - Teknik Elektro UNTAN')
+@section('title', 'Pencarian - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -55,9 +55,9 @@
                                                 </h4>
                                                 <p>
                                                     @if (strlen(strip_tags($hasilPencarianPaginate->teks)) > 80)
-                                                        {{ str_replace("&nbsp;", "",substr(strip_tags($hasilPencarianPaginate->teks), 0, 80) . '...' )}}
+                                                        {{ str_replace('&nbsp;', '', substr(strip_tags($hasilPencarianPaginate->teks), 0, 80) . '...') }}
                                                     @else
-                                                        {{ str_replace("&nbsp;", "",substr(strip_tags($hasilPencarianPaginate->teks), 0, 80))}}
+                                                        {{ str_replace('&nbsp;', '', substr(strip_tags($hasilPencarianPaginate->teks), 0, 80)) }}
                                                     @endif
                                                 </p>
                                                 <ul class="kf_event_list_links">
@@ -114,12 +114,13 @@
                             <!--KF SIDEBAR RECENT POST WRAP START-->
                             <div class="widget widget-recent-posts">
                                 <h2>Informasi Terbaru</h2>
-                                <ul class="sidebar_rpost_des" >
+                                <ul class="sidebar_rpost_des">
                                     @foreach ($informasiTerbarus as $informasiTerbaru)
                                         <!--LIST ITEM START-->
                                         <li>
                                             <figure>
-                                                <img class="img-sidebar-info" src="{{ asset($informasiTerbaru->thumbnail) }}" alt="">
+                                                <img class="img-sidebar-info"
+                                                    src="{{ asset($informasiTerbaru->thumbnail) }}" alt="">
                                                 <figcaption><a href="{{ url($informasiTerbaru->slug) }}"><i
                                                             class="fa fa-search-plus"></i></a></figcaption>
                                             </figure>
@@ -135,41 +136,45 @@
                                         </li>
                                     @endforeach
                                 </ul>
-                                 <a href="{{ url('/informasi_terbaru') }}"  style="margin-top : 40px;font-size : 15px"class="button-pkm">Semua Informasi</a>
-                     
+                                <a href="{{ url('/informasi_terbaru') }}" style="margin-top : 40px;font-size : 15px"
+                                    class="button-pkm">Semua Informasi</a>
+
                             </div>
-                                  <!--KF SIDEBAR RECENT POST WRAP END-->
-                    
+                            <!--KF SIDEBAR RECENT POST WRAP END-->
+
                             <!--KF SIDEBAR RECENT POST WRAP START-->
                             <div class="widget widget-recent-posts">
                                 <h2>Aplikasi Integrasi</h2>
                                 <ul id="normal" class="sidebar_rpost_des " style="width : 30rem">
-                                <div id="owl-demo-apl" class="owl-carousel owl-theme">
-                                    @foreach ($aplikasiIntegrasis as $aplikasiIntegrasi)
-                                    <div class="item">
-                                        <!--LIST ITEM START-->
-                                        <li>
-                                            <figure>
-                                                <img style="height : 10rem;object-fit: cover"src="{{ url($aplikasiIntegrasi->thumbnail) }}" alt="">
-                                                <figcaption><a href="{{ $aplikasiIntegrasi->url }}"><i
-                                                            class="fa fa-search-plus"></i></a></figcaption>
-                                            </figure>
-                                            <div class="kode-text" style="padding-top : 10px;padding-right : 5px">
-                                                <h6><a
-                                                        href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
-                                                </h6>
-                                                <span><i
-                                                        class="fa fa-clock-o"></i>{{ $aplikasiIntegrasi->release_date }}</span>
+                                    <div id="owl-demo-apl" class="owl-carousel owl-theme">
+                                        @foreach ($aplikasiIntegrasis as $aplikasiIntegrasi)
+                                            <div class="item">
+                                                <!--LIST ITEM START-->
+                                                <li>
+                                                    <figure>
+                                                        <img style="height : 10rem;object-fit: cover"
+                                                            src="{{ url($aplikasiIntegrasi->thumbnail) }}" alt="">
+                                                        <figcaption><a href="{{ $aplikasiIntegrasi->url }}"><i
+                                                                    class="fa fa-search-plus"></i></a></figcaption>
+                                                    </figure>
+                                                    <div class="kode-text"
+                                                        style="padding-top : 10px;padding-right : 5px">
+                                                        <h6><a
+                                                                href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
+                                                        </h6>
+                                                        <span><i
+                                                                class="fa fa-clock-o"></i>{{ $aplikasiIntegrasi->release_date }}</span>
+                                                    </div>
+                                                </li>
+                                                <!--LIST ITEM START-->
                                             </div>
-                                        </li>
-                                        <!--LIST ITEM START-->
-                                    </div>
                                         @endforeach
-                                        </div>
+                                    </div>
                                 </ul>
-                         
+
                             </div>
-                            <a href="{{ url('aplikasi_integrasi') }}" style="font-size : 15px" class="button-pkm">Semua Aplikasi</a>
+                            <a href="{{ url('aplikasi_integrasi') }}" style="font-size : 15px"
+                                class="button-pkm">Semua Aplikasi</a>
                             <!--KF SIDEBAR RECENT POST WRAP END-->
 
                         </div>

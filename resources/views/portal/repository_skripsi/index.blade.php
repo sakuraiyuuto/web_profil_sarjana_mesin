@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Repository Skripsi - Teknik Elektro UNTAN')
+@section('title', 'Repository Skripsi - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -54,7 +54,8 @@
                                             <th>{{ $repositorySkripsi->judul }}</th>
                                             <th>{{ $repositorySkripsi->author }}</th>
                                             <th>{{ $repositorySkripsi->tahun }}</th>
-                                            <th><a class="btn btn-primary"href="{{ url($repositorySkripsi->slug) }}">Detail</a></th>
+                                            <th><a class="btn btn-primary"
+                                                    href="{{ url($repositorySkripsi->slug) }}">Detail</a></th>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -64,7 +65,7 @@
                     </div>
 
                     <!--KF_EDU_SIDEBAR_WRAP START-->
-                           <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="kf-sidebar">
 
                             <!--KF_SIDEBAR_SEARCH_WRAP START-->
@@ -99,8 +100,9 @@
                                                         href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                                 </h6>
                                                 <span>
-                                             <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                                   
+                                                    <i
+                                                        class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                                 </span>
                                             </div>
                                         </li>
@@ -132,8 +134,8 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span>   <i class="fa fa-clock-o"></i>
-                                                        {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
+                                                        <span> <i class="fa fa-clock-o"></i>
+                                                            {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
                                                 <!--LIST ITEM START-->

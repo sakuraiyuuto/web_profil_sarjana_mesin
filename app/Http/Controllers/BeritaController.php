@@ -166,7 +166,7 @@ class BeritaController extends Controller
 
                 $berita = Berita::where('id', $request->id)->first();;
 
-                $response = Http::post('http://teknik.untan.ac.id/api/updateBerita', [
+                $response = Http::post('https://teknik.untan.ac.id/api/updateBerita', [
                     'judul' => $request->judul,
                     'password' => 's1teXUnT4n2022',
                     'thumbnail' => 'kosong',
@@ -300,8 +300,8 @@ class BeritaController extends Controller
             ->first();
 
         $laboratoriumHeaders = Laboratorium::where('release_date', '<=', date('Y-m-d'))
-        ->orderBy('release_date', 'DESC')
-        ->get();
+            ->orderBy('release_date', 'DESC')
+            ->get();
 
         return view('portal.berita.index',  compact('beritas', 'informasiTerbarus',  'aplikasiIntegrasis', 'profilSingkat', 'kontak', 'laboratoriumHeaders'));
     }

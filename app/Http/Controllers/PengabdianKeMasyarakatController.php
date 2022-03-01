@@ -111,10 +111,10 @@ class PengabdianKeMasyarakatController extends Controller
      * @param  \App\Models\PengabdianKeMasyarakat  $pengabdianKeMasyarakats
      * @return \Illuminate\Http\Response
      */
-    public function edit(PengabdianKeMasyarakat $pengabdianKeMasyarakat)
+    public function edit($id)
     {
         $session_user = Auth::user();
-        $pengabdianKeMasyarakat = PengabdianKeMasyarakat::all()->firstWhere('slug', $pengabdianKeMasyarakat->slug);
+        $pengabdianKeMasyarakat = PengabdianKeMasyarakat::all()->firstWhere('id', $id);
 
         return view('admin.pengabdian_kepada_masyarakat.edit', compact('pengabdianKeMasyarakat', 'session_user'));
     }
@@ -253,7 +253,7 @@ class PengabdianKeMasyarakatController extends Controller
         $laboratoriumHeaders = Laboratorium::where('release_date', '<=', date('Y-m-d'))
             ->orderBy('release_date', 'DESC')
             ->get();
-        
+
         return view('portal.pengabdian_kepada_masyarakat.index',  compact('pengabdianKeMasyarakats', 'informasiTerbarus',  'aplikasiIntegrasis', 'profilSingkat', 'kontak', 'laboratoriumHeaders'));
     }
 

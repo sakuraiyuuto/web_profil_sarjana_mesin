@@ -4,17 +4,17 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Admin Prodi Teknik Elektro</title>
+    <title>Login Admin Prodi Teknik Mesin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{url('/admin_template/plugins/fontawesome-free/css/all.min.css')}}">
+    <link rel="stylesheet" href="{{ url('/admin_template/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{url('/admin_template/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url('/admin_template/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{url('/admin_template/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{ url('/admin_template/dist/css/adminlte.min.css') }}">
 </head>
 
 <body class="hold-transition login-page">
@@ -22,20 +22,20 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-            <img src="{{ url('/images/logo.png') }}" alt="Logo" class="brand-image"
-                        style="width :10rem;opacity: .8">
-                <p class="h1"><b>Teknik </b>Kelautan</p>
+                <img src="{{ url('/images/logo.png') }}" alt="Logo" class="brand-image"
+                    style="width :10rem;opacity: .8">
+                <p class="h1"><b>Teknik </b>Mesin</p>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Halaman Admin Web Teknik Elektro</p>
+                <p class="login-box-msg">Halaman Admin Web Teknik Mesin</p>
 
                 @if (session('alert'))
-                <div class="alert alert-danger">
-                    {{session('alert')}}
-                </div>
+                    <div class="alert alert-danger">
+                        {{ session('alert') }}
+                    </div>
                 @endif
 
-                <form action="{{route('postlogin')}}" method="post">
+                <form action="{{ route('postlogin') }}" method="post">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="email" name="email" class="form-control" placeholder="Email">
@@ -70,11 +70,11 @@
     <!-- /.login-box -->
 
     <!-- jQuery -->
-    <script src="{{url('/admin_template/plugins/jquery/jquery.min.js')}}"></script>
+    <script src="{{ url('/admin_template/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{url('/admin_template/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ url('/admin_template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{url('/admin_template/dist/js/adminlte.min.js')}}"></script>
+    <script src="{{ url('/admin_template/dist/js/adminlte.min.js') }}"></script>
 </body>
 
 </html>

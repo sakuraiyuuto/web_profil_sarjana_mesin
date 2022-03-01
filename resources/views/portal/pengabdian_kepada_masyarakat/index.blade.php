@@ -1,90 +1,94 @@
 @extends('portal/layout/main')
 
-@section('title', 'Pengabdian Kepada Masyarakat - Teknik Elektro UNTAN')
+@section('title', 'Pengabdian Kepada Masyarakat - Teknik Mesin UNTAN')
 
 @section('container')
-<!--Banner Wrap Start-->
-<div class="kf_inr_banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <!--KF INR BANNER DES Wrap Start-->
-                <div class="kf_inr_ban_des">
-                    <div class="inr_banner_heading">
-                        <h3>Pengabdian Kepada Masyarakat</h3>
+    <!--Banner Wrap Start-->
+    <div class="kf_inr_banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <!--KF INR BANNER DES Wrap Start-->
+                    <div class="kf_inr_ban_des">
+                        <div class="inr_banner_heading">
+                            <h3>Pengabdian Kepada Masyarakat</h3>
+                        </div>
+                        <div class="kf_inr_breadcrumb">
+                            <ul>
+                                <li><a href="{{ url('') }}">Beranda</a></li>
+                                <li><a>Pengabdian Kepada Masyarakat</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="kf_inr_breadcrumb">
-                        <ul>
-                            <li><a href="{{ url('') }}">Beranda</a></li>
-                            <li><a>Pengabdian Kepada Masyarakat</a></li>
-                        </ul>
-                    </div>
+                    <!--KF INR BANNER DES Wrap End-->
                 </div>
-                <!--KF INR BANNER DES Wrap End-->
             </div>
         </div>
     </div>
-</div>
 
-<!--Content Wrap Start-->
-<div class="kf_content_wrap">
-    <section class="event_list_page">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <table id="tabel_pengabdian_kepada_masyarakat" class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                                <th>Daftar Pengabdian Kepada Masyarakat</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($pengabdianKeMasyarakats as $pengabdianKeMasyarakat)
-                            <tr>
-                                <th>
-                                    <!--EVENT LIST Wrap Start-->
-                                    <div class="kf_event_list_wrap" style="margin :0;border : 1px solid #b6b6b6">
-                                        <div class="row" style="height : 10rem">
-                                            <div class="col-lg-3 col-md-3 col-sm-3">
-                                                <!--EVENT LIST THUMB Start-->
-                                                <div class="kf_event_list_thumb">
-                                                <figure style="height : 13rem">
-                                                    <img style="height : 15rem; width:100%; object-fit :cover"
-                                                            src="{{ url($pengabdianKeMasyarakat->thumbnail) }}" alt="" />
-                                                    </figure>
+    <!--Content Wrap Start-->
+    <div class="kf_content_wrap">
+        <section class="event_list_page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <table id="tabel_pengabdian_kepada_masyarakat" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Daftar Pengabdian Kepada Masyarakat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($pengabdianKeMasyarakats as $pengabdianKeMasyarakat)
+                                    <tr>
+                                        <th>
+                                            <!--EVENT LIST Wrap Start-->
+                                            <div class="kf_event_list_wrap" style="margin :0;border : 1px solid #b6b6b6">
+                                                <div class="row" style="height : 10rem">
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <!--EVENT LIST THUMB Start-->
+                                                        <div class="kf_event_list_thumb">
+                                                            <figure style="height : 13rem">
+                                                                <img style="height : 15rem; width:100%; object-fit :cover"
+                                                                    src="{{ url($pengabdianKeMasyarakat->thumbnail) }}"
+                                                                    alt="" />
+                                                            </figure>
+                                                        </div>
+                                                        <!--EVENT LIST THUMB END-->
+                                                    </div>
+
+                                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                                        <!--EVENT LIST DES Start-->
+                                                        <div class="kf_event_list_des" style="padding: 10px 10px 10px 0;">
+                                                            <h4><a
+                                                                    href="{{ url($pengabdianKeMasyarakat->slug) }}"><span>{{ $pengabdianKeMasyarakat->judul }}</span></a>
+                                                            </h4>
+                                                            <ul class="kf_event_list_links">
+                                                                <li><a>Pelaku PKM :
+                                                                        {{ $pengabdianKeMasyarakat->author }}</a></li><br>
+                                                                <li><a>Tahun PKM :
+                                                                        {{ $pengabdianKeMasyarakat->tahun }}</a></li>
+                                                            </ul>
+                                                            <a class="readmore"
+                                                                href="{{ url($pengabdianKeMasyarakat->slug) }}">
+                                                                Selengkapnya
+                                                                <i class="fa fa-long-arrow-right"></i>
+                                                            </a>
+                                                        </div>
+                                                        <!--EVENT LIST DES END-->
+                                                    </div>
                                                 </div>
-                                                <!--EVENT LIST THUMB END-->
                                             </div>
+                                            <!--EVENT LIST Wrap END-->
+                                        </th>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
 
-                                            <div class="col-lg-9 col-md-9 col-sm-9">
-                                                <!--EVENT LIST DES Start-->
-                                                <div class="kf_event_list_des"style="padding: 10px 10px 10px 0;">
-                                                    <h4><a
-                                                            href="{{ url($pengabdianKeMasyarakat->slug) }}"><span>{{ $pengabdianKeMasyarakat->judul }}</span></a>
-                                                    </h4>
-                                                    <ul class="kf_event_list_links">
-                                                        <li><a>Pelaku PKM : {{ $pengabdianKeMasyarakat->author }}</a></li><br>
-                                                        <li><a>Tahun PKM : {{ $pengabdianKeMasyarakat->tahun }}</a></li>
-                                                    </ul>
-                                                    <a class="readmore" href="{{ url($pengabdianKeMasyarakat->slug) }}">
-                                                        Selengkapnya
-                                                        <i class="fa fa-long-arrow-right"></i>
-                                                    </a>
-                                                </div>
-                                                <!--EVENT LIST DES END-->
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--EVENT LIST Wrap END-->
-                                </th>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-
-                <!--KF_EDU_SIDEBAR_WRAP START-->
-                <div class="col-md-4">
+                    <!--KF_EDU_SIDEBAR_WRAP START-->
+                    <div class="col-md-4">
                         <div class="kf-sidebar">
 
                             <!--KF_SIDEBAR_SEARCH_WRAP START-->
@@ -115,12 +119,13 @@
                                             </figure>
                                             <div class="kode-text">
                                                 <h6>
-                                                <a
+                                                    <a
                                                         href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                                 </h6>
                                                 <span>
-                                             <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                                   
+                                                    <i
+                                                        class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                                 </span>
                                             </div>
                                         </li>
@@ -152,8 +157,8 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span><i
-                                                                class="fa fa-clock-o"></i>  {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
+                                                        <span><i class="fa fa-clock-o"></i>
+                                                            {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
                                                 <!--LIST ITEM START-->
@@ -169,18 +174,18 @@
 
                         </div>
                     </div>
-                <!--KF EDU SIDEBAR WRAP END-->
+                    <!--KF EDU SIDEBAR WRAP END-->
+                </div>
             </div>
-        </div>
-    </section>
-</div>
-<!--Content Wrap End-->
+        </section>
+    </div>
+    <!--Content Wrap End-->
 @endsection
 
 @section('script')
-<script>
-    $(document).ready(function () {
-        $('#tabel_pengabdian_kepada_masyarakat').DataTable();
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            $('#tabel_pengabdian_kepada_masyarakat').DataTable();
+        });
+    </script>
 @endsection

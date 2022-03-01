@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Repository Kerja Praktik - Teknik Elektro UNTAN')
+@section('title', 'Repository Kerja Praktik - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -54,7 +54,8 @@
                                             <th>{{ $repositoryKerjaPraktik->judul }}</th>
                                             <th>{{ $repositoryKerjaPraktik->author }}</th>
                                             <th>{{ $repositoryKerjaPraktik->tahun }}</th>
-                                            <th><a class="btn btn-primary"href="{{ url($repositoryKerjaPraktik->slug) }}">Detail</a></th>
+                                            <th><a class="btn btn-primary"
+                                                    href="{{ url($repositoryKerjaPraktik->slug) }}">Detail</a></th>
                                         </tr>
                                     @endforeach
                                 </tbody>

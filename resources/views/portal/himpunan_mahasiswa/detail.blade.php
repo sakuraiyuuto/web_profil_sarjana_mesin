@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Himpunan Mahasiswa - Teknik Elektro UNTAN')
+@section('title', 'Himpunan Mahasiswa - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -59,14 +59,18 @@
                             </div>
 
                             <ul class="contact_meta">
-                                <li><a href="{{ url($himpunanMahasiswa->url_facebook) }}"><i style="font-size : 20px"class="fa fa-facebook-square"></i><b>
-                                        {{ $himpunanMahasiswa->facebook }} </a> </b></li>
-                                <li><a href="{{ url($himpunanMahasiswa->url_instagram) }}"><i style="font-size : 20px" class="fa fa-instagram"></i><b>
-                                        {{ $himpunanMahasiswa->instagram }}</a> </b></li>
-                                <li><a href="{{ url($himpunanMahasiswa->url_youtube) }}"><i style="font-size : 20px" class="fa fa-youtube-play"></i> <b>
-                                        {{ $himpunanMahasiswa->youtube }}</a> </b></li>
-                                <li><a href="{{ url($himpunanMahasiswa->url_twitter) }}"><i style="font-size : 20px"class="fa fa-twitter-square"></i><b>
-                                        {{ $himpunanMahasiswa->twitter }}</a> </b></li>
+                                <li><a href="{{ url($himpunanMahasiswa->url_facebook) }}"><i style="font-size : 20px"
+                                            class="fa fa-facebook-square"></i><b>
+                                            {{ $himpunanMahasiswa->facebook }} </a> </b></li>
+                                <li><a href="{{ url($himpunanMahasiswa->url_instagram) }}"><i style="font-size : 20px"
+                                            class="fa fa-instagram"></i><b>
+                                            {{ $himpunanMahasiswa->instagram }}</a> </b></li>
+                                <li><a href="{{ url($himpunanMahasiswa->url_youtube) }}"><i style="font-size : 20px"
+                                            class="fa fa-youtube-play"></i> <b>
+                                            {{ $himpunanMahasiswa->youtube }}</a> </b></li>
+                                <li><a href="{{ url($himpunanMahasiswa->url_twitter) }}"><i style="font-size : 20px"
+                                            class="fa fa-twitter-square"></i><b>
+                                            {{ $himpunanMahasiswa->twitter }}</a> </b></li>
                             </ul>
 
                             <!--KF_BLOG DETAIL_DES END-->
@@ -75,7 +79,7 @@
                     </div>
 
                     <!--KF_EDU_SIDEBAR_WRAP START-->
-                           <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="kf-sidebar">
 
                             <!--KF_SIDEBAR_SEARCH_WRAP START-->
@@ -110,8 +114,9 @@
                                                         href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                                 </h6>
                                                 <span>
-                                             <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                                   
+                                                    <i
+                                                        class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                                 </span>
                                             </div>
                                         </li>
@@ -143,8 +148,8 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span>   <i class="fa fa-clock-o"></i>
-                                                        {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
+                                                        <span> <i class="fa fa-clock-o"></i>
+                                                            {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
                                                 <!--LIST ITEM START-->

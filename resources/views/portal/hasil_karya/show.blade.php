@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Hasil Karya - Teknik Elektro UNTAN')
+@section('title', 'Hasil Karya - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -63,7 +63,7 @@
                                     {!! $hasilKarya->teks !!}
                                 </div>
                             </div>
-                            
+
                             <!--Share Media Sosial -->
                             <section id="share-post">
                                 <div class="icons">
