@@ -305,9 +305,9 @@
                         </li>
 
                         <li
-                            class="nav-item {{ set_open(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit']) }}">
+                            class="nav-item {{ set_open(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit','jurnal.index','jurnal.edit','jurnal.create']) }}">
                             <a href="#"
-                                class="nav-link {{ set_active(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit']) }}">
+                                class="nav-link {{ set_active(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit','jurnal.index','jurnal.edit','jurnal.create']) }}">
 
                                 <i class="nav-icon fas fa-school"></i>
                                 <p>
@@ -377,50 +377,6 @@
                                         <p>Kerjasama & Mitra Kolaborasi</p>
                                     </a>
                                 </li>
-                            </ul>
-                        </li>
-
-                        <li
-                            class="nav-item {{ set_open(['jurnal.index', 'buku.index', 'prosiding.index', 'haki.index']) }}">
-                            <a href="#"
-                                class="nav-link {{ set_active(['jurnal.index', 'buku.index', 'prosiding.index', 'haki.index']) }}">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Jurnal
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview  space-maju">
-
-
-                                <li class="nav-item">
-                                    <a href="{{ url('admin/buku') }}"
-                                        class="nav-link {{ set_active(['buku.index']) }}">
-                                        <i class="far fa{{ set_dot(['buku.index']) }}-circle nav-icon"></i>
-                                        <p>Buku</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ url('admin/prosiding') }}"
-                                        class="nav-link {{ set_active(['prosiding.index']) }}">
-                                        <i class="far fa{{ set_dot(['prosiding.index']) }}-circle nav-icon"></i>
-                                        <p>
-                                            Prosiding
-                                        </p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ url('admin/haki') }}"
-                                        class="nav-link {{ set_active(['haki.index']) }}">
-                                        <i class="far fa{{ set_dot(['haki.index']) }}-circle nav-icon"></i>
-                                        <p>
-                                            HAKI
-                                        </p>
-                                    </a>
-                                </li>
-
                             </ul>
                         </li>
 
