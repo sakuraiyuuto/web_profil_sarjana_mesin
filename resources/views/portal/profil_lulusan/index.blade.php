@@ -43,8 +43,9 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>NIM</th>
-                                        <th>Angkatan</th>
+                                        <th>Periode Kelulusan</th>
                                         <th>Tahun Lulus</th>
+                                        <th>File</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,8 +54,15 @@
                                             <th>{{ $loop->iteration }}</th>
                                             <th>{{ $profilLulusan->nama }}</th>
                                             <th>{{ $profilLulusan->nim }}</th>
-                                            <th>{{ $profilLulusan->angkatan }}</th>
+                                            <th>{{ $profilLulusan->periode_kelulusan }}</th>
                                             <th>{{ $profilLulusan->tahun_lulus }}</th>
+                                            <th>
+                                                <a href="{{ url($profilLulusan->nama_file) }}" download target="_blank">
+                                                    <div class="btn btn-success">
+                                                        Download
+                                                    </div>
+                                                </a>
+                                            </th>
                                         </tr>
                                     @endforeach
                                 </tbody>

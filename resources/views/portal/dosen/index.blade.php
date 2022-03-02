@@ -42,9 +42,11 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>NIP-NIDN</th>
+                                        <th>NIP/NIDN</th>
                                         <th>Pangkat</th>
-                                        <th>Link Web Dosen</th>
+                                        <th>Web</th>
+                                        <th>Sinta</th>
+                                        <th>Google Scholar</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,7 +56,40 @@
                                             <th>{{ $dosen->nama }}</th>
                                             <th>{{ $dosen->nip }}</th>
                                             <th>{{ $dosen->pangkat_golongan }}</th>
-                                            <th><a href="{{ $dosen->url }}">{{ $dosen->url }}</a></th>
+                                            <th>
+                                                @if ($dosen->url != '')
+                                                    <a href="{{ $dosen->url }}" target="_blank">
+                                                        <div class="btn btn-primary">
+                                                            Link
+                                                        </div>
+                                                    </a>
+                                                @else
+                                                    -
+                                                @endif
+                                            </th>
+                                            <th>
+                                                @if ($dosen->sinta != '')
+                                                    <a href="{{ $dosen->sinta }}" target="_blank">
+                                                        <div class="btn btn-primary">
+                                                            Link
+                                                        </div>
+                                                    </a>
+                                                @else
+                                                    -
+                                                @endif
+                                            <th>
+                                                @if ($dosen->google_scholar != '')
+                                                    <a href="{{ $dosen->google_scholar }}" target="_blank">
+                                                        <div class="btn btn-primary">
+                                                            Link
+                                                        </div>
+                                                    </a>
+                                                @else
+                                                    -
+                                                @endif
+                                            </th>
+
+
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Kurikulum - Teknik Mesin UNTAN')
+@section('title', 'Unduhan - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -11,13 +11,12 @@
                     <!--KF INR BANNER DES Wrap Start-->
                     <div class="kf_inr_ban_des">
                         <div class="inr_banner_heading">
-                            <h3>Kurikulum</h3>
+                            <h3>Unduhan</h3>
                         </div>
-
                         <div class="kf_inr_breadcrumb">
                             <ul>
                                 <li><a href="{{ url('') }}">Beranda</a></li>
-                                <li><a>Kurikulum</a></li>
+                                <li><a>Unduhan</a></li>
                             </ul>
                         </div>
                     </div>
@@ -27,44 +26,64 @@
         </div>
     </div>
 
-    <!--Banner Wrap End-->
-
     <!--Content Wrap Start-->
     <div class="kf_content_wrap">
+        <!--ABOUT UNIVERSITY START-->
         <section>
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <div style="max-width: 40%; margin-bottom:20px;">
-                            <b>Semester</b> <span id="semester-search"></span>
-                        </div>
-                        <div class="table-responsive">
-                            <table id="tabel_kurikulum" class="table table-bordered table-striped">
-                                <thead>
+                        <table id="tabel_unduhan" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Daftar Unduhan</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($unduhans as $unduhan)
                                     <tr>
-                                        <th>No</th>
-                                        <th>Kode</th>
-                                        <th>Nama Mata Kuliah</th>
-                                        <th>SKS</th>
-                                        <th>Semester</th>
-                                        <th>Kelompok</th>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
+                                            <!--kf_courses_wrap Start-->
+                                            <div class="kf_event_list_wrap"
+                                                style="margin :0;border : 1px solid #b6b6b6;padding :10px">
+                                                <div class="row" style="height : 10rem;">
+
+                                                    <div class="col-lg-3 col-md-3 col-sm-3">
+                                                        <!--EVENT LIST THUMB Start-->
+
+                                                        <figure
+                                                            style="text-align : center;height : 13rem ;background-color :gray;border-radius : 5px;margin-bottom : 15px;">
+                                                            <i class="fa fa-file"
+                                                                style="font-size : 8rem;padding : 25px ;color : white"></i>
+                                                        </figure>
+
+                                                        <!--EVENT LIST THUMB END-->
+                                                    </div>
+                                                    <div class="col-lg-9 col-md-9 col-sm-9">
+                                                        <!--kf_courses_des Start-->
+                                                        <div class="kf_courses_des">
+                                                            <div class="courses_des_hding1">
+                                                                <h5>{{ $unduhan->judul }}
+                                                                </h5>
+                                                            </div>
+                                                            <div class="  rating_wrap">
+                                                                {{ $unduhan->release_date }}
+                                                            </div>
+                                                            <a href="{{ url($unduhan->nama_file) }}" download>
+                                                                Download</a>
+                                                        </div>
+                                                    </div>
+                                                    <!--kf_courses_des end-->
+                                                </div>
+                                            </div>
+                                            <!--kf_courses_wrap end-->
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($mataKuliahs as $mataKuliah)
-                                        <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $mataKuliah->kode }}</th>
-                                            <th>{{ $mataKuliah->nama }}</th>
-                                            <th>{{ $mataKuliah->sks }}</th>
-                                            <th>{{ $mataKuliah->semester }}</th>
-                                            <th>{{ $mataKuliah->kelompok }}</th>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!--KF_BLOG DETAIL_WRAP END-->
+                                @endforeach
+                            </tbody>
+                        </table>
                     </div>
 
                     <!--KF_EDU_SIDEBAR_WRAP START-->
@@ -119,7 +138,7 @@
 
                             <!--KF SIDEBAR RECENT POST WRAP START-->
                             <div class="widget widget-recent-posts">
-                                <h2>Aplikasi Integrasi</h2>
+                                <h2>Pencarian</h2>
                                 <ul id="normal" class="sidebar_rpost_des " style="width : 30rem">
                                     <div id="owl-demo-apl" class="owl-carousel owl-theme">
                                         @foreach ($aplikasiIntegrasis as $aplikasiIntegrasi)
@@ -137,7 +156,7 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span> <i class="fa fa-clock-o"></i>
+                                                        <span><i class="fa fa-clock-o"></i>
                                                             {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
@@ -155,40 +174,18 @@
                         </div>
                     </div>
                     <!--KF EDU SIDEBAR WRAP END-->
-
                 </div>
             </div>
         </section>
+        <!--ABOUT UNIVERSITY END-->
     </div>
+    <!--Content Wrap End-->
 @endsection
 
 @section('script')
     <script>
         $(document).ready(function() {
-            var table = $('#tabel_kurikulum').DataTable({
-
-                initComplete: function() {
-                    var api = this.api();
-
-                    var column = api.column(4);
-
-                    var select = $('<select><option value="">Semua</option></select>')
-                        .appendTo($('#semester-search').empty())
-                        .on('change', function() {
-                            var val = $.fn.dataTable.util.escapeRegex(
-                                $(this).val()
-                            );
-
-                            column
-                                .search(val ? '^' + val + '$' : '', true, false)
-                                .draw();
-                        });
-
-                    column.data().unique().sort().each(function(d, j) {
-                        select.append('<option value="' + d + '">' + d + '</option>')
-                    });
-                }
-            });
+            $('#tabel_unduhan').DataTable();
         });
     </script>
 @endsection

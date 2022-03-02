@@ -6,15 +6,11 @@ use App\Models\AplikasiIntegrasi;
 use App\Models\Dosen;
 use App\Models\Kontak;
 use App\Models\InformasiTerbaru;
-
-use App\Models\HimpunanMahasiswa;
 use App\Models\KelompokKeahlianDosen;
 use App\Models\Laboratorium;
 use App\Models\ProfilSingkat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use League\CommonMark\Extension\CommonMark\Node\Inline\Link;
-use Illuminate\Support\Facades\Validator;
 
 class DosenController extends Controller
 {
@@ -77,6 +73,8 @@ class DosenController extends Controller
                 'nip' => $request->nip,
                 'pangkat_golongan' => $request->pangkat_golongan,
                 'url' => $request->url,
+                'sinta' => $request->sinta,
+                'google_scholar' => $request->google_scholar,
                 'kelompok_keahlian_dosen_id' => $request->kelompok_keahlian_dosen_id
             ]);
 
@@ -122,7 +120,7 @@ class DosenController extends Controller
 
         $profilSingkat = ProfilSingkat::all()->first();
         $dosens = Dosen::orderBy('nama', 'ASC')
-        ->get();
+            ->get();
 
         $informasiTerbarus = InformasiTerbaru::informasiTerbaru()
             ->take(3)

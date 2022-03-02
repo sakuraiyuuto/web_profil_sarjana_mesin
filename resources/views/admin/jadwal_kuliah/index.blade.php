@@ -74,7 +74,8 @@
                                                         @else
                                                             <td>Belum Rilis</td>
                                                         @endif
-                                                    @else ($jadwalKuliah->deleted_at != "")
+                                                    @else
+                                                        ($jadwalKuliah->deleted_at != "")
                                                         <td>Terhapus</td>
                                                     @endif
                                                     @if ($jadwalKuliah->deleted_at == '')
@@ -177,8 +178,7 @@
                         </div>
                         <div class="form-group">
                             <label for="nama_file">File Jadwal Kuliah</label>
-                            <input type="file" class="form-control mt-0" name="nama_file" required
-                                onchange="Filevalidation()">
+                            <input type="file" id="input_file_add" class="form-control mt-0" name="nama_file" required>
                         </div>
                         <div class="form-group mt-2">
                             <label for="release_date">Jadwal Rilis</label>
@@ -242,9 +242,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="nama_file">File Jadwal Kuliah</label>
-                                <input type="file" class="form-control mt-0" name="nama_file" id="nama_file"
-                                    onchange="Filevalidation()">
+                                <label for="nama_file">File Jadwal Kuliah (Maksimal 2MB)</label>
+                                <input type="file" id="input_file_edit" class="form-control mt-0" name="nama_file"
+                                    id="nama_file">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="release_date">Jadwal Rilis</label>
@@ -311,5 +311,25 @@
                 return false;
             });
         });
+    </script>
+
+    <!-- Validasi File 2MB -->
+    <script>
+        var uploadField = document.getElementById("input_file_add");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
+
+        //Form edit image validation
+        var uploadField = document.getElementById("input_file_edit");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
     </script>
 @endsection

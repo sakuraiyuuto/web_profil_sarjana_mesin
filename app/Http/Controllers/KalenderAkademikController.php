@@ -166,7 +166,7 @@ class KalenderAkademikController extends Controller
             ->first();
         $kontak = Kontak::all()
             ->first();
-        
+
         $laboratoriumHeaders = Laboratorium::where('release_date', '<=', date('Y-m-d'))
             ->orderBy('release_date', 'DESC')
             ->get();

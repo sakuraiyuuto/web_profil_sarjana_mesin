@@ -6,15 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DokumenProdi extends Model
+class SeminarHasil extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
     protected $fillable = [
-        'judul',
+        'teks',
         'nama_file',
-        'release_date',
-        'slug'
     ];
 }

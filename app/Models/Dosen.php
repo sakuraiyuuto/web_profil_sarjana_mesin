@@ -16,6 +16,8 @@ class Dosen extends Model
         'nip',
         'pangkat_golongan',
         'url',
+        'sinta',
+        'google_scholar',
         'kelompok_keahlian_dosen_id'
     ];
 

@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Dokumen Prodi - Teknik Mesin UNTAN')
+@section('title', 'Seminar Hasil - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -11,12 +11,12 @@
                     <!--KF INR BANNER DES Wrap Start-->
                     <div class="kf_inr_ban_des">
                         <div class="inr_banner_heading">
-                            <h3>Dokumen Prodi</h3>
+                            <h3>Seminar Hasil</h3>
                         </div>
                         <div class="kf_inr_breadcrumb">
                             <ul>
                                 <li><a href="{{ url('') }}">Beranda</a></li>
-                                <li><a>Dokumen Prodi</a></li>
+                                <li><a>Seminar Hasil</a></li>
                             </ul>
                         </div>
                     </div>
@@ -33,57 +33,26 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <table id="tabel_dokumen_prodi" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>No</th>
-                                    <th>Daftar Dokumen Prodi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($dokumenProdis as $dokumenProdi)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>
-                                            <!--kf_courses_wrap Start-->
-                                            <div class="kf_event_list_wrap"
-                                                style="margin :0;border : 1px solid #b6b6b6;padding :10px">
-                                                <div class="row" style="height : 10rem;">
+                        <div class="abt_univ_wrap">
+                            <!-- HEADING 1 START-->
+                            <div class="kf_edu2_heading1">
+                                <h3>Seminar Hasil Prodi Teknik Mesin</h3>
+                            </div>
+                            <!-- HEADING 1 END-->
 
-                                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                                        <!--EVENT LIST THUMB Start-->
-
-                                                        <figure
-                                                            style="text-align : center;height : 13rem ;background-color :gray;border-radius : 5px;margin-bottom : 15px;">
-                                                            <i class="fa fa-file"
-                                                                style="font-size : 8rem;padding : 25px ;color : white"></i>
-                                                        </figure>
-
-                                                        <!--EVENT LIST THUMB END-->
-                                                    </div>
-                                                    <div class="col-lg-9 col-md-9 col-sm-9">
-                                                        <!--kf_courses_des Start-->
-                                                        <div class="kf_courses_des">
-                                                            <div class="courses_des_hding1">
-                                                                <h5>{{ $dokumenProdi->judul }}
-                                                                </h5>
-                                                            </div>
-                                                            <div class="  rating_wrap">
-                                                                {{ $dokumenProdi->release_date }}
-                                                            </div>
-                                                            <a href="{{ url($dokumenProdi->nama_file) }}" download>
-                                                                Download</a>
-                                                        </div>
-                                                    </div>
-                                                    <!--kf_courses_des end-->
-                                                </div>
-                                            </div>
-                                            <!--kf_courses_wrap end-->
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                            <div class="abt_univ_des">
+                                <div class="ck-content">
+                                    {!! $seminarHasil->teks !!}
+                                </div>
+                            </div>
+                            <div class="download_btn">
+                                <b>Dokumen : </b>
+                                <a target="_blank" href="{{ url($seminarHasil->nama_file) }}" download
+                                    class="btn btn-primary btn-lg active" role="button" aria-pressed="true"><i
+                                        class="fa fa-download"></i>
+                                    Download</a>
+                            </div>
+                        </div>
                     </div>
 
                     <!--KF_EDU_SIDEBAR_WRAP START-->
@@ -138,7 +107,7 @@
 
                             <!--KF SIDEBAR RECENT POST WRAP START-->
                             <div class="widget widget-recent-posts">
-                                <h2>Pencarian</h2>
+                                <h2>Aplikasi Integrasi</h2>
                                 <ul id="normal" class="sidebar_rpost_des " style="width : 30rem">
                                     <div id="owl-demo-apl" class="owl-carousel owl-theme">
                                         @foreach ($aplikasiIntegrasis as $aplikasiIntegrasi)
@@ -156,7 +125,7 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span><i class="fa fa-clock-o"></i>
+                                                        <span> <i class="fa fa-clock-o"></i>
                                                             {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
@@ -180,12 +149,4 @@
         <!--ABOUT UNIVERSITY END-->
     </div>
     <!--Content Wrap End-->
-@endsection
-
-@section('script')
-    <script>
-        $(document).ready(function() {
-            $('#tabel_dokumen_prodi').DataTable();
-        });
-    </script>
 @endsection

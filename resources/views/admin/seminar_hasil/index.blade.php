@@ -1,6 +1,6 @@
 @extends('admin/layout/main')
 
-@section('title', 'Sidang Akhir')
+@section('title', 'Seminar Hasil')
 
 @section('container')
     <div class="content-wrapper">
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Sidang Akhir</h1>
+                        <h1 class="m-0">Seminar Hasil</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -36,25 +36,25 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Edit Menu Sidang Akhir</h3>
+                                <h3 class="card-title">Edit Menu Seminar Hasil</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
                                     <form class="from-prevent-multiple-submits"
-                                        action="{{ route('sidang_akhir.update', $sidangAkhir->id) }}" method="POST"
+                                        action="{{ route('seminar_hasil.update', $seminarHasil->id) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @method('patch')
                                         @csrf
-                                        <input type="hidden" name="id" value="{{ $sidangAkhir->id }}">
+                                        <input type="hidden" name="id" value="{{ $seminarHasil->id }}">
                                         <textarea id="teks" placeholder="Enter the Description"
-                                            name="teks">{{ $sidangAkhir->teks }}</textarea>
+                                            name="teks">{{ $seminarHasil->teks }}</textarea>
                                         <br>
                                         <div class="form-group">
-                                            <label for="nama_file">File Format Dokumen Pengajuan Sidang Akhir (.rar,
+                                            <label for="nama_file">File Format Dokumen Pengajuan Seminar Hasil (.rar,
                                                 .zip)</label><br>
-                                            <a href="{{ url($sidangAkhir->nama_file) }}" download
-                                                target="_blank">{{ $sidangAkhir->nama_file }}</a>
+                                            <a href="{{ url($seminarHasil->nama_file) }}" download
+                                                target="_blank">{{ $seminarHasil->nama_file }}</a>
                                             <input type="file" accept=".zip,.rar" class="form-control mt-0" name="nama_file"
                                                 id="nama_file">
                                         </div>

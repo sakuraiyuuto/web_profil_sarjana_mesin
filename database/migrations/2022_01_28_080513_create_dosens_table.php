@@ -20,7 +20,9 @@ class CreateDosensTable extends Migration
             $table->string('nama', 255)->nullable(false);
             $table->string('nip', 25)->nullable(false);
             $table->string('pangkat_golongan', 100)->nullable(false);
-            $table->string('url', 100)->nullable(true);
+            $table->text('url')->nullable(true);
+            $table->text('sinta')->nullable(true);
+            $table->text('google_scholar')->nullable(true);
             $table->unsignedBigInteger('kelompok_keahlian_dosen_id')->nullable(false);
             $table->foreign('kelompok_keahlian_dosen_id')->references('id')->on('kelompok_keahlian_dosens')->onDelete('cascade');
             $table->softDeletes();
@@ -34,6 +36,8 @@ class CreateDosensTable extends Migration
                     'nip' => 'NIP111111111111111',
                     'pangkat_golongan' => 'Golongan 1',
                     'url' => 'https://www.google.com/',
+                    'sinta' => 'https://www.google.com/',
+                    'google_scholar' => 'https://www.google.com/',
                     'kelompok_keahlian_dosen_id' => '1',
                 ],
                 [
@@ -41,6 +45,8 @@ class CreateDosensTable extends Migration
                     'nip' => 'NIP222222222222222',
                     'pangkat_golongan' => 'Golongan 2',
                     'url' => 'https://www.bing.com/',
+                    'sinta' => 'https://www.bing.com/',
+                    'google_scholar' => 'https://www.bing.com/',
                     'kelompok_keahlian_dosen_id' => '2'
                 ],
                 [
@@ -48,6 +54,8 @@ class CreateDosensTable extends Migration
                     'nip' => 'NIP333333333333333',
                     'pangkat_golongan' => 'Golongan 3',
                     'url' => 'https://www.yahoo.com/',
+                    'sinta' => 'https://www.yahoo.com/',
+                    'google_scholar' => 'https://www.yahoo.com/',
                     'kelompok_keahlian_dosen_id' => '3'
                 ],
             )

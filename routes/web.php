@@ -10,7 +10,6 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DokumenProdiController;
 use App\Http\Controllers\DosenController;
 use App\Http\Controllers\GaleriController;
 use App\Http\Controllers\HasilKaryaController;
@@ -52,6 +51,7 @@ use App\Http\Controllers\TataTertibPeraturanController;
 use App\Http\Controllers\VideoProfilController;
 use App\Http\Controllers\VisiMisiController;
 use App\Http\Controllers\SeminarProposalController;
+use App\Http\Controllers\SeminarHasilController;
 use App\Http\Controllers\SidangAkhirController;
 use App\Http\Controllers\KerjaPraktikController;
 use Illuminate\Support\Facades\Route;
@@ -59,7 +59,7 @@ use App\Http\Controllers\InformasiTerbaruController;
 use App\Http\Controllers\UnduhanTerbaruController;
 use App\Http\Controllers\PencarianController;
 use App\Http\Controllers\LaboratoriumSingkatController;
-
+use App\Http\Controllers\UnduhanController;
 
 //Admin
 Route::get('/admin', [LoginController::class, 'index']);
@@ -86,6 +86,9 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
 
     Route::post('/admin/seminar_proposal/{seminar_proposal}/restore', [SeminarProposalController::class, 'restore']);
     Route::post('/admin/seminar_proposal/{seminar_proposal}/delete_permanen', [SeminarProposalController::class, 'deletePermanen']);
+
+    Route::post('/admin/seminar_hasil/{seminar_hasil}/restore', [SeminarHasilController::class, 'restore']);
+    Route::post('/admin/seminar_hasil/{seminar_hasil}/delete_permanen', [SeminarHasilController::class, 'deletePermanen']);
 
     Route::post('/admin/sidang_akhir/{sidang_akhir}/restore', [SidangAkhirController::class, 'restore']);
     Route::post('/admin/sidang_akhir/{sidang_akhir}/delete_permanen', [SidangAkhirController::class, 'deletePermanen']);
@@ -115,18 +118,18 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::post('/admin/blog/{blog}/restore', [BlogController::class, 'restore']);
     Route::post('/admin/blog/{blog}/delete', [BlogController::class, 'delete']);
 
-    Route::post('/admin/dokumen_prodi/{dokumen_prodi}/restore', [DokumenProdiController::class, 'restore']);
-    Route::post('/admin/dokumen_prodi/{dokumen_prodi}/delete', [DokumenProdiController::class, 'delete']);
+    Route::post('/admin/unduhan/{unduhan}/restore', [UnduhanController::class, 'restore']);
+    Route::post('/admin/unduhan/{unduhan}/delete', [UnduhanController::class, 'delete']);
 
     Route::post('/admin/informasi_beasiswa/{informasi_beasiswa}/restore', [InformasiBeasiswaController::class, 'restore']);
     Route::post('/admin/informasi_beasiswa/{informasi_beasiswa}/delete', [InformasiBeasiswaController::class, 'delete']);
 
     Route::post('/admin/jurnal/{jurnal}/restore', [JurnalController::class, 'restore']);
     Route::post('/admin/jurnal/{jurnal}/delete', [JurnalController::class, 'delete']);
-    
+
     Route::post('/admin/buku/{buku}/restore', [BukuController::class, 'restore']);
     Route::post('/admin/buku/{buku}/delete', [BukuController::class, 'delete']);
-    
+
     Route::post('/admin/prosiding/{prosiding}/restore', [ProsidingController::class, 'restore']);
     Route::post('/admin/prosiding/{prosiding}/delete', [ProsidingController::class, 'delete']);
 
@@ -194,7 +197,7 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::resource('/admin/berita', BeritaController::class);
     Route::resource('/admin/blog', BlogController::class);
     Route::resource('/admin/dashboard', DashboardController::class);
-    Route::resource('/admin/dokumen_prodi', DokumenProdiController::class);
+    Route::resource('/admin/unduhan', UnduhanController::class);
     Route::resource('/admin/dosen', DosenController::class);
     Route::resource('/admin/galeri', GaleriController::class);
     Route::resource('/admin/hasil_karya', HasilKaryaController::class);
@@ -232,13 +235,13 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::resource('/admin/jadwal_kegiatan', JadwalKegiatanController::class);
     Route::resource('/admin/tata_tertib_peraturan', TataTertibPeraturanController::class);
     Route::resource('/admin/seminar_proposal', SeminarProposalController::class);
+    Route::resource('/admin/seminar_hasil', SeminarHasilController::class);
     Route::resource('/admin/sidang_akhir', SidangAkhirController::class);
     Route::resource('/admin/kerja_praktik', KerjaPraktikController::class);
     Route::resource('/admin/laboratorium_singkat', LaboratoriumSingkatController::class);
     Route::resource('/admin/himpunan_mahasiswa', HimpunanMahasiswaController::class);
 
     Route::post('/admin/ckeditor/upload', 'App\Http\Controllers\CKEditorController@store')->name('ckeditor.upload');
-    
 });
 
 //Portal
@@ -266,7 +269,6 @@ Route::get('informasi_beasiswa/{slug}', [InformasiBeasiswaController::class, 'me
 Route::get('penelitian/{slug}', [PenelitianController::class, 'menuDetailPenelitian']);
 Route::get('pengabdian_kepada_masyarakat/{slug}', [PengabdianKeMasyarakatController::class, 'menuDetailPengabdianKeMasyarakat']);
 Route::get('berita/{slug}', [BeritaController::class, 'menuDetailBerita']);
-Route::get('dokumen_prodi/{slug}', [DokumenProdiController::class, 'menuDetailDokumenProdi']);
 Route::get('jadwal_ujian/{slug}', [JadwalUjianController::class, 'menuDetailJadwalUjian']);
 Route::get('jadwal_kuliah/{slug}', [JadwalKuliahController::class, 'menuDetailJadwalKuliah']);
 Route::get('jadwal_kegiatan/{slug}', [JadwalKegiatanController::class, 'menuDetailJadwalKegiatan']);
@@ -291,7 +293,7 @@ Route::get('jurnal', [JurnalController::class, 'menuJurnal']);
 Route::get('buku', [BukuController::class, 'menuBuku']);
 Route::get('prosiding', [ProsidingController::class, 'menuProsiding']);
 Route::get('haki', [HakiController::class, 'menuHaki']);
-Route::get('dokumen_prodi', [DokumenProdiController::class, 'menuDokumenProdi']);
+Route::get('unduhan', [UnduhanController::class, 'menuUnduhan']);
 Route::get('informasi_terbaru', [InformasiTerbaruController::class, 'menuinformasiTerbaru']);
 Route::get('pencarian', [PencarianController::class, 'index']);
 Route::get('unduhan_terbaru', [UnduhanTerbaruController::class, 'menuunduhanTerbaru']);
@@ -301,6 +303,7 @@ Route::get('jadwal_kegiatan', [JadwalKegiatanController::class, 'menuJadwalKegia
 Route::get('tata_tertib_peraturan', [TataTertibPeraturanController::class, 'menuTataTertibPeraturan']);
 Route::get('kelompok_keahlian_dosen', [KelompokKeahlianDosenController::class, 'menuKelompokKeahlianDosen']);
 Route::get('seminar_proposal', [SeminarProposalController::class, 'menuSeminarProposal']);
+Route::get('seminar_hasil', [SeminarHasilController::class, 'menuSeminarHasil']);
 Route::get('sidang_akhir', [SidangAkhirController::class, 'menuSidangAkhir']);
 Route::get('kerja_praktik', [KerjaPraktikController::class, 'menuKerjaPraktik']);
 Route::get('laboratorium', [LaboratoriumController::class, 'menuLaboratorium']);

@@ -42,8 +42,8 @@
                             <div class="card-body">
                                 <div class="row">
                                     <form class="from-prevent-multiple-submits"
-                                        action="{{ route('seminar_proposal.update', $seminarProposal->id) }}" method="POST"
-                                        enctype="multipart/form-data">
+                                        action="{{ route('seminar_proposal.update', $seminarProposal->id) }}"
+                                        method="POST" enctype="multipart/form-data">
                                         @method('patch')
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $seminarProposal->id }}">
@@ -56,7 +56,7 @@
                                             <a href="{{ url($seminarProposal->nama_file) }}" download
                                                 target="_blank">{{ $seminarProposal->nama_file }}</a>
                                             <input type="file" accept=".zip,.rar" class="form-control mt-0" name="nama_file"
-                                                id="nama_file" onchange="Filevalidation()">
+                                                id="nama_file">
                                         </div>
                                         <button type="submit" class="btn btn-success"> Save </button>
                                     </form>
@@ -190,5 +190,16 @@
                 $('.from-prevent-multiple-submits').attr('disabled', 'true');
             })
         })();
+    </script>
+
+    <!-- Validasi File 2MB -->
+    <script>
+        var uploadField = document.getElementById("nama_file");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
     </script>
 @endsection

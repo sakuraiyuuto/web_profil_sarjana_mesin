@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
-class CreateDokumenProdisTable extends Migration
+class CreateUnduhansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateDokumenProdisTable extends Migration
      */
     public function up()
     {
-        Schema::create('dokumen_prodis', function (Blueprint $table) {
+        Schema::create('unduhans', function (Blueprint $table) {
             $table->id();
             $table->string('judul', 255)->nullable(false);
             $table->string('nama_file', 255)->nullable(false);
@@ -24,24 +24,24 @@ class CreateDokumenProdisTable extends Migration
             $table->timestamps();
         });
 
-        DB::table('dokumen_prodis')->insert(
+        DB::table('unduhans')->insert(
             array(
                 [
                     'judul' => "Dokumen 1",
-                    'nama_file' => "files/dokumen_prodi/1.pdf",
-                    'slug' => "dokumen_prodi/dokumen_1",
+                    'nama_file' => "files/unduhan/1.pdf",
+                    'slug' => "unduhan/dokumen_1",
                     'release_date' => "2022-01-20",
                 ],
                 [
                     'judul' => "Dokumen 2",
-                    'nama_file' => "files/dokumen_prodi/2.pdf",
-                    'slug' => "dokumen_prodi/dokumen_2",
+                    'nama_file' => "files/unduhan/2.pdf",
+                    'slug' => "unduhan/dokumen_2",
                     'release_date' => "2022-01-12",
                 ],
                 [
                     'judul' => "Dokumen 3",
-                    'nama_file' => "files/dokumen_prodi/3.pdf",
-                    'slug' => "dokumen_prodi/dokumen_3",
+                    'nama_file' => "files/unduhan/3.pdf",
+                    'slug' => "unduhan/dokumen_3",
                     'release_date' => "2022-01-12",
                 ],
             )
@@ -55,6 +55,6 @@ class CreateDokumenProdisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dokumen_prodis');
+        Schema::dropIfExists('unduhans');
     }
 }
