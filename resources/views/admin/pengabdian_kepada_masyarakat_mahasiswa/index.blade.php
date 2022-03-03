@@ -1,6 +1,6 @@
 @extends('admin/layout/main')
 
-@section('title', 'Pengabdian Kepada Masyarakat')
+@section('title', 'Pengabdian Kepada Masyarakat Mahasiswa')
 
 @section('container')
     <div class="content-wrapper">
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Pengabdian Kepada Masyarakat</h1>
+                        <h1 class="m-0">Pengabdian Kepada Masyarakat Mahasiswa</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -36,20 +36,20 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Data Pengabdian Kepada Masyarakat</h3>
+                                <h3 class="card-title">Data Pengabdian Kepada Masyarakat Mahasiswa</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12 text-left">
-                                        <a href="{{ url('/admin/pengabdian_kepada_masyarakat/create') }}" type="button"
+                                        <a href="{{ url('/admin/pkm_mahasiswa/create') }}" type="button"
                                             class="btn btn-success mb-3">
                                             <i class="fa fa-plus-circle mr-2"></i>Tambah Data
                                         </a>
                                     </div>
                                 </div>
 
-                                <table id="tabel_pengabdian_kepada_masyarakat" class="table table-bordered table-striped mt-2">
+                                <table id="tabel_pkm_mahasiswa" class="table table-bordered table-striped mt-2">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -65,40 +65,40 @@
                                     </thead>
                                     <tbody>
 
-                                        @foreach ($pengabdianKeMasyarakats as $pengabdianKeMasyarakat)
-                                            <tr id="{{ $pengabdianKeMasyarakat->id }}">
+                                        @foreach ($pengabdianKepadaMasyarakatMahasiswas as $pengabdianKepadaMasyarakatMahasiswa)
+                                            <tr id="{{ $pengabdianKepadaMasyarakatMahasiswa->id }}">
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $pengabdianKeMasyarakat->judul }}</td>
-                                                <td>{{ $pengabdianKeMasyarakat->author }}</td>
-                                                <td>{{ $pengabdianKeMasyarakat->tahun }}</td>
-                                                <td><img src="{{ url($pengabdianKeMasyarakat->thumbnail) }}"
+                                                <td>{{ $pengabdianKepadaMasyarakatMahasiswa->judul }}</td>
+                                                <td>{{ $pengabdianKepadaMasyarakatMahasiswa->author }}</td>
+                                                <td>{{ $pengabdianKepadaMasyarakatMahasiswa->tahun }}</td>
+                                                <td><img src="{{ url($pengabdianKepadaMasyarakatMahasiswa->thumbnail) }}"
                                                         style="width:100px"></td>
-                                                @if (strlen($pengabdianKeMasyarakat->teks) > 100)
+                                                @if (strlen($pengabdianKepadaMasyarakatMahasiswa->teks) > 100)
                                                     <td>
-                                                        {{ str_replace("&nbsp;", "",substr(strip_tags($pengabdianKeMasyarakat->teks), 0, 100) . '...' )}}
+                                                        {{ str_replace('&nbsp;', '', substr(strip_tags($pengabdianKepadaMasyarakatMahasiswa->teks), 0, 100) . '...') }}
                                                     </td>
                                                 @else
                                                     <td>
-                                                        {{ str_replace("&nbsp;", "",substr(strip_tags($pengabdianKeMasyarakat->teks), 0, 100))}}
+                                                        {{ str_replace('&nbsp;', '', substr(strip_tags($pengabdianKepadaMasyarakatMahasiswa->teks), 0, 100)) }}
                                                     </td>
                                                 @endif
-                                                <td>{{ $pengabdianKeMasyarakat->release_date }}</td>
-                                                @if ($pengabdianKeMasyarakat->deleted_at == '')
-                                                    @if ($pengabdianKeMasyarakat->release_date <= date('Y-m-d'))
+                                                <td>{{ $pengabdianKepadaMasyarakatMahasiswa->release_date }}</td>
+                                                @if ($pengabdianKepadaMasyarakatMahasiswa->deleted_at == '')
+                                                    @if ($pengabdianKepadaMasyarakatMahasiswa->release_date <= date('Y-m-d'))
                                                         <td>Rilis</td>
                                                     @else
                                                         <td>Belum Rilis</td>
                                                     @endif
-                                                @else ($pengabdianKeMasyarakat->deleted_at != "")
+                                                @else
                                                     <td>Terhapus</td>
                                                 @endif
-                                                @if ($pengabdianKeMasyarakat->deleted_at == '')
+                                                @if ($pengabdianKepadaMasyarakatMahasiswa->deleted_at == '')
                                                     <td>
-                                                        <a href="{{ route('pengabdian_kepada_masyarakat.edit', $pengabdianKeMasyarakat) }}"
+                                                        <a href="{{ route('pkm_mahasiswa.edit', $pengabdianKepadaMasyarakatMahasiswa) }}"
                                                             class="btn btn-warning open-formModalEdit"><i
                                                                 class="fa fa-edit"></i> Edit</a>
                                                         <form
-                                                            action="{{ route('pengabdian_kepada_masyarakat.destroy', $pengabdianKeMasyarakat) }}"
+                                                            action="{{ route('pkm_mahasiswa.destroy', $pengabdianKepadaMasyarakatMahasiswa) }}"
                                                             method="post">
                                                             @method('delete')
                                                             @csrf
@@ -110,7 +110,7 @@
                                                 @else
                                                     <td>
                                                         <form
-                                                            action="{{ url('/admin/pengabdian_kepada_masyarakat/' . $pengabdianKeMasyarakat->id . '/restore') }}"
+                                                            action="{{ url('/admin/pkm_mahasiswa/' . $pengabdianKepadaMasyarakatMahasiswa->id . '/restore') }}"
                                                             method="post">
                                                             @csrf
                                                             <button type="submit" class="btn btn-primary"
@@ -119,7 +119,7 @@
                                                             </button>
                                                         </form>
                                                         <form
-                                                            action="{{ url('/admin/pengabdian_kepada_masyarakat/' . $pengabdianKeMasyarakat->id . '/delete') }}"
+                                                            action="{{ url('/admin/pkm_mahasiswa/' . $pengabdianKepadaMasyarakatMahasiswa->id . '/delete') }}"
                                                             method="post">
                                                             @csrf
                                                             <button type="submit" class="btn btn-danger"
@@ -144,7 +144,7 @@
     <!--Data Table -->
     <script>
         $(function() {
-            $("#tabel_pengabdian_kepada_masyarakat").DataTable({
+            $("#tabel_pkm_mahasiswa").DataTable({
                 "paging": true,
                 "lengthChange": false,
                 "searching": true,
@@ -153,7 +153,8 @@
                 "autoWidth": false,
                 "responsive": false,
                 "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-            }).buttons().container().appendTo('#tabel_pengabdian_kepada_masyarakat_wrapper .col-md-6:eq(0)');
+            }).buttons().container().appendTo(
+                '#tabel_pkm_mahasiswa_wrapper .col-md-6:eq(0)');
         });
     </script>
 @endsection

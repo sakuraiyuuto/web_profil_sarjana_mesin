@@ -10,7 +10,8 @@ use App\Models\Kemitraan;
 use App\Models\Kontak;
 use App\Models\Laboratorium;
 use App\Models\LaboratoriumSingkat;
-use App\Models\PengabdianKeMasyarakat;
+use App\Models\PengabdianKepadaMasyarakatDosen;
+use App\Models\PengabdianKepadaMasyarakatMahasiswa;
 use App\Models\Perpustakaan;
 use App\Models\ProfilSingkat;
 use App\Models\Quote;
@@ -54,7 +55,10 @@ class BerandaController extends Controller
             ->take(3)
             ->get();
 
-        $pengabdianKeMasyarakats = PengabdianKeMasyarakat::where('release_date', '<=', date('Y-m-d'))
+        $pengabdianKeMasyarakatMahasiswas = PengabdianKepadaMasyarakatMahasiswa::where('release_date', '<=', date('Y-m-d'));
+
+        $pengabdianKeMasyarakats = PengabdianKepadaMasyarakatDosen::union($pengabdianKeMasyarakatMahasiswas)
+            ->where('release_date', '<=', date('Y-m-d'))
             ->orderBy('release_date', 'DESC')
             ->take(4)
             ->get();

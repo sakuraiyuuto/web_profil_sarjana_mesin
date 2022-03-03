@@ -1,6 +1,6 @@
 @extends('admin/layout/main')
 
-@section('title', 'Pengabdian Kepada Masyarakat')
+@section('title', 'Pengabdian Kepada Masyarakat Mahasiswa')
 
 @section('container')
     <div class="content-wrapper">
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Pengabdian Kepada Masyarakat</h1>
+                        <h1 class="m-0">Pengabdian Kepada Masyarakat Mahasiswa</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -22,15 +22,15 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Tambah Data Pengabdian Kepada Masyarakat</h3>
+                                <h3 class="card-title">Tambah Data Pengabdian Kepada Masyarakat Mahasiswa</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
                                     <!-- form start -->
                                     <form class="from-prevent-multiple-submits"
-                                        action="{{ route('pengabdian_kepada_masyarakat.store') }}" method="POST"
-                                        id="ckeditorForm" enctype="multipart/form-data">
+                                        action="{{ route('pkm_mahasiswa.store') }}" method="POST" id="ckeditorForm"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="card-body">
                                             <div class="form-group">
@@ -59,7 +59,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="teks">Teks</label>
-                                                <textarea id="teks" placeholder="Masukkan Teks Pengabdian Kepada Masyarakat"
+                                                <textarea id="teks"
+                                                    placeholder="Masukkan Teks Pengabdian Kepada Masyarakat Mahasiswa"
                                                     name="teks" class="ck_editor_txt" id="ck_editor_txt"></textarea>
                                             </div>
                                             <div class="form-group mt-2">

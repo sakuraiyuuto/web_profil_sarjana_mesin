@@ -305,9 +305,9 @@
                         </li>
 
                         <li
-                            class="nav-item {{ set_open(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit','jurnal.index','jurnal.edit','jurnal.create']) }}">
+                            class="nav-item {{ set_open(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pkm_dosen.index','pkm_dosen.edit','pkm_dosen.create','pkm_mahasiswa.index','pkm_mahasiswa.edit','pkm_mahasiswa.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit','jurnal.index','jurnal.edit','jurnal.create']) }}">
                             <a href="#"
-                                class="nav-link {{ set_active(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit','jurnal.index','jurnal.edit','jurnal.create']) }}">
+                                class="nav-link {{ set_active(['kurikulum.index','hasil_karya.index','hasil_karya.edit','hasil_karya.create','kalender_akademik.index','penelitian.index','penelitian.edit','penelitian.create','pkm_dosen.index','pkm_dosen.edit','pkm_dosen.create','pkm_mahasiswa.index','pkm_mahasiswa.edit','pkm_mahasiswa.create','kerjasama_mitra_kolaborasi.index','kerjasama_mitra_kolaborasi.create','kerjasama_mitra_kolaborasi.edit','jurnal.index','jurnal.edit','jurnal.create']) }}">
 
                                 <i class="nav-icon fas fa-school"></i>
                                 <p>
@@ -361,11 +361,19 @@
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="{{ url('admin/pengabdian_kepada_masyarakat') }}"
-                                        class="nav-link {{ set_active(['pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create']) }}">
+                                    <a href="{{ url('admin/pkm_mahasiswa') }}"
+                                        class="nav-link {{ set_active(['pkm_mahasiswa.index', 'pkm_mahasiswa.edit', 'pkm_mahasiswa.create']) }}">
                                         <i
-                                            class="far fa{{ set_dot(['pengabdian_kepada_masyarakat.index','pengabdian_kepada_masyarakat.edit','pengabdian_kepada_masyarakat.create']) }}-circle nav-icon"></i>
-                                        <p>Pengabdian Kepada Masyarakat</p>
+                                            class="far fa{{ set_dot(['pkm_mahasiswa.index', 'pkm_mahasiswa.edit', 'pkm_mahasiswa.create']) }}-circle nav-icon"></i>
+                                        <p>PKM Mahasiwa</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/pkm_dosen') }}"
+                                        class="nav-link {{ set_active(['pkm_dosen.index', 'pkm_dosen.edit', 'pkm_dosen.create']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['pkm_dosen.index', 'pkm_dosen.edit', 'pkm_dosen.create']) }}-circle nav-icon"></i>
+                                        <p>PKM Dosen</p>
                                     </a>
                                 </li>
 
@@ -381,9 +389,9 @@
                         </li>
 
                         <li
-                            class="nav-item {{ set_open(['jadwal_kuliah.index', 'jadwal_ujian.index', 'jadwal_kegiatan.index']) }}">
+                            class="nav-item {{ set_open(['jadwal_kuliah.index','jadwal_ujian.index','jadwal_kegiatan.index','jadwal_seminar_kerja_praktik.index','jadwal_seminar_proposal.index','jadwal_seminar_hasil.index','jadwal_sidang_akhir.index','jadwal_praktikum.index']) }}">
                             <a href="#"
-                                class="nav-link {{ set_active(['jadwal_kuliah.index', 'jadwal_ujian.index', 'jadwal_kegiatan.index']) }}">
+                                class="nav-link {{ set_active(['jadwal_kuliah.index','jadwal_ujian.index','jadwal_kegiatan.index','jadwal_seminar_kerja_praktik.index','jadwal_seminar_proposal.index','jadwal_seminar_hasil.index','jadwal_sidang_akhir.index','jadwal_praktikum.index']) }}">
                                 <i class="nav-icon fas fa-calendar"></i>
                                 <p>
                                     Agenda
@@ -400,6 +408,14 @@
                                         <p>Jadwal Kuliah</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/jadwal_praktikum') }}"
+                                        class="nav-link {{ set_active(['jadwal_praktikum.index']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['jadwal_praktikum.index']) }}-circle nav-icon"></i>
+                                        <p>Jadwal Praktikum</p>
+                                    </a>
+                                </li>
 
                                 <li class="nav-item">
                                     <a href="{{ url('admin/jadwal_ujian') }}"
@@ -408,6 +424,8 @@
                                         <p>Jadwal Ujian</p>
                                     </a>
                                 </li>
+
+
 
                                 <li class="nav-item">
                                     <a href="{{ url('admin/jadwal_kegiatan') }}"
@@ -418,6 +436,41 @@
                                     </a>
                                 </li>
 
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/jadwal_seminar_kerja_praktik') }}"
+                                        class="nav-link {{ set_active(['jadwal_seminar_kerja_praktik.index']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['jadwal_seminar_kerja_praktik.index']) }}-circle nav-icon"></i>
+                                        <p>Jadwal Seminar Kerja Praktik</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/jadwal_seminar_proposal') }}"
+                                        class="nav-link {{ set_active(['jadwal_seminar_proposal.index']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['jadwal_seminar_proposal.index']) }}-circle nav-icon"></i>
+                                        <p>Jadwal Seminar Proposal</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/jadwal_sidang_akhir') }}"
+                                        class="nav-link {{ set_active(['jadwal_sidang_akhir.index']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['jadwal_sidang_akhir.index']) }}-circle nav-icon"></i>
+                                        <p>Jadwal Sidang Akhir</p>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/jadwal_seminar_hasil') }}"
+                                        class="nav-link {{ set_active(['jadwal_seminar_hasil.index']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['jadwal_seminar_hasil.index']) }}-circle nav-icon"></i>
+                                        <p>Jadwal Seminar Hasil</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                         <li

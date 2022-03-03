@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Pengabdian Kepada Masyarakat - Teknik Mesin UNTAN')
+@section('title', 'Jadwal Seminar Kerja Praktik - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -11,12 +11,13 @@
                     <!--KF INR BANNER DES Wrap Start-->
                     <div class="kf_inr_ban_des">
                         <div class="inr_banner_heading">
-                            <h3>Pengabdian Kepada Masyarakat</h3>
+                            <h3>Detail Jadwal Seminar Kerja Praktik</h3>
                         </div>
+
                         <div class="kf_inr_breadcrumb">
                             <ul>
                                 <li><a href="{{ url('') }}">Beranda</a></li>
-                                <li><a>Pengabdian Kepada Masyarakat</a></li>
+                                <li><a href="{{ url('/jadwal_kuliah') }}">Jadwal Seminar Kerja Praktik</a></li>
                             </ul>
                         </div>
                     </div>
@@ -26,65 +27,63 @@
         </div>
     </div>
 
+    <!--Banner Wrap End-->
+
     <!--Content Wrap Start-->
     <div class="kf_content_wrap">
-        <section class="event_list_page">
+        <section>
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-                        <table id="tabel_pengabdian_kepada_masyarakat" class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Daftar Pengabdian Kepada Masyarakat</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($pengabdianKeMasyarakats as $pengabdianKeMasyarakat)
-                                    <tr>
-                                        <th>
-                                            <!--EVENT LIST Wrap Start-->
-                                            <div class="kf_event_list_wrap" style="margin :0;border : 1px solid #b6b6b6">
-                                                <div class="row" style="height : 10rem">
-                                                    <div class="col-lg-3 col-md-3 col-sm-3">
-                                                        <!--EVENT LIST THUMB Start-->
-                                                        <div class="kf_event_list_thumb">
-                                                            <figure style="height : 13rem">
-                                                                <img style="height : 15rem; width:100%; object-fit :cover"
-                                                                    src="{{ url($pengabdianKeMasyarakat->thumbnail) }}"
-                                                                    alt="" />
-                                                            </figure>
-                                                        </div>
-                                                        <!--EVENT LIST THUMB END-->
-                                                    </div>
 
-                                                    <div class="col-lg-9 col-md-9 col-sm-9">
-                                                        <!--EVENT LIST DES Start-->
-                                                        <div class="kf_event_list_des" style="padding: 10px 10px 10px 0;">
-                                                            <h4><a
-                                                                    href="{{ url($pengabdianKeMasyarakat->slug) }}"><span>{{ $pengabdianKeMasyarakat->judul }}</span></a>
-                                                            </h4>
-                                                            <ul class="kf_event_list_links">
-                                                                <li><a>Pelaku PKM :
-                                                                        {{ $pengabdianKeMasyarakat->author }}</a></li><br>
-                                                                <li><a>Tahun PKM :
-                                                                        {{ $pengabdianKeMasyarakat->tahun }}</a></li>
-                                                            </ul>
-                                                            <a class="readmore"
-                                                                href="{{ url($pengabdianKeMasyarakat->slug) }}">
-                                                                Selengkapnya
-                                                                <i class="fa fa-long-arrow-right"></i>
-                                                            </a>
-                                                        </div>
-                                                        <!--EVENT LIST DES END-->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--EVENT LIST Wrap END-->
-                                        </th>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <!--KF_BLOG DETAIL_WRAP START-->
+                        <div class="kf_blog_detail_wrap">
+
+                            <!-- BLOG DETAIL THUMBNAIL END-->
+
+                            <!--KF_BLOG DETAIL_DES START-->
+                            <div class="kf_blog_detail_des">
+                                <div class="blog-detl_heading">
+                                    <h5>Jadwal Seminar Kerja Praktik Semester {{ $jadwalSeminarKerjaPraktik->semester }}
+                                        Tahun
+                                        Akademik
+                                        {{ $jadwalSeminarKerjaPraktik->tahun_ajaran }}</h5>
+                                </div>
+
+                                <p>Dokumen :</p>
+                                <div class="embed-responsive embed-responsive-4by3">
+                                    <object data="{{ url($jadwalSeminarKerjaPraktik->nama_file) }}"
+                                        type="application/pdf">
+                                        <iframe
+                                            src="https://docs.google.com/viewer?url=your_url_to_pdf&embedded=true"></iframe>
+                                    </object>
+                                </div>
+
+
+                            </div>
+
+                            <!--Share Media Sosial -->
+                            <section id="share-post">
+                                <div class="icons">
+                                    <span>Bagikan ke :</span>
+                                    <a href="{{ Share::currentPage()->facebook()->getRawLinks() }}" class="social-button "
+                                        target="_blank" id="">
+                                        <span class="fa fa-facebook"></span>
+                                    </a>
+                                    <a href="{{ Share::currentPage()->twitter()->getRawLinks() }}" class="social-button "
+                                        target="_blank" id="">
+                                        <span class="fa fa-twitter"></span>
+                                    </a>
+                                    <a href="{{ Share::currentPage()->whatsapp()->getRawLinks() }}" class="social-button "
+                                        target="_blank" id="">
+                                        <span class="fa fa-whatsapp"></span>
+                                    </a>
+                                </div><!-- /.icons -->
+                            </section>
+
+                            <!--KF_BLOG DETAIL_DES END-->
+                        </div>
+                        <!--KF_BLOG DETAIL_WRAP END-->
                     </div>
 
                     <!--KF_EDU_SIDEBAR_WRAP START-->
@@ -139,7 +138,7 @@
 
                             <!--KF SIDEBAR RECENT POST WRAP START-->
                             <div class="widget widget-recent-posts">
-                                <h2>Pencarian</h2>
+                                <h2>Aplikasi Integrasi</h2>
                                 <ul id="normal" class="sidebar_rpost_des " style="width : 30rem">
                                     <div id="owl-demo-apl" class="owl-carousel owl-theme">
                                         @foreach ($aplikasiIntegrasis as $aplikasiIntegrasi)
@@ -157,7 +156,7 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span><i class="fa fa-clock-o"></i>
+                                                        <span> <i class="fa fa-clock-o"></i>
                                                             {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
@@ -175,17 +174,9 @@
                         </div>
                     </div>
                     <!--KF EDU SIDEBAR WRAP END-->
+
                 </div>
             </div>
         </section>
     </div>
-    <!--Content Wrap End-->
-@endsection
-
-@section('script')
-    <script>
-        $(document).ready(function() {
-            $('#tabel_pengabdian_kepada_masyarakat').DataTable();
-        });
-    </script>
 @endsection

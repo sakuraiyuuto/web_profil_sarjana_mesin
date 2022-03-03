@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Pengabdian Kepada Masyarakat - Teknik Mesin UNTAN')
+@section('title', 'Jadwal Seminar Hasil - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -11,14 +11,13 @@
                     <!--KF INR BANNER DES Wrap Start-->
                     <div class="kf_inr_ban_des">
                         <div class="inr_banner_heading">
-                            <h3>Detail Pengabdian Kepada Masyarakat</h3>
+                            <h3>Jadwal Seminar Hasil</h3>
                         </div>
 
                         <div class="kf_inr_breadcrumb">
                             <ul>
                                 <li><a href="{{ url('') }}">Beranda</a></li>
-                                <li><a href="{{ url('/pengabdian_kepada_masyarakat') }}">Pengabdian Kepada Masyarakat</a>
-                                </li>
+                                <li><a>Jadwal Seminar Hasil</a></li>
                             </ul>
                         </div>
                     </div>
@@ -37,63 +36,40 @@
                 <div class="row">
                     <div class="col-md-8">
 
-                        <!--KF_BLOG DETAIL_WRAP START-->
-                        <div class="kf_blog_detail_wrap">
-
-                            <!-- BLOG DETAIL THUMBNAIL START-->
-                            <div class="blog_detail_thumbnail">
-                                <figure>
-                                    <img src="{{ url($pengabdianKeMasyarakat->thumbnail) }}" alt="" />
-                                    <figcaption><a href="#">Pengabdian Kepada Masyarakat</a></figcaption>
-                                </figure>
-                            </div>
-                            <!-- BLOG DETAIL THUMBNAIL END-->
-
-                            <!--KF_BLOG DETAIL_DES START-->
-                            <div class="kf_blog_detail_des">
-                                <div class="blog-detl_heading">
-                                    <h5>{{ $pengabdianKeMasyarakat->judul }}</h5>
-                                </div>
-                                <ul class="blog_detail_meta">
-                                    <li><i class="fa fa-calendar"></i><a
-                                            href="#">{{ date('d M, Y', strtotime($pengabdianKeMasyarakat->release_date)) }}</a>
-                                    </li>
-                                </ul>
-                                <ul class="blog_detail_meta">
-                                    <li><a href="#">Pelaku PKM : {{ $pengabdianKeMasyarakat->author }}</a>
-                                    </li>
-                                </ul>
-                                <ul class="blog_detail_meta">
-                                    <li><a href="#">Tahun PKM : {{ $pengabdianKeMasyarakat->tahun }}</a>
-                                    </li>
-                                </ul>
-
-                                <p>{!! $pengabdianKeMasyarakat->teks !!}
-
-
-                            </div>
-
-                            <!--Share Media Sosial -->
-                            <section id="share-post">
-                                <div class="icons">
-                                    <span>Bagikan ke :</span>
-                                    <a href="{{ Share::currentPage()->facebook()->getRawLinks() }}" class="social-button"
-                                        target="_blank" id="">
-                                        <span class="fa fa-facebook-square"></span>
-                                    </a>
-
-                                    <a href="{{ Share::currentPage()->twitter()->getRawLinks() }}" class="social-button "
-                                        target="_blank" id="">
-                                        <span class="fa fa-twitter-square"></span>
-                                    </a>
-                                    <a href="{{ Share::currentPage()->whatsapp()->getRawLinks() }}" class="social-button "
-                                        target="_blank" id="">
-                                        <span class="fa fa-whatsapp"></span>
-                                    </a>
-                                </div><!-- /.icons -->
-                            </section>
-
-                            <!--KF_BLOG DETAIL_DES END-->
+                        <div class="table-responsive">
+                            <table id="tabel_jadwal_kuliah" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tahun Akademik</th>
+                                        <th>Semester</th>
+                                        <th>Lihat</th>
+                                        <th>Download</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($jadwalSeminarHasils as $jadwalSeminarHasil)
+                                        <tr>
+                                            <th>{{ $loop->iteration }}</th>
+                                            <th>{{ $jadwalSeminarHasil->tahun_ajaran }}</th>
+                                            <th>{{ $jadwalSeminarHasil->semester }}</th>
+                                            <th><a href="{{ url($jadwalSeminarHasil->slug) }}">
+                                                    <div class="btn btn-primary">
+                                                        Lihat
+                                                    </div>
+                                                </a>
+                                            </th>
+                                            <th><a href="{{ url($jadwalSeminarHasil->nama_file) }}" download
+                                                    target="_blank">
+                                                    <div class="btn btn-success">
+                                                        Download
+                                                    </div>
+                                                </a>
+                                            </th>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                         <!--KF_BLOG DETAIL_WRAP END-->
                     </div>
@@ -191,4 +167,12 @@
             </div>
         </section>
     </div>
+@endsection
+
+@section('script')
+    <script>
+        $(document).ready(function() {
+            $('#tabel_jadwal_kuliah').DataTable();
+        });
+    </script>
 @endsection

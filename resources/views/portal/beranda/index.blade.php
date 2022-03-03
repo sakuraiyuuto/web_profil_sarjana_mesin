@@ -231,7 +231,8 @@
                 </div>
                 @endif
                 <div class="view-all">
-                    <a class="button-pkm" href="{{ url('/pengabdian_kepada_masyarakat') }}">Semua PKM</a>
+                    <a class="button-pkm" href="{{ url('/pkm_mahasiswa') }}">PKM Mahasiswa</a>
+                    <a class="button-pkm" href="{{ url('/pkm_dosen') }}">PKM Dosen</a>
                 </div>
             </div>
     </div>

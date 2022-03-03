@@ -33,7 +33,8 @@ use App\Http\Controllers\LayananMahasiswaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MataKuliahController;
 use App\Http\Controllers\PenelitianController;
-use App\Http\Controllers\PengabdianKeMasyarakatController;
+use App\Http\Controllers\PengabdianKepadaMasyarakatMahasiswaController;
+use App\Http\Controllers\PengabdianKepadaMasyarakatDosenController;
 use App\Http\Controllers\PerpustakaanController;
 use App\Http\Controllers\ProfilLulusanController;
 use App\Http\Controllers\RepositoryKerjaPraktikController;
@@ -56,6 +57,11 @@ use App\Http\Controllers\SidangAkhirController;
 use App\Http\Controllers\KerjaPraktikController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InformasiTerbaruController;
+use App\Http\Controllers\JadwalPraktikumController;
+use App\Http\Controllers\JadwalSeminarKerjaPraktikController;
+use App\Http\Controllers\JadwalSeminarProposalController;
+use App\Http\Controllers\JadwalSidangAkhirController;
+use App\Http\Controllers\JadwalSeminarHasilController;
 use App\Http\Controllers\UnduhanTerbaruController;
 use App\Http\Controllers\PencarianController;
 use App\Http\Controllers\LaboratoriumSingkatController;
@@ -142,8 +148,11 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::post('/admin/penelitian/{penelitian}/restore', [PenelitianController::class, 'restore']);
     Route::post('/admin/penelitian/{penelitian}/delete', [PenelitianController::class, 'delete']);
 
-    Route::post('/admin/pengabdian_kepada_masyarakat/{pengabdian_kepada_masyarakat}/restore', [PengabdianKeMasyarakatController::class, 'restore']);
-    Route::post('/admin/pengabdian_kepada_masyarakat/{pengabdian_kepada_masyarakat}/delete', [PengabdianKeMasyarakatController::class, 'delete']);
+    Route::post('/admin/pkm_mahasiswa/{id}/restore', [PengabdianKepadaMasyarakatMahasiswaController::class, 'restore']);
+    Route::post('/admin/pkm_mahasiswa/{id}/delete', [PengabdianKepadaMasyarakatMahasiswaController::class, 'delete']);
+
+    Route::post('/admin/pkm_dosen/{id}/restore', [PengabdianKepadaMasyarakatDosenController::class, 'restore']);
+    Route::post('/admin/pkm_dosen/{id}/delete', [PengabdianKepadaMasyarakatDosenController::class, 'delete']);
 
     Route::post('/admin/profil_lulusan/{profil_lulusan}/restore', [ProfilLulusanController::class, 'restore']);
     Route::post('/admin/profil_lulusan/{profil_lulusan}/delete', [ProfilLulusanController::class, 'delete']);
@@ -171,6 +180,21 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
 
     Route::post('/admin/jadwal_kuliah/{jadwal_kuliah}/restore', [JadwalKuliahController::class, 'restore']);
     Route::post('/admin/jadwal_kuliah/{jadwal_kuliah}/delete', [JadwalKuliahController::class, 'delete']);
+
+    Route::post('/admin/jadwal_seminar_proposal/{jadwal_seminar_proposal}/restore', [JadwalSeminarProposalController::class, 'restore']);
+    Route::post('/admin/jadwal_seminar_proposal/{jadwal_seminar_proposal}/delete', [JadwalSeminarProposalController::class, 'delete']);
+
+    Route::post('/admin/jadwal_sidang_akhir/{jadwal_sidang_akhir}/restore', [JadwalSidangAkhirController::class, 'restore']);
+    Route::post('/admin/jadwal_sidang_akhir/{jadwal_sidang_akhir}/delete', [JadwalSidangAkhirController::class, 'delete']);
+
+    Route::post('/admin/jadwal_seminar_hasil/{jadwal_seminar_hasil}/restore', [JadwalSeminarHasilController::class, 'restore']);
+    Route::post('/admin/jadwal_seminar_hasil/{jadwal_seminar_hasil}/delete', [JadwalSeminarHasilController::class, 'delete']);
+
+    Route::post('/admin/jadwal_seminar_kerja_praktik/{jadwal_seminar_kerja_praktik}/restore', [JadwalSeminarKerjaPraktikController::class, 'restore']);
+    Route::post('/admin/jadwal_seminar_kerja_praktik/{jadwal_seminar_kerja_praktik}/delete', [JadwalSeminarKerjaPraktikController::class, 'delete']);
+
+    Route::post('/admin/jadwal_praktikum/{jadwal_praktikum}/restore', [JadwalPraktikumPraktikController::class, 'restore']);
+    Route::post('/admin/jadwal_praktikum/{jadwal_praktikum}/delete', [JadwalPraktikumPraktikController::class, 'delete']);
 
     Route::post('/admin/jadwal_kegiatan/{jadwal_kegiatan}/restore', [JadwalKegiatanController::class, 'restore']);
     Route::post('/admin/jadwal_kegiatan/{jadwal_kegiatan}/delete', [JadwalKegiatanController::class, 'delete']);
@@ -215,7 +239,8 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::resource('/admin/layanan_mahasiswa', LayananMahasiswaController::class);
     Route::resource('/admin/mata_kuliah', MataKuliahController::class);
     Route::resource('/admin/penelitian', PenelitianController::class);
-    Route::resource('/admin/pengabdian_kepada_masyarakat', PengabdianKeMasyarakatController::class);
+    Route::resource('/admin/pkm_mahasiswa', PengabdianKepadaMasyarakatMahasiswaController::class);
+    Route::resource('/admin/pkm_dosen', PengabdianKepadaMasyarakatDosenController::class);
     Route::resource('/admin/perpustakaan', PerpustakaanController::class);
     Route::resource('/admin/profil_lulusan', ProfilLulusanController::class);
     Route::resource('/admin/repository_kerja_praktik', RepositoryKerjaPraktikController::class);
@@ -232,6 +257,11 @@ Route::middleware(['auth', 'prevent-back-history'])->group(function () {
     Route::resource('/admin/visi_misi', VisiMisiController::class);
     Route::resource('/admin/jadwal_ujian', JadwalUjianController::class);
     Route::resource('/admin/jadwal_kuliah', JadwalKuliahController::class);
+    Route::resource('/admin/jadwal_seminar_kerja_praktik', JadwalSeminarKerjaPraktikController::class);
+    Route::resource('/admin/jadwal_sidang_akhir', JadwalSidangAkhirController::class);
+    Route::resource('/admin/jadwal_seminar_hasil', JadwalSeminarHasilController::class);
+    Route::resource('/admin/jadwal_seminar_proposal', JadwalSeminarProposalController::class);
+    Route::resource('/admin/jadwal_praktikum', JadwalPraktikumController::class);
     Route::resource('/admin/jadwal_kegiatan', JadwalKegiatanController::class);
     Route::resource('/admin/tata_tertib_peraturan', TataTertibPeraturanController::class);
     Route::resource('/admin/seminar_proposal', SeminarProposalController::class);
@@ -267,13 +297,20 @@ Route::get('kalender_akademik/{slug}', [KalenderAkademikController::class, 'menu
 Route::get('layanan_mahasiswa/{slug}', [LayananMahasiswaController::class, 'menuDetailLayananMahasiswa']);
 Route::get('informasi_beasiswa/{slug}', [InformasiBeasiswaController::class, 'menuDetailInformasiBeasiswa']);
 Route::get('penelitian/{slug}', [PenelitianController::class, 'menuDetailPenelitian']);
-Route::get('pengabdian_kepada_masyarakat/{slug}', [PengabdianKeMasyarakatController::class, 'menuDetailPengabdianKeMasyarakat']);
+Route::get('pkm_dosen/{slug}', [PengabdianKepadaMasyarakatDosenController::class, 'menuDetailPengabdianKepadaMasyarakatDosen']);
+Route::get('pkm_mahasiswa/{slug}', [PengabdianKepadaMasyarakatMahasiswaController::class, 'menuDetailPengabdianKepadaMasyarakatMahasiswa']);
 Route::get('berita/{slug}', [BeritaController::class, 'menuDetailBerita']);
 Route::get('jadwal_ujian/{slug}', [JadwalUjianController::class, 'menuDetailJadwalUjian']);
 Route::get('jadwal_kuliah/{slug}', [JadwalKuliahController::class, 'menuDetailJadwalKuliah']);
 Route::get('jadwal_kegiatan/{slug}', [JadwalKegiatanController::class, 'menuDetailJadwalKegiatan']);
 Route::get('repository_skripsi/{slug}', [RepositorySkripsiController::class, 'menuRepositorySkripsiDetail']);
 Route::get('repository_kerja_praktik/{slug}', [RepositoryKerjaPraktikController::class, 'menuRepositoryKerjaPraktikDetail']);
+Route::get('jadwal_seminar_kerja_praktik/{slug}', [JadwalSeminarKerjaPraktikController::class, 'menuDetailJadwalSeminarKerjaPraktik']);
+Route::get('jadwal_seminar_proposal/{slug}', [JadwalSeminarProposalController::class, 'menuDetailJadwalSeminarProposal']);
+Route::get('jadwal_seminar_hasil/{slug}', [JadwalSeminarHasilController::class, 'menuDetailJadwalSeminarHasil']);
+Route::get('jadwal_sidang_akhir/{slug}', [JadwalSidangAkhirController::class, 'menuDetailJadwalSidangAkhir']);
+Route::get('jadwal_praktikum/{slug}', [JadwalPraktikumController::class, 'menuDetailJadwalPraktikum']);
+
 
 Route::get('layanan_mahasiswa', [LayananMahasiswaController::class, 'menuLayananMahasiswa']);
 Route::get('informasi_beasiswa', [InformasiBeasiswaController::class, 'menuInformasiBeasiswa']);
@@ -284,7 +321,8 @@ Route::get('ruang_perkuliahan', [RuangPerkuliahanController::class, 'menuRuangPe
 Route::get('ruang_staf_dan_dosen', [RuangStafDanDosenController::class, 'menuRuangStafDanDosen']);
 Route::get('perpustakaan', [PerpustakaanController::class, 'menuPerpustakaan']);
 Route::get('penelitian', [PenelitianController::class, 'menuPenelitian']);
-Route::get('pengabdian_kepada_masyarakat', [PengabdianKeMasyarakatController::class, 'menuPengabdianKeMasyarakat']);
+Route::get('pkm_mahasiswa', [PengabdianKepadaMasyarakatMahasiswaController::class, 'menuPengabdianKepadaMasyarakatMahasiswa']);
+Route::get('pkm_dosen', [PengabdianKepadaMasyarakatDosenController::class, 'menuPengabdianKepadaMasyarakatDosen']);
 Route::get('berita', [BeritaController::class, 'menuBerita']);
 Route::get('blog', [BlogController::class, 'menuBlog']);
 Route::get('kontak', [KontakController::class, 'menuKontak']);
@@ -308,3 +346,8 @@ Route::get('sidang_akhir', [SidangAkhirController::class, 'menuSidangAkhir']);
 Route::get('kerja_praktik', [KerjaPraktikController::class, 'menuKerjaPraktik']);
 Route::get('laboratorium', [LaboratoriumController::class, 'menuLaboratorium']);
 Route::get('laboratorium/{slug}', [LaboratoriumController::class, 'menuDetailLaboratorium']);
+Route::get('jadwal_seminar_kerja_praktik', [JadwalSeminarKerjaPraktikController::class, 'menuJadwalSeminarKerjaPraktik']);
+Route::get('jadwal_seminar_hasil', [JadwalSeminarHasilController::class, 'menuJadwalSeminarHasil']);
+Route::get('jadwal_sidang_akhir', [JadwalSidangAkhirController::class, 'menuJadwalSidangAkhir']);
+Route::get('jadwal_seminar_proposal', [JadwalSeminarProposalController::class, 'menuJadwalSeminarProposal']);
+Route::get('jadwal_praktikum', [JadwalPraktikumController::class, 'menuJadwalPraktikum']);

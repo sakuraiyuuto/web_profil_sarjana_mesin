@@ -73,7 +73,6 @@
                                                             <td>Belum Rilis</td>
                                                         @endif
                                                     @else
-                                                        ($unduhan->deleted_at != "")
                                                         <td>Terhapus</td>
                                                     @endif
                                                     @if ($unduhan->deleted_at == '')

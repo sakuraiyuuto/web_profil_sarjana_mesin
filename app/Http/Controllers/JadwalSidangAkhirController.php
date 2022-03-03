@@ -8,7 +8,7 @@ use App\Models\ProfilSingkat;
 use App\Models\AplikasiIntegrasi;
 use App\Models\HimpunanMahasiswa;
 use App\Models\InformasiTerbaru;
-use App\Models\JadwalKuliah;
+use App\Models\JadwalSidangAkhir;
 use App\Models\Laboratorium;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Validator;
 
-class JadwalKuliahController extends Controller
+class JadwalSidangAkhirController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,9 +27,9 @@ class JadwalKuliahController extends Controller
     public function index()
     {
         $session_user = Auth::user();
-        $jadwalKuliahs = JadwalKuliah::withTrashed()->get()
+        $jadwalSidangAkhirs = JadwalSidangAkhir::withTrashed()->get()
             ->sortDesc();
-        return view('admin/jadwal_kuliah.index', compact('jadwalKuliahs', 'session_user'));
+        return view('admin/jadwal_sidang_akhir.index', compact('jadwalSidangAkhirs', 'session_user'));
     }
 
     /**
@@ -40,7 +40,7 @@ class JadwalKuliahController extends Controller
     public function create()
     {
         $session_user = Auth::user();
-        return view('admin/jadwal_kuliah.create', compact('session_user'));
+        return view('admin/jadwal_sidang_akhir.create', compact('session_user'));
     }
 
     /**
@@ -59,9 +59,9 @@ class JadwalKuliahController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/admin/jadwal_kuliah')->with('alert', 'Ada kesalahan data, coba lagi.');
+            return redirect('/admin/jadwal_sidang_akhir')->with('alert', 'Ada kesalahan data, coba lagi.');
         } else {
-            $path_url = 'files/jadwal_kuliah/';
+            $path_url = 'files/jadwal_sidang_akhir/';
 
             $originName = $request->nama_file->getClientOriginalName();
             $fileName = pathinfo($originName, PATHINFO_FILENAME);
@@ -71,24 +71,24 @@ class JadwalKuliahController extends Controller
 
             $slug = 'jadwal-kuliah-semester-' . Str::slug($request->semester) . '-' . Str::slug($request->tahun_ajaran) . time();
 
-            JadwalKuliah::create([
-                'nama_file' => 'files/jadwal_kuliah/' . $fileName,
+            JadwalSidangAkhir::create([
+                'nama_file' => 'files/jadwal_sidang_akhir/' . $fileName,
                 'semester' => $request->semester,
                 'tahun_ajaran' => $request->tahun_ajaran,
-                'slug' => 'jadwal_kuliah/' . $slug,
+                'slug' => 'jadwal_sidang_akhir/' . $slug,
                 'release_date' => $request->release_date,
             ]);
-            return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Ditambahkan');
+            return redirect('/admin/jadwal_sidang_akhir')->with('status', 'Dokumen Prodi Berhasil Ditambahkan');
         }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\JadwalKuliah  $jadwalKuliahs
+     * @param  \App\Models\JadwalSidangAkhir  $jadwalSidangAkhirs
      * @return \Illuminate\Http\Response
      */
-    public function show(JadwalKuliah $jadwalKuliahs)
+    public function show(JadwalSidangAkhir $jadwalSidangAkhirs)
     {
         //
     }
@@ -96,22 +96,22 @@ class JadwalKuliahController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\JadwalKuliah  $jadwalKuliahs
+     * @param  \App\Models\JadwalSidangAkhir  $jadwalSidangAkhirs
      * @return \Illuminate\Http\Response
      */
-    public function edit(JadwalKuliah $jadwalKuliah)
+    public function edit(JadwalSidangAkhir $jadwalSidangAkhir)
     {
         $session_user = Auth::user();
-        $jadwalKuliah = JadwalKuliah::all()->firstWhere('slug', $jadwalKuliah->slug);
+        $jadwalSidangAkhir = JadwalSidangAkhir::all()->firstWhere('slug', $jadwalSidangAkhir->slug);
 
-        return view('admin.jadwal_kuliah.edit', compact('jadwalKuliah', 'session_user'));
+        return view('admin.jadwal_sidang_akhir.edit', compact('jadwalSidangAkhir', 'session_user'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\JadwalKuliah  $jadwalKuliahs
+     * @param  \App\Models\JadwalSidangAkhir  $jadwalSidangAkhirs
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
@@ -124,34 +124,34 @@ class JadwalKuliahController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/admin/jadwal_kuliah')->with('alert', 'Ada kesalahan data, coba lagi.');
+            return redirect('/admin/jadwal_sidang_akhir')->with('alert', 'Ada kesalahan data, coba lagi.');
         } else {
-            $jadwalKuliahs = JadwalKuliah::all()
+            $jadwalSidangAkhirs = JadwalSidangAkhir::all()
                 ->where('id', $request->id)
                 ->first();
 
             if ($request->nama_file == "") {
-                $fileName = $jadwalKuliahs->nama_file;
+                $fileName = $jadwalSidangAkhirs->nama_file;
 
                 $slug = 'jadwal-kuliah-semester-' . Str::slug($request->semester) . '-' . Str::slug($request->tahun_ajaran) . time();
 
-                JadwalKuliah::where('id', $request->id)
+                JadwalSidangAkhir::where('id', $request->id)
                     ->update([
                         'nama_file' => $fileName,
                         'semester' => $request->semester,
                         'tahun_ajaran' => $request->tahun_ajaran,
-                        'slug' => 'jadwal_kuliah/' . $slug,
+                        'slug' => 'jadwal_sidang_akhir/' . $slug,
                         'release_date' => $request->release_date,
                     ]);
 
-                return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Diubah');
+                return redirect('/admin/jadwal_sidang_akhir')->with('status', 'Dokumen Prodi Berhasil Diubah');
             } else {
-                $file = $jadwalKuliahs->nama_file;
+                $file = $jadwalSidangAkhirs->nama_file;
                 if (file_exists($file)) {
                     @unlink($file);
                 }
 
-                $path_url = 'files/jadwal_kuliah/';
+                $path_url = 'files/jadwal_sidang_akhir/';
 
                 $originName = $request->nama_file->getClientOriginalName();
                 $fileName = pathinfo($originName, PATHINFO_FILENAME);
@@ -161,16 +161,16 @@ class JadwalKuliahController extends Controller
 
                 $slug = 'jadwal-kuliah-semester-' . Str::slug($request->semester) . '-' . Str::slug($request->tahun_ajaran) . time();
 
-                JadwalKuliah::where('id', $request->id)
+                JadwalSidangAkhir::where('id', $request->id)
                     ->update([
-                        'nama_file' => 'files/jadwal_kuliah/' . $fileName,
+                        'nama_file' => 'files/jadwal_sidang_akhir/' . $fileName,
                         'semester' => $request->semester,
                         'tahun_ajaran' => $request->tahun_ajaran,
-                        'slug' => 'jadwal_kuliah/' . $slug,
+                        'slug' => 'jadwal_sidang_akhir/' . $slug,
                         'release_date' => $request->release_date,
                     ]);
 
-                return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Diubah');
+                return redirect('/admin/jadwal_sidang_akhir')->with('status', 'Dokumen Prodi Berhasil Diubah');
             }
         }
     }
@@ -178,47 +178,47 @@ class JadwalKuliahController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\JadwalKuliah  $jadwalKuliahs
+     * @param  \App\Models\JadwalSidangAkhir  $jadwalSidangAkhirs
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        JadwalKuliah::destroy($id);
-        return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Dihapus');
+        JadwalSidangAkhir::destroy($id);
+        return redirect('/admin/jadwal_sidang_akhir')->with('status', 'Dokumen Prodi Berhasil Dihapus');
     }
 
     public function restore($id)
     {
-        $jadwalKuliah = JadwalKuliah::withTrashed()
+        $jadwalSidangAkhir = JadwalSidangAkhir::withTrashed()
             ->where('id', $id)
             ->first();
 
-        $jadwalKuliah->restore();
-        return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Direstore');
+        $jadwalSidangAkhir->restore();
+        return redirect('/admin/jadwal_sidang_akhir')->with('status', 'Dokumen Prodi Berhasil Direstore');
     }
 
     public function delete($id)
     {
-        $jadwalKuliah = JadwalKuliah::withTrashed()
+        $jadwalSidangAkhir = JadwalSidangAkhir::withTrashed()
             ->where('id', $id)
             ->first();
 
-        $file = $jadwalKuliah->nama_file;
+        $file = $jadwalSidangAkhir->nama_file;
 
         if (file_exists($file)) {
             @unlink($file);
         }
 
-        $jadwalKuliah->forceDelete();
-        return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Dihapus Permanen');
+        $jadwalSidangAkhir->forceDelete();
+        return redirect('/admin/jadwal_sidang_akhir')->with('status', 'Dokumen Prodi Berhasil Dihapus Permanen');
     }
 
-    public function menuJadwalKuliah()
+    public function menuJadwalSidangAkhir()
     {
         $kontak = Kontak::all()->first();
 
         $profilSingkat = ProfilSingkat::all()->first();
-        $jadwalKuliahs = JadwalKuliah::where('release_date', '<=', date('Y-m-d'))
+        $jadwalSidangAkhirs = JadwalSidangAkhir::where('release_date', '<=', date('Y-m-d'))
             ->orderBy('tahun_ajaran', 'DESC')
             ->get();
         $informasiTerbarus = InformasiTerbaru::informasiTerbaru()
@@ -233,16 +233,16 @@ class JadwalKuliahController extends Controller
             ->orderBy('release_date', 'DESC')
             ->get();
 
-        return view('portal.jadwal_kuliah.index',  compact('jadwalKuliahs', 'aplikasiIntegrasis', 'informasiTerbarus',  'profilSingkat', 'kontak', 'laboratoriumHeaders'));
+        return view('portal.jadwal_sidang_akhir.index',  compact('jadwalSidangAkhirs', 'aplikasiIntegrasis', 'informasiTerbarus',  'profilSingkat', 'kontak', 'laboratoriumHeaders'));
     }
 
-    public function menuDetailJadwalKuliah($slug)
+    public function menuDetailJadwalSidangAkhir($slug)
     {
         $kontak = Kontak::all()->first();
 
         $profilSingkat = ProfilSingkat::all()->first();
-        $jadwalKuliah = JadwalKuliah::all()
-            ->where('slug', 'jadwal_kuliah/' . $slug)
+        $jadwalSidangAkhir = JadwalSidangAkhir::all()
+            ->where('slug', 'jadwal_sidang_akhir/' . $slug)
             ->firstOrFail();
         $informasiTerbarus = InformasiTerbaru::informasiTerbaru()
             ->take(3)
@@ -256,6 +256,6 @@ class JadwalKuliahController extends Controller
             ->orderBy('release_date', 'DESC')
             ->get();
 
-        return view('portal.jadwal_kuliah.detail',  compact('jadwalKuliah', 'aplikasiIntegrasis', 'informasiTerbarus',  'profilSingkat', 'kontak', 'laboratoriumHeaders'));
+        return view('portal.jadwal_sidang_akhir.detail',  compact('jadwalSidangAkhir', 'aplikasiIntegrasis', 'informasiTerbarus',  'profilSingkat', 'kontak', 'laboratoriumHeaders'));
     }
 }

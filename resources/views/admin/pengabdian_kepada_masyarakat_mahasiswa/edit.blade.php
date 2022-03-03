@@ -1,6 +1,6 @@
 @extends('admin/layout/main')
 
-@section('title', 'Pengabdian Kepada Masyarakat')
+@section('title', 'Pengabdian Kepada Masyarakat Mahasiswa')
 
 @section('container')
     <div class="content-wrapper">
@@ -9,7 +9,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Pengabdian Kepada Masyarakat</h1>
+                        <h1 class="m-0">Pengabdian Kepada Masyarakat Mahasiswa</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -23,41 +23,42 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Edit Data Pengabdian Kepada Masyarakat</h3>
+                                <h3 class="card-title">Edit Data Pengabdian Kepada Masyarakat Mahasiswa</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
                                     <!-- form start -->
                                     <form class="from-prevent-multiple-submits"
-                                        action="{{ route('pengabdian_kepada_masyarakat.update', $pengabdianKeMasyarakat) }}"
+                                        action="{{ route('pkm_mahasiswa.update', $pengabdianKepadaMasyarakatMahasiswa) }}"
                                         method="POST" enctype="multipart/form-data">
                                         @method('patch')
                                         @csrf
                                         <div class="card-body">
-                                            <input type="hidden" value="{{ $pengabdianKeMasyarakat->id }}" name="id">
+                                            <input type="hidden" value="{{ $pengabdianKepadaMasyarakatMahasiswa->id }}"
+                                                name="id">
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
                                                     placeholder="Masukkan Judul"
-                                                    value="{{ $pengabdianKeMasyarakat->judul }}" required>
+                                                    value="{{ $pengabdianKepadaMasyarakatMahasiswa->judul }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="author">Pelaku PKM</label>
                                                 <input type="text" class="form-control" id="author" name="author"
-                                                    placeholder="Masukkan Pelaku PKM" value="{{ $pengabdianKeMasyarakat->author }}"
-                                                    required>
+                                                    placeholder="Masukkan Pelaku PKM"
+                                                    value="{{ $pengabdianKepadaMasyarakatMahasiswa->author }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tahun">Tahun</label>
                                                 <input type="text" class="form-control" id="tahun" name="tahun"
-                                                    placeholder="Masukkan Tahun Penelitian" value="{{ $pengabdianKeMasyarakat->tahun }}"
-                                                    required>
+                                                    placeholder="Masukkan Tahun Penelitian"
+                                                    value="{{ $pengabdianKepadaMasyarakatMahasiswa->tahun }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="thumbnail">Thumbnail (Maksimal 2MB)</label>
                                                 <div class="form-group">
-                                                    <img src="{{ url($pengabdianKeMasyarakat->thumbnail) }}"
+                                                    <img src="{{ url($pengabdianKepadaMasyarakatMahasiswa->thumbnail) }}"
                                                         alt="Image Missing" id="old_thumbnail" style="max-width: 200px;"
                                                         class="mt-2" />
                                                 </div>
@@ -67,12 +68,13 @@
                                             <div class="form-group">
                                                 <label for="teks">Teks</label>
                                                 <textarea id="teks" placeholder="Masukkan Deskripsi"
-                                                    name="teks">{{ $pengabdianKeMasyarakat->teks }}</textarea>
+                                                    name="teks">{{ $pengabdianKepadaMasyarakatMahasiswa->teks }}</textarea>
                                             </div>
                                             <div class="form-group mt-2">
                                                 <label for="release_date">Tanggal Rilis</label>
                                                 <input type="date" class="form-control mt-0" name="release_date"
-                                                    value="{{ $pengabdianKeMasyarakat->release_date }}" required>
+                                                    value="{{ $pengabdianKepadaMasyarakatMahasiswa->release_date }}"
+                                                    required>
                                             </div>
                                         </div>
                                         <!-- /.card-body -->

@@ -75,7 +75,6 @@
                                                             <td>Belum Rilis</td>
                                                         @endif
                                                     @else
-                                                        ($jadwalKuliah->deleted_at != "")
                                                         <td>Terhapus</td>
                                                     @endif
                                                     @if ($jadwalKuliah->deleted_at == '')
@@ -149,7 +148,7 @@
                         <div class="form-group mt-2">
                             <label for="semester">Semester</label>
                             <select name="semester" class="form-control" required>
-                                <option selected disable>Pilih Semester</option>
+                                <option value="" selected disable>Pilih Semester</option>
                                 <option value="Ganjil">Ganjil</option>
                                 <option value="Genap">Genap</option>
                             </select>
@@ -157,7 +156,7 @@
                         <div class="form-group mt-2">
                             <label for="tahun_ajaran">Tahun Ajaran</label>
                             <select name="tahun_ajaran" class="form-control" required>
-                                <option selected disable>Pilih Tahun Ajaran</option>
+                                <option value="" selected disable>Pilih Tahun Ajaran</option>
                                 <option value="2017/2018">2017/2018</option>
                                 <option value="2018/2019">2018/2019</option>
                                 <option value="2019/2020">2019/2020</option>
@@ -178,7 +177,8 @@
                         </div>
                         <div class="form-group">
                             <label for="nama_file">File Jadwal Kuliah</label>
-                            <input type="file" id="input_file_add" class="form-control mt-0" name="nama_file" required>
+                            <input type="file" id="input_file_add" class="form-control mt-0" name="nama_file"
+                                accept="application/pdf" required>
                         </div>
                         <div class="form-group mt-2">
                             <label for="release_date">Jadwal Rilis</label>
@@ -214,7 +214,7 @@
                             <div class="form-group mt-2">
                                 <label for="semester">Semester</label>
                                 <select name="semester" id="semester" class="form-control" required>
-                                    <option selected disable>Pilih Semester</option>
+                                    <option value="" selected disable>Pilih Semester</option>
                                     <option value="Ganjil">Ganjil</option>
                                     <option value="Genap">Genap</option>
                                 </select>
@@ -222,7 +222,7 @@
                             <div class="form-group mt-2">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
                                 <select name="tahun_ajaran" id="tahun_ajaran" class="form-control" required>
-                                    <option selected disable>Pilih Tahun Ajaran</option>
+                                    <option value="" selected disable>Pilih Tahun Ajaran</option>
                                     <option value="2017/2018">2017/2018</option>
                                     <option value="2018/2019">2018/2019</option>
                                     <option value="2019/2020">2019/2020</option>
@@ -244,7 +244,7 @@
                             <div class="form-group">
                                 <label for="nama_file">File Jadwal Kuliah (Maksimal 2MB)</label>
                                 <input type="file" id="input_file_edit" class="form-control mt-0" name="nama_file"
-                                    id="nama_file">
+                                    id="nama_file" accept="application/pdf">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="release_date">Jadwal Rilis</label>
