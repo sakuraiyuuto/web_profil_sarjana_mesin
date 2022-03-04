@@ -66,7 +66,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="teks">Teks</label>
-                                                <textarea id="teks" placeholder="Masukkan Deskripsi Video"
+                                                <textarea id="teks" placeholder="Masukkan Deskripsi"
                                                     name="teks">{{ $kerjasamaMitraKolaborasi->teks }}</textarea>
                                             </div>
                                             <div class="form-group">

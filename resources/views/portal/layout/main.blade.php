@@ -267,7 +267,7 @@
                                         </ul>
                                     </li>
                                     <li
-                                        class="{{ request()->is('himpunan_mahasiswa','layanan_mahasiswa','informasi_beasiswa','profil_lulusan','tata_tertib_peraturan','himpunan_mahasiswa/*','prestasi_aktivitas_mahasiswa/*','layanan_mahasiswa/*','informasi_beasiswa/*','profil_lulusan/*','tata_tertib_peraturan/*')? 'active': '' }}">
+                                        class="{{ request()->is('himpunan_mahasiswa','layanan_mahasiswa','informasi_beasiswa','profil_lulusan','tata_tertib_peraturan','ikatan_alumni','lowongan_pekerjaan','himpunan_mahasiswa/*','prestasi_aktivitas_mahasiswa/*','layanan_mahasiswa/*','informasi_beasiswa/*','profil_lulusan/*','tata_tertib_peraturan/*','lowongan_pekerjaan/*')? 'active': '' }}">
                                         <span class="submenu">Mahasiswa & Alumni <i
                                                 class="fa fa-angle-down"></i></span>
                                         <ul class="submenu">
@@ -279,9 +279,15 @@
                                                     href="{{ url('informasi_beasiswa') }}">Informasi Beasiswa</a>
                                             </li>
 
-                                            <li><a href="{{ url('profil_lulusan') }}">Profil Lulusan</a></li>
-                                            <li><a href="{{ url('tata_tertib_peraturan') }}">Tata Tertib
+                                            <li><a class="{{ request()->is('profil_lulusan/*') ? 'is-active' : '' }}"
+                                                    href="{{ url('profil_lulusan') }}">Profil Lulusan</a></li>
+                                            <li><a class="{{ request()->is('tata_tertib_peraturan/*') ? 'is-active' : '' }}"
+                                                    href="{{ url('tata_tertib_peraturan') }}">Tata Tertib
                                                     Peraturan</a>
+                                            <li><a class="{{ request()->is('ikatan_alumni/*') ? 'is-active' : '' }}"
+                                                    href="{{ url('ikatan_alumni') }}">Ikatan Alumni</a>
+                                            <li><a class="{{ request()->is('lowongan_pekerjaan/*') ? 'is-active' : '' }}"
+                                                    href="{{ url('lowongan_pekerjaan') }}">Lowongan Pekerjaan</a>
                                         </ul>
                                     </li>
                                     <li
@@ -394,12 +400,12 @@
                                 </ul>
                                 </li>
                                 <li
-                                    class="{{ request()->is('berita', 'blog', 'berita/*', 'blog/*', 'informasi_terbaru') ? 'active' : '' }}">
-                                    <span class="submenu">Blog & Berita <i class="fa fa-angle-down"></i></span>
+                                    class="{{ request()->is('berita', 'berita/*', 'informasi_terbaru') ? 'active' : '' }}">
+                                    <span class="submenu">Berita & Informasi <i
+                                            class="fa fa-angle-down"></i></span>
                                     <ul class="submenu">
                                         <li><a class="{{ request()->is('berita/*') ? 'is-active' : '' }}"
                                                 href="{{ url('berita') }}">Berita</a></li>
-                                        <li><a href="{{ url('blog') }}">Blog</a></li>
                                         <li><a href="{{ url('informasi_terbaru') }}">Informasi Terbaru</a></li>
                                     </ul>
                                 </li>

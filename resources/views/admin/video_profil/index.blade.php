@@ -58,10 +58,10 @@
                                                     placeholder="Masukkan Url Video" value="{{ $videoProfil->url }}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="teks">Deskripsi Video</label>
-                                                <textarea id="teks" placeholder="Masukkan Deskripsi Video" name="teks">
-                                                                                                                        {{ $videoProfil->teks }}
-                                                                                                                        </textarea>
+                                                <label for="teks">Deskripsi</label>
+                                                <textarea id="teks" placeholder="Masukkan Deskripsi" name="teks">
+                                                                                                                            {{ $videoProfil->teks }}
+                                                                                                                            </textarea>
                                             </div>
                                         </div>
                                         <!-- /.card-body -->

@@ -36,11 +36,17 @@ class PencarianController extends Controller
                 ->where('deleted_at', null)
                 ->where('judul', 'like', '%' . $kata_kunci . '%')
                 ->orWhere('teks', 'like', '%' . $kata_kunci . '%');
+            $lowongan_pekerjaans = DB::table('lowongan_pekerjaans')
+                ->where('release_date', '<=', date('Y-m-d'))
+                ->where('deleted_at', null)
+                ->where('judul', 'like', '%' . $kata_kunci . '%')
+                ->orWhere('teks', 'like', '%' . $kata_kunci . '%');
             $hasilPencarians = DB::table('beritas')
                 ->union($kerjasama_mitra_kolaborasis)
                 ->union($hasil_karyas)
                 ->union($layanan_mahasiswas)
                 ->union($informasi_beasiswas)
+                ->union($lowongan_pekerjaans)
                 ->where('release_date', '<=', date('Y-m-d'))
                 ->where('deleted_at', null)
                 ->where('judul', 'like', '%' . $kata_kunci . '%')

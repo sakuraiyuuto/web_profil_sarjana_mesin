@@ -56,7 +56,7 @@
 
                                             <div class="form-group">
                                                 <label for="teks">Teks</label>
-                                                <textarea id="teks" placeholder="Masukkan Deskripsi Video"
+                                                <textarea id="teks" placeholder="Masukkan Deskripsi"
                                                     name="teks">{{ $informasiBeasiswa->teks }}</textarea>
                                             </div>
                                             <div class="form-group mt-2">

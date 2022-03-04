@@ -1,6 +1,6 @@
 @extends('admin/layout/main')
 
-@section('title', 'Penelitian')
+@section('title', 'Ikatan Alumni')
 
 @section('container')
     <div class="content-wrapper">
@@ -9,12 +9,25 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Penelitian</h1>
+                        <h1 class="m-0">Ikatan Alumni</h1>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
+
+        <!-- Alert Status -->
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
+        @if (session('alert'))
+            <div class="alert alert-danger">
+                {{ session('alert') }}
+            </div>
+        @endif
 
         <!-- Main content -->
         <section class="content">
@@ -23,63 +36,85 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Edit Data Penelitian</h3>
+                                <h3 class="card-title">Edit Menu Ikatan Alumni</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="row">
-                                    <!-- form start -->
                                     <form class="from-prevent-multiple-submits"
-                                        action="{{ route('penelitian.update', $penelitian) }}" method="POST"
+                                        action="{{ route('ikatan_alumni.update', $ikatanAlumni->id) }}" method="POST"
                                         enctype="multipart/form-data">
                                         @method('patch')
                                         @csrf
-                                        <div class="card-body">
-                                            <input type="hidden" value="{{ $penelitian->id }}" name="id">
-                                            <div class="form-group">
-                                                <label for="judul">Judul</label>
-                                                <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul" value="{{ $penelitian->judul }}"
-                                                    required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="author">Peneliti</label>
-                                                <input type="text" class="form-control" id="author" name="author"
-                                                    placeholder="Masukkan Peneliti" value="{{ $penelitian->author }}"
-                                                    required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="tahun">Tahun</label>
-                                                <input type="text" class="form-control" id="tahun" name="tahun"
-                                                    placeholder="Masukkan Tahun Penelitian"
-                                                    value="{{ $penelitian->tahun }}" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="thumbnail">Thumbnail (Maksimal 2MB)</label>
-                                                <div class="form-group">
-                                                    <img src="{{ url($penelitian->thumbnail) }}" alt="Image Missing"
-                                                        id="old_thumbnail" style="max-width: 200px;"
-                                                        class="mt-2" />
-                                                </div>
-                                                <input type="file" accept="image/*" class="form-control mt-0"
-                                                    name="thumbnail" id="input_foto_edit">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="teks">Teks</label>
-                                                <textarea id="teks" placeholder="Masukkan Deskripsi"
-                                                    name="teks">{{ $penelitian->teks }}</textarea>
-                                            </div>
-                                            <div class="form-group mt-2">
-                                                <label for="release_date">Tanggal Rilis</label>
-                                                <input type="date" class="form-control mt-0" name="release_date"
-                                                    value="{{ $penelitian->release_date }}" required>
-                                            </div>
+                                        <div class="form-group">
+                                            <label for="nama">Nama Himpunan</label>
+                                            <input type="text" class="form-control" id="nama" name="nama"
+                                                placeholder="Masukkan Nama Himpunan" value="{{ $ikatanAlumni->nama }}">
                                         </div>
-                                        <!-- /.card-body -->
+                                        <div class="form-group">
+                                            <label for="nama_foto">Thumbnail (Maksimal 2MB)</label>
+                                            <div class="form-group">
+                                                <img src="{{ url($ikatanAlumni->thumbnail) }}" alt="Image Missing"
+                                                    id="old_nama_foto" style="max-width: 200px;" class="mt-2" />
+                                            </div>
+                                            <input type="file" accept="image/*" class="form-control mt-0" name="thumbnail"
+                                                id="input_foto_edit">
+                                        </div>
+                                        <textarea id="teks" placeholder="Enter the Description"
+                                            name="teks">{{ $ikatanAlumni->teks }}</textarea>
+                                        <br>
+                                        <div class="form-group">
+                                            <label for="facebook">Nama Pengguna Facebook</label>
+                                            <input type="text" class="form-control" id="facebook" name="facebook"
+                                                placeholder="Masukkan Nama Pengguna Facebook"
+                                                value="{{ $ikatanAlumni->facebook }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="url_facebook">Link Facebook</label>
+                                            <input type="text" class="form-control" id="url_facebook" name="url_facebook"
+                                                placeholder="Masukkan Link Facebook"
+                                                value="{{ $ikatanAlumni->url_facebook }}">
+                                        </div>
 
-                                        <div class="card-footer">
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        <div class="form-group">
+                                            <label for="instagram">Nama Pengguna Instagram</label>
+                                            <input type="text" class="form-control" id="instagram" name="instagram"
+                                                placeholder="Masukkan Nama Pengguna Instagram"
+                                                value="{{ $ikatanAlumni->instagram }}">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="url_instagram">Link Instagram</label>
+                                            <input type="text" class="form-control" id="url_instagram"
+                                                name="url_instagram" placeholder="Masukkan Link Instagram"
+                                                value="{{ $ikatanAlumni->url_instagram }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="youtube">Nama Pengguna Youtube</label>
+                                            <input type="text" class="form-control" id="youtube" name="youtube"
+                                                placeholder="Masukkan Nama Pengguna Youtube"
+                                                value="{{ $ikatanAlumni->youtube }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="url_youtube">Link Youtube</label>
+                                            <input type="text" class="form-control" id="url_youtube" name="url_youtube"
+                                                placeholder="Masukkan Link Youtube"
+                                                value="{{ $ikatanAlumni->url_youtube }}">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="twitter">Nama Pengguna Twitter</label>
+                                            <input type="text" class="form-control" id="twitter" name="twitter"
+                                                placeholder="Masukkan Nama Pengguna Twitter"
+                                                value="{{ $ikatanAlumni->twitter }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="url_twitter">Link Twitter</label>
+                                            <input type="text" class="form-control" id="url_twitter" name="url_twitter"
+                                                placeholder="Masukkan Link Twitter"
+                                                value="{{ $ikatanAlumni->url_twitter }}">
+                                        </div>
+                                        <button type="submit" class="btn btn-success"> Save </button>
                                     </form>
                                 </div>
                             </div>
@@ -90,6 +125,9 @@
         </section>
     </div>
 
+@endsection
+
+@section('script')
     <script>
         //Define an adapter to upload the files
         class MyUploadAdapter {
@@ -208,7 +246,7 @@
                 //Ubah Img Preview
                 var reader = new FileReader();
                 reader.onload = function() {
-                    var output = document.getElementById('old_thumbnail');
+                    var output = document.getElementById('old_nama_foto');
                     output.src = reader.result;
                 }
                 reader.readAsDataURL(event.target.files[0]);

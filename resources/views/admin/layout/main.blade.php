@@ -474,9 +474,9 @@
                             </ul>
                         </li>
                         <li
-                            class="nav-item {{ set_open(['himpunan_mahasiswa.index','himpunan_mahasiswa.edit','himpunan_mahasiswa.create','layanan_mahasiswa.index','layanan_mahasiswa.edit','layanan_mahasiswa.create','informasi_beasiswa.index','informasi_beasiswa.edit','informasi_beasiswa.create','profil_lulusan.index','tata_tertib_peraturan.index']) }}">
+                            class="nav-item {{ set_open(['lowongan_pekerjaan.index','lowongan_pekerjaan.edit','lowongan_pekerjaan.create','himpunan_mahasiswa.index','himpunan_mahasiswa.edit','himpunan_mahasiswa.create','layanan_mahasiswa.index','layanan_mahasiswa.edit','layanan_mahasiswa.create','informasi_beasiswa.index','informasi_beasiswa.edit','informasi_beasiswa.create','profil_lulusan.index','tata_tertib_peraturan.index','ikatan_alumni.index']) }}">
                             <a href="#"
-                                class="nav-link {{ set_active(['himpunan_mahasiswa.index','himpunan_mahasiswa.edit','himpunan_mahasiswa.create','layanan_mahasiswa.index','layanan_mahasiswa.edit','layanan_mahasiswa.create','informasi_beasiswa.index','informasi_beasiswa.edit','informasi_beasiswa.create','profil_lulusan.index','tata_tertib_peraturan.index']) }}">
+                                class="nav-link {{ set_active(['lowongan_pekerjaan.index','lowongan_pekerjaan.edit','lowongan_pekerjaan.create','himpunan_mahasiswa.index','himpunan_mahasiswa.edit','himpunan_mahasiswa.create','layanan_mahasiswa.index','layanan_mahasiswa.edit','layanan_mahasiswa.create','informasi_beasiswa.index','informasi_beasiswa.edit','informasi_beasiswa.create','profil_lulusan.index','tata_tertib_peraturan.index','ikatan_alumni.index']) }}">
                                 <i class="nav-icon fas fa-user-graduate"></i>
                                 <p>
                                     Mahasiswa & Alumni
@@ -529,7 +529,22 @@
                                         <p>Tata Tertib dan Peraturan</p>
                                     </a>
                                 </li>
-
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/ikatan_alumni') }}"
+                                        class="nav-link {{ set_active(['ikatan_alumni.index']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['ikatan_alumni.index']) }}-circle nav-icon"></i>
+                                        <p>Ikatan Alumni</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('admin/lowongan_pekerjaan') }}"
+                                        class="nav-link {{ set_active(['lowongan_pekerjaan.index', 'lowongan_pekerjaan.edit', 'lowongan_pekerjaan.create']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['lowongan_pekerjaan.index', 'lowongan_pekerjaan.edit', 'lowongan_pekerjaan.create']) }}-circle nav-icon"></i>
+                                        <p>Lowongan Pekerjaan</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -637,40 +652,14 @@
 
                             </ul>
                         </li>
-                        <li
-                            class="nav-item  {{ request()->is('admin/berita/' . $berita->id . '/edit') ? 'menu-open' : '' }} {{ set_open(['berita.index', 'berita.create', 'blog.index', 'blog.create', 'blog.edit']) }}">
-                            <a href="#"
-                                class="nav-link {{ request()->is('admin/berita/' . $berita->id . '/edit') ? 'active' : '' }} {{ set_active(['berita.index', 'berita.create', 'blog.index', 'blog.create', 'blog.edit']) }}">
-
+                        <li class="nav-item">
+                            <a href="{{ url('admin/berita') }}"
+                                class="nav-link {{ set_active(['berita.index', 'berita.create', 'berita.edit']) }}">
                                 <i class="nav-icon fas fa-newspaper"></i>
                                 <p>
-                                    Berita & Blog Dosen
-                                    <i class="right fas fa-angle-left"></i>
+                                    Berita
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview  space-maju">
-
-                                <li class="nav-item">
-                                    <a href="{{ url('admin/berita') }}"
-                                        class="nav-link {{ request()->is('admin/berita/' . $berita->id . '/edit') ? 'active' : '' }} {{ set_active(['berita.index', 'berita.create']) }}">
-                                        <i
-                                            class="far fa{{ set_dot(['berita.index', 'berita.create', 'berita.edit']) }}{{ request()->is('admin/berita/' . $berita->id . '/edit') ? '-dot' : '' }}-circle nav-icon"></i>
-
-                                        <p>Berita</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a href="{{ url('admin/blog') }}"
-                                        class="nav-link {{ set_active(['blog.index', 'blog.create', 'blog.edit']) }}">
-                                        <i
-                                            class="far fa{{ set_dot(['blog.index', 'blog.create', 'blog.edit']) }}-circle nav-icon"></i>
-
-                                        <p>Blog Dosen</p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
 
                         <li
