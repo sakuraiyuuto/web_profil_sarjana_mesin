@@ -134,7 +134,7 @@
                                             <tr>
                                                 <th>Nomor</th>
                                                 <th>Nama</th>
-                                                <th>NIP/NIDN</th>
+                                                <th>NIP-NIDN</th>
                                                 <th>Pangkat/Golongan</th>
                                                 <th>Web</th>
                                                 <th>Sinta</th>
@@ -293,8 +293,8 @@
                                 placeholder=". . .">
                         </div>
                         <div class="form-group mt-2">
-                            <label for="nip">NIP/NIDN</label>
-                            <input type="text" class="form-control mt-0" name="nip" required maxlength="25"
+                            <label for="nip">NIP-NIDN</label>
+                            <input type="text" class="form-control mt-0" name="nip" required maxlength="35"
                                 placeholder=". . .">
                         </div>
                         <div class="form-group mt-2">
@@ -356,8 +356,8 @@
                                     placeholder=". . .">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="nip">NIP/NIDN</label>
-                                <input type="text" class="form-control mt-0" name="nip" id="nip" required maxlength="25"
+                                <label for="nip">NIP-NIDN</label>
+                                <input type="text" class="form-control mt-0" name="nip" id="nip" required maxlength="35"
                                     placeholder=". . .">
                             </div>
                             <div class="form-group mt-2">

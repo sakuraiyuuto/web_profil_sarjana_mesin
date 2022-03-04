@@ -42,7 +42,7 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Nama</th>
-                                        <th>NIP/NIDN</th>
+                                        <th>NIP-NIDN</th>
                                         <th>Pangkat</th>
                                         <th>Web</th>
                                         <th>Sinta</th>
