@@ -58,7 +58,7 @@
                                                 <th>Nama</th>
                                                 <th>SKS</th>
                                                 <th>Semester</th>
-                                                <th>Kelompok</th>
+                                                <th>Keterangan</th>
                                                 <th>Status</th>
                                                 <th>Tindakan</th>
                                             </tr>
@@ -170,10 +170,9 @@
                                 placeholder=". . .">
                         </div>
                         <div class="form-group mt-2">
-                            <label for="kelompok">Kelompok</label>
+                            <label for="kelompok">Keterangan</label>
                             <select name="kelompok" class="form-control" required>
                                 <option disable value>. . .</option>
-                                <option value="Paket">Paket</option>
                                 <option value="Wajib">Wajib</option>
                                 <option value="Peminatan">Peminatan</option>
                             </select>
@@ -227,10 +226,9 @@
                                     maxlength="255" placeholder=". . .">
                             </div>
                             <div class="form-group mt-2">
-                                <label for="kelompok">Kelompok</label>
+                                <label for="kelompok">Keterangan</label>
                                 <select name="kelompok" id="kelompok" class="form-control" required>
                                     <option disable value>. . .</option>
-                                    <option value="Paket">Paket</option>
                                     <option value="Wajib">Wajib</option>
                                     <option value="Peminatan">Peminatan</option>
                                 </select>

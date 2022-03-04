@@ -47,7 +47,7 @@
                                         <th>Nama Mata Kuliah</th>
                                         <th>SKS</th>
                                         <th>Semester</th>
-                                        <th>Kelompok</th>
+                                        <th>Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
