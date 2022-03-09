@@ -51,18 +51,18 @@
                                 <tbody>
                                     @foreach ($profilLulusans as $profilLulusan)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $profilLulusan->nama }}</th>
-                                            <th>{{ $profilLulusan->nim }}</th>
-                                            <th>{{ $profilLulusan->periode_kelulusan }}</th>
-                                            <th>{{ $profilLulusan->tahun_lulus }}</th>
-                                            <th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $profilLulusan->nama }}</td>
+                                            <td>{{ $profilLulusan->nim }}</td>
+                                            <td>{{ $profilLulusan->periode_kelulusan }}</td>
+                                            <td>{{ $profilLulusan->tahun_lulus }}</td>
+                                            <td>
                                                 <a href="{{ url($profilLulusan->nama_file) }}" download target="_blank">
                                                     <div class="btn btn-success">
                                                         Download
                                                     </div>
                                                 </a>
-                                            </th>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

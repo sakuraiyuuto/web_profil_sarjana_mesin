@@ -35,13 +35,15 @@
                         <table id="tabel_pengabdian_kepada_masyarakat" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Daftar Pengabdian Kepada Masyarakat Dosen</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($pengabdianKepadaMasyarakatDosens as $pengabdianKepadaMasyarakatDosen)
                                     <tr>
-                                        <th>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>
                                             <!--EVENT LIST Wrap Start-->
                                             <div class="kf_event_list_wrap" style="margin :0;border : 1px solid #b6b6b6">
                                                 <div class="row" style="height : 10rem">
@@ -82,7 +84,7 @@
                                                 </div>
                                             </div>
                                             <!--EVENT LIST Wrap END-->
-                                        </th>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

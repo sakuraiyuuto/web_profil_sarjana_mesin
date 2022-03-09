@@ -50,12 +50,12 @@
                                 <tbody>
                                     @foreach ($repositorySkripsis as $repositorySkripsi)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $repositorySkripsi->judul }}</th>
-                                            <th>{{ $repositorySkripsi->author }}</th>
-                                            <th>{{ $repositorySkripsi->tahun }}</th>
-                                            <th><a class="btn btn-primary"
-                                                    href="{{ url($repositorySkripsi->slug) }}">Detail</a></th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $repositorySkripsi->judul }}</td>
+                                            <td>{{ $repositorySkripsi->author }}</td>
+                                            <td>{{ $repositorySkripsi->tahun }}</td>
+                                            <td><a class="btn btn-primary"
+                                                    href="{{ url($repositorySkripsi->slug) }}">Detail</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

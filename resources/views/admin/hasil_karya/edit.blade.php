@@ -51,7 +51,8 @@
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul" value="{{ $hasilKarya->judul }}">
+                                                    maxlength="255" placeholder="Masukkan Judul"
+                                                    value="{{ $hasilKarya->judul }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="nama_foto">Thumbnail (Maksimal 2MB)</label>

@@ -116,7 +116,7 @@
                                             href="{{ url('') }}">Beranda</a></li>
                                     <li
                                         class=" {{ request()->is('akreditasi', 'sejarah', 'sambutan', 'struktur_organisasi', 'video_profil', 'visi_misi')? 'active': '' }}">
-                                        <span class="submenu">Profile <i class="fa fa-angle-down"></i></span>
+                                        <span class="submenu">Profil <i class="fa fa-angle-down"></i></span>
                                         <ul class="submenu ">
                                             <li><a href="{{ url('visi_misi') }}">Visi & Misi</a></li>
                                             <li><a href="{{ url('sejarah') }}">Sejarah</a></li>
@@ -191,7 +191,7 @@
                                         </ul>
                                     </li>
                                     <li
-                                        class="{{ request()->is('jadwal_kuliah','jadwal_praktikum','jadwal_ujian','jadwal_kegiatan','jadwal_seminar_kerja_praktik','jadwal_seminar_proposal','jadwal_seminar_hasil','jadwal_seminar_sidang_akhir','jadwal_kuliah/*','jadwal_ujian/*','jadwal_kegiatan/*','jadwal_seminar_kerja_praktik/*','jadwal_seminar_proposal/*','jadwal_seminar_hasil/*','jadwal_seminar_sidang_akhir/*','jadwal_praktikum/*')? 'active': '' }}">
+                                        class="{{ request()->is('jadwal_kuliah','jadwal_praktikum','jadwal_ujian','jadwal_kegiatan','jadwal_seminar_kerja_praktik','jadwal_seminar_proposal','jadwal_seminar_hasil','jadwal_sidang_akhir','jadwal_kuliah/*','jadwal_ujian/*','jadwal_kegiatan/*','jadwal_seminar_kerja_praktik/*','jadwal_seminar_proposal/*','jadwal_seminar_hasil/*','jadwal_seminar_sidang_akhir/*','jadwal_praktikum/*')? 'active': '' }}">
                                         <span class="submenu"> Agenda <i class="fa fa-angle-down"></i></span>
                                         <ul class="submenu">
                                             <li><a class="{{ request()->is('jadwal_kuliah/*') ? 'is-active' : '' }}"
@@ -204,7 +204,7 @@
                                                     href="{{ url('jadwal_kegiatan') }}">Jadwal Kegiatan</a></li>
                                             <li class="dropbtn icon2 hidden-menu">
                                                 <a
-                                                    class="{{ request()->is('jadwal_seminar_kerja_praktik','jadwal_seminar_proposal','jadwal_seminar_hasil','jadwal_seminar_sidang_akhir','jadwal_seminar_kerja_praktik/*','jadwal_seminar_proposal/*','jadwal_seminar_hasil/*','jadwal_seminar_sidang_akhir/*')? 'is-active': '' }}">
+                                                    class="{{ request()->is('jadwal_seminar_kerja_praktik','jadwal_seminar_proposal','jadwal_seminar_hasil','jadwal_sidang_akhir','jadwal_seminar_kerja_praktik/*','jadwal_seminar_proposal/*','jadwal_seminar_hasil/*','jadwal_seminar_sidang_akhir/*')? 'is-active': '' }}">
                                                     Jadwal Seminar
                                                 </a>
                                                 <ul id="drop-content2">

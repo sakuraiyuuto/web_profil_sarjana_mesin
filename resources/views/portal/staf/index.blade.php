@@ -49,10 +49,10 @@
                                 <tbody>
                                     @foreach ($stafs as $staf)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $staf->nama }}</th>
-                                            <th>{{ $staf->nip }}</th>
-                                            <th>{{ $staf->pangkat_golongan }}</th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $staf->nama }}</td>
+                                            <td>{{ $staf->nip }}</td>
+                                            <td>{{ $staf->pangkat_golongan }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

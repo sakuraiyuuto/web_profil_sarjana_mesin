@@ -52,11 +52,11 @@
                                 <tbody>
                                     @foreach ($dosens as $dosen)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $dosen->nama }}</th>
-                                            <th>{{ $dosen->nip }}</th>
-                                            <th>{{ $dosen->pangkat_golongan }}</th>
-                                            <th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $dosen->nama }}</td>
+                                            <td>{{ $dosen->nip }}</td>
+                                            <td>{{ $dosen->pangkat_golongan }}</td>
+                                            <td>
                                                 @if ($dosen->url != '')
                                                     <a href="{{ $dosen->url }}" target="_blank">
                                                         <div class="btn btn-primary">
@@ -66,8 +66,8 @@
                                                 @else
                                                     -
                                                 @endif
-                                            </th>
-                                            <th>
+                                            </td>
+                                            <td>
                                                 @if ($dosen->sinta != '')
                                                     <a href="{{ $dosen->sinta }}" target="_blank">
                                                         <div class="btn btn-primary">
@@ -77,7 +77,7 @@
                                                 @else
                                                     -
                                                 @endif
-                                            <th>
+                                            <td>
                                                 @if ($dosen->google_scholar != '')
                                                     <a href="{{ $dosen->google_scholar }}" target="_blank">
                                                         <div class="btn btn-primary">
@@ -87,7 +87,7 @@
                                                 @else
                                                     -
                                                 @endif
-                                            </th>
+                                            </td>
 
 
                                         </tr>

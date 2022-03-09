@@ -33,13 +33,13 @@ class StrukturInstansiController extends Controller
      * @param  \App\Models\StrukturInstansi  $strukturInstansi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StrukturInstansi $strukturInstansi)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'teks'     => 'required'
         ]);
 
-        StrukturInstansi::where('id', $strukturInstansi->id)
+        StrukturInstansi::where('id', $id)
             ->update([
                 'teks' => $request->teks
             ]);

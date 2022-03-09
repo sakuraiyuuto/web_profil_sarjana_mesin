@@ -187,7 +187,7 @@
                             <input type="hidden" name="id" id="id">
                             <div class="form-group">
                                 <label for="judul">Judul</label>
-                                <input type="text" class="form-control mt-0" id="judul" name="judul"
+                                <input type="text" class="form-control mt-0" id="judul" name="judul" maxlength="255"
                                     placeholder="Masukkan Judul">
                             </div>
                             <div class="form-group">

@@ -40,7 +40,7 @@
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
                                                     placeholder="Masukkan Judul" value="{{ $lowonganPekerjaan->judul }}"
-                                                    required>
+                                                    maxlength="255" required>
                                             </div>
 
                                             <div class="form-group">

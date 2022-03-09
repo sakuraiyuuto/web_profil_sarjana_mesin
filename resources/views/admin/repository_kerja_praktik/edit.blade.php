@@ -39,20 +39,20 @@
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul"
+                                                    placeholder="Masukkan Judul" maxlength="255"
                                                     value="{{ $repositoryKerjaPraktik->judul }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="author">Author</label>
                                                 <input type="text" class="form-control" id="author" name="author"
-                                                    placeholder="Masukkan Author" value="{{ $repositoryKerjaPraktik->author }}"
-                                                    required>
+                                                    placeholder="Masukkan Author"
+                                                    value="{{ $repositoryKerjaPraktik->author }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tahun">Tahun</label>
-                                                <input type="text" class="form-control" id="tahun" name="tahun"
-                                                    placeholder="Masukkan Tahun Penelitian" value="{{ $repositoryKerjaPraktik->tahun }}"
-                                                    required>
+                                                <input type="number" class="form-control" id="tahun" name="tahun"
+                                                    placeholder="Masukkan Tahun Penelitian"
+                                                    value="{{ $repositoryKerjaPraktik->tahun }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="teks">Abstrak</label>

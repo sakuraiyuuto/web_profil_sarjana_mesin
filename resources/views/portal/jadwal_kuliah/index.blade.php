@@ -50,21 +50,21 @@
                                 <tbody>
                                     @foreach ($jadwalKuliahs as $jadwalKuliah)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $jadwalKuliah->tahun_ajaran }}</th>
-                                            <th>{{ $jadwalKuliah->semester }}</th>
-                                            <th><a href="{{ url($jadwalKuliah->slug) }}">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $jadwalKuliah->tahun_ajaran }}</td>
+                                            <td>{{ $jadwalKuliah->semester }}</td>
+                                            <td><a href="{{ url($jadwalKuliah->slug) }}">
                                                     <div class="btn btn-primary">
                                                         Lihat
                                                     </div>
                                                 </a>
-                                            </th>
-                                            <th><a href="{{ url($jadwalKuliah->nama_file) }}" download target="_blank">
+                                            </td>
+                                            <td><a href="{{ url($jadwalKuliah->nama_file) }}" download target="_blank">
                                                     <div class="btn btn-success">
                                                         Download
                                                     </div>
                                                 </a>
-                                            </th>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

@@ -51,7 +51,7 @@
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul"
+                                                    placeholder="Masukkan Judul" maxlength="255" required
                                                     value="{{ $kerjasamaMitraKolaborasi->judul }}">
                                             </div>
                                             <div class="form-group">

@@ -147,7 +147,8 @@
                     <div class="modal-body">
                         <div class="form-group mt-2">
                             <label for="judul">Judul</label>
-                            <input type="text" class="form-control mt-0" name="judul" required placeholder=". . .">
+                            <input type="text" class="form-control mt-0" maxlength="255" name="judul" required
+                                placeholder=". . .">
                         </div>
                         <div class="form-group mt-2">
                             <label for="tahun">Tahun</label>
@@ -196,7 +197,7 @@
                             <div class="form-group mt-2">
                                 <label for="judul">Judul</label>
                                 <input type="text" class="form-control mt-0" name="judul" id="judul" required
-                                    placeholder=". . .">
+                                    maxlength="255" placeholder=". . .">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="tahun">Tahun</label>

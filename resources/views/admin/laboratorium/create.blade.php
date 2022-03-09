@@ -42,14 +42,15 @@
                             <div class="card-body">
                                 <div class="row">
                                     <!-- form start -->
-                                    <form class="from-prevent-multiple-submits" action="{{ route('laboratorium.store') }}" method="POST" id="ckeditorForm"
-                                        enctype="multipart/form-data">
+                                    <form class="from-prevent-multiple-submits" action="{{ route('laboratorium.store') }}"
+                                        method="POST" id="ckeditorForm" enctype="multipart/form-data">
                                         @csrf
                                         <div class="card-body">
                                             <div class="form-group">
                                                 <label for="nama">Nama Laboratorium</label>
                                                 <input type="text" class="form-control" id="nama" name="nama"
-                                                    placeholder="Masukkan Nama Laboratorium" value="" required>
+                                                    maxlength="255" placeholder="Masukkan Nama Laboratorium" value=""
+                                                    required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="nama_foto">Thumbnail (Maksimal 2MB)</label>

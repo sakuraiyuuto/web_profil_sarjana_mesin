@@ -50,22 +50,22 @@
                                 <tbody>
                                     @foreach ($jadwalSidangAkhirs as $jadwalSidangAkhir)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $jadwalSidangAkhir->tahun_ajaran }}</th>
-                                            <th>{{ $jadwalSidangAkhir->semester }}</th>
-                                            <th><a href="{{ url($jadwalSidangAkhir->slug) }}">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $jadwalSidangAkhir->tahun_ajaran }}</td>
+                                            <td>{{ $jadwalSidangAkhir->semester }}</td>
+                                            <td><a href="{{ url($jadwalSidangAkhir->slug) }}">
                                                     <div class="btn btn-primary">
                                                         Lihat
                                                     </div>
                                                 </a>
-                                            </th>
-                                            <th><a href="{{ url($jadwalSidangAkhir->nama_file) }}" download
+                                            </td>
+                                            <td><a href="{{ url($jadwalSidangAkhir->nama_file) }}" download
                                                     target="_blank">
                                                     <div class="btn btn-success">
                                                         Download
                                                     </div>
                                                 </a>
-                                            </th>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

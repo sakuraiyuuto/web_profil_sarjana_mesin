@@ -50,7 +50,8 @@
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul Video" value="{{ $videoProfil->judul }}">
+                                                    maxlength="255" placeholder="Masukkan Judul Video"
+                                                    value="{{ $videoProfil->judul }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="url">ID Youtube</label>
@@ -60,8 +61,8 @@
                                             <div class="form-group">
                                                 <label for="teks">Deskripsi</label>
                                                 <textarea id="teks" placeholder="Masukkan Deskripsi" name="teks">
-                                                                                                                            {{ $videoProfil->teks }}
-                                                                                                                            </textarea>
+                                                                                                                                {{ $videoProfil->teks }}
+                                                                                                                                </textarea>
                                             </div>
                                         </div>
                                         <!-- /.card-body -->

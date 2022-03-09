@@ -41,7 +41,8 @@
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
                                                     placeholder="Masukkan Judul"
-                                                    value="{{ $pengabdianKepadaMasyarakatMahasiswa->judul }}" required>
+                                                    value="{{ $pengabdianKepadaMasyarakatMahasiswa->judul }}"
+                                                    maxlength="255" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="author">Pelaku PKM</label>
@@ -51,7 +52,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="tahun">Tahun</label>
-                                                <input type="text" class="form-control" id="tahun" name="tahun"
+                                                <input type="number" class="form-control" id="tahun" name="tahun"
                                                     placeholder="Masukkan Tahun Penelitian"
                                                     value="{{ $pengabdianKepadaMasyarakatMahasiswa->tahun }}" required>
                                             </div>

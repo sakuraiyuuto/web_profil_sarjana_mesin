@@ -51,22 +51,22 @@
                                 <tbody>
                                     @foreach ($jadwalUjians as $jadwalUjian)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $jadwalUjian->tipe_ujian }}</th>
-                                            <th>{{ $jadwalUjian->tahun_ajaran }}</th>
-                                            <th>{{ $jadwalUjian->semester }}</th>
-                                            <th><a href="{{ url($jadwalUjian->slug) }}">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $jadwalUjian->tipe_ujian }}</td>
+                                            <td>{{ $jadwalUjian->tahun_ajaran }}</td>
+                                            <td>{{ $jadwalUjian->semester }}</td>
+                                            <td><a href="{{ url($jadwalUjian->slug) }}">
                                                     <div class="btn btn-primary">
                                                         Lihat
                                                     </div>
                                                 </a>
-                                            </th>
-                                            <th><a href="{{ url($jadwalUjian->nama_file) }}" download target="_blank">
+                                            </td>
+                                            <td><a href="{{ url($jadwalUjian->nama_file) }}" download target="_blank">
                                                     <div class="btn btn-success">
                                                         Download
                                                     </div>
                                                 </a>
-                                            </th>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

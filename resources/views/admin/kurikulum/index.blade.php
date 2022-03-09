@@ -174,7 +174,7 @@
                             <select name="kelompok" class="form-control" required>
                                 <option disable value>. . .</option>
                                 <option value="Wajib">Wajib</option>
-                                <option value="Peminatan">Peminatan</option>
+                                <option value="Pilihan">Pilihan</option>
                             </select>
                         </div>
 
@@ -230,7 +230,7 @@
                                 <select name="kelompok" id="kelompok" class="form-control" required>
                                     <option disable value>. . .</option>
                                     <option value="Wajib">Wajib</option>
-                                    <option value="Peminatan">Peminatan</option>
+                                    <option value="Pilihan">Pilihan</option>
                                 </select>
                             </div>
                             <div class="modal-footer">

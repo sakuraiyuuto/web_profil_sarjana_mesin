@@ -55,8 +55,7 @@
                                                 .zip)</label><br>
                                             <a href="{{ url($sidangAkhir->nama_file) }}" download
                                                 target="_blank">{{ $sidangAkhir->nama_file }}</a>
-                                            <input type="file" accept=".zip,.rar" class="form-control mt-0" name="nama_file"
-                                                id="nama_file">
+                                            <input type="file" class="form-control mt-0" name="nama_file" id="nama_file">
                                         </div>
                                         <button type="submit" class="btn btn-success"> Save </button>
                                     </form>

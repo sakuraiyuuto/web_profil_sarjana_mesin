@@ -389,9 +389,9 @@
                         </li>
 
                         <li
-                            class="nav-item {{ set_open(['jadwal_kuliah.index','jadwal_ujian.index','jadwal_kegiatan.index','jadwal_seminar_kerja_praktik.index','jadwal_seminar_proposal.index','jadwal_seminar_hasil.index','jadwal_sidang_akhir.index','jadwal_praktikum.index']) }}">
+                            class="nav-item {{ set_open(['jadwal_kuliah.index','jadwal_ujian.index','jadwal_kegiatan.index','jadwal_kegiatan.create','jadwal_kegiatan.edit','jadwal_seminar_kerja_praktik.index','jadwal_seminar_proposal.index','jadwal_seminar_hasil.index','jadwal_sidang_akhir.index','jadwal_praktikum.index']) }}">
                             <a href="#"
-                                class="nav-link {{ set_active(['jadwal_kuliah.index','jadwal_ujian.index','jadwal_kegiatan.index','jadwal_seminar_kerja_praktik.index','jadwal_seminar_proposal.index','jadwal_seminar_hasil.index','jadwal_sidang_akhir.index','jadwal_praktikum.index']) }}">
+                                class="nav-link {{ set_active(['jadwal_kuliah.index','jadwal_ujian.index','jadwal_kegiatan.index','jadwal_kegiatan.create','jadwal_kegiatan.edit','jadwal_seminar_kerja_praktik.index','jadwal_seminar_proposal.index','jadwal_seminar_hasil.index','jadwal_sidang_akhir.index','jadwal_praktikum.index']) }}">
                                 <i class="nav-icon fas fa-calendar"></i>
                                 <p>
                                     Agenda
@@ -429,9 +429,9 @@
 
                                 <li class="nav-item">
                                     <a href="{{ url('admin/jadwal_kegiatan') }}"
-                                        class="nav-link {{ set_active(['jadwal_kegiatan.index']) }}">
+                                        class="nav-link {{ set_active(['jadwal_kegiatan.index', 'jadwal_kegiatan.create', 'jadwal_kegiatan.edit']) }}">
                                         <i
-                                            class="far fa{{ set_dot(['jadwal_kegiatan.index']) }}-circle nav-icon"></i>
+                                            class="far fa{{ set_dot(['jadwal_kegiatan.index', 'jadwal_kegiatan.create', 'jadwal_kegiatan.edit']) }}-circle nav-icon"></i>
                                         <p>Jadwal Kegiatan</p>
                                     </a>
                                 </li>
@@ -549,9 +549,9 @@
                         </li>
 
                         <li
-                            class="nav-item {{ set_open(['ruang_perkuliahan.index','laboratorium.index','ruang_staf_dan_dosen.index','perpustakaan.index']) }}">
+                            class="nav-item {{ set_open(['ruang_perkuliahan.index','laboratorium.index','laboratorium.edit','laboratorium.create','ruang_staf_dan_dosen.index','perpustakaan.index']) }}">
                             <a href="#"
-                                class="nav-link {{ set_active(['ruang_perkuliahan.index','laboratorium.index','ruang_staf_dan_dosen.index','perpustakaan.index']) }}">
+                                class="nav-link {{ set_active(['ruang_perkuliahan.index','laboratorium.index','laboratorium.edit','laboratorium.create','ruang_staf_dan_dosen.index','perpustakaan.index']) }}">
                                 <i class="nav-icon fas fa-building"></i>
                                 <p>
                                     Fasilitas
@@ -571,8 +571,9 @@
 
                                 <li class="nav-item">
                                     <a href="{{ url('admin/laboratorium') }}"
-                                        class="nav-link {{ set_active(['laboratorium.index']) }}">
-                                        <i class="far fa{{ set_dot(['laboratorium.index']) }}-circle nav-icon"></i>
+                                        class="nav-link {{ set_active(['laboratorium.index', 'laboratorium.edit', 'laboratorium.create']) }}">
+                                        <i
+                                            class="far fa{{ set_dot(['laboratorium.index', 'laboratorium.edit', 'laboratorium.create']) }}-circle nav-icon"></i>
                                         <p>Laboratorium</p>
                                     </a>
                                 </li>

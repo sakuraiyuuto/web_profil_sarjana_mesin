@@ -50,22 +50,22 @@
                                 <tbody>
                                     @foreach ($jadwalSeminarProposals as $jadwalSeminarProposal)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $jadwalSeminarProposal->tahun_ajaran }}</th>
-                                            <th>{{ $jadwalSeminarProposal->semester }}</th>
-                                            <th><a href="{{ url($jadwalSeminarProposal->slug) }}">
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $jadwalSeminarProposal->tahun_ajaran }}</td>
+                                            <td>{{ $jadwalSeminarProposal->semester }}</td>
+                                            <td><a href="{{ url($jadwalSeminarProposal->slug) }}">
                                                     <div class="btn btn-primary">
                                                         Lihat
                                                     </div>
                                                 </a>
-                                            </th>
-                                            <th><a href="{{ url($jadwalSeminarProposal->nama_file) }}" download
+                                            </td>
+                                            <td><a href="{{ url($jadwalSeminarProposal->nama_file) }}" download
                                                     target="_blank">
                                                     <div class="btn btn-success">
                                                         Download
                                                     </div>
                                                 </a>
-                                            </th>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

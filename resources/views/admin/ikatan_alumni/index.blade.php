@@ -47,9 +47,10 @@
                                         @method('patch')
                                         @csrf
                                         <div class="form-group">
-                                            <label for="nama">Nama Himpunan</label>
-                                            <input type="text" class="form-control" id="nama" name="nama"
-                                                placeholder="Masukkan Nama Himpunan" value="{{ $ikatanAlumni->nama }}">
+                                            <label for="nama">Nama Ikatan Alumni</label>
+                                            <input type="text" class="form-control" id="nama" name="nama" maxlength="255"
+                                                placeholder="Masukkan Nama Ikatan Alumni"
+                                                value="{{ $ikatanAlumni->nama }}">
                                         </div>
                                         <div class="form-group">
                                             <label for="nama_foto">Thumbnail (Maksimal 2MB)</label>

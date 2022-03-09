@@ -53,12 +53,12 @@
                                 <tbody>
                                     @foreach ($mataKuliahs as $mataKuliah)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $mataKuliah->kode }}</th>
-                                            <th>{{ $mataKuliah->nama }}</th>
-                                            <th>{{ $mataKuliah->sks }}</th>
-                                            <th>{{ $mataKuliah->semester }}</th>
-                                            <th>{{ $mataKuliah->kelompok }}</th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $mataKuliah->kode }}</td>
+                                            <td>{{ $mataKuliah->nama }}</td>
+                                            <td>{{ $mataKuliah->sks }}</td>
+                                            <td>{{ $mataKuliah->semester }}</td>
+                                            <td>{{ $mataKuliah->kelompok }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
