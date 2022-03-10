@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Jurnal - Teknik Elektro UNTAN')
+@section('title', 'Jurnal - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -13,7 +13,6 @@
                         <div class="inr_banner_heading">
                             <h3>Jurnal</h3>
                         </div>
-
                         <div class="kf_inr_breadcrumb">
                             <ul>
                                 <li><a href="{{ url('') }}">Beranda</a></li>
@@ -42,10 +41,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Judul</th>
-                                        <th>Author</th>
                                         <th>Tahun</th>
-                                        <th>Nomor/Volume</th>
-                                        <th>Download</th>
+                                        <th>Volume</th>
+                                        <th>Url</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,11 +51,13 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td><a href="{{ $jurnal->url }}">{{ $jurnal->judul }}</a></td>
-                                            <td>{{ $jurnal->author }}</td>
                                             <td>{{ $jurnal->tahun }}</td>
                                             <td>{{ $jurnal->nomor_volume }}</td>
-                                            <td><a class="btn btn-primary" href="{{ url($jurnal->nama_file) }}" download
-                                                            target="_blank">Download</a></td>
+                                            <td>
+                                                <a class="btn btn-primary" href="{{ url($jurnal->url) }}" target="_blank">
+                                                    Link
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -102,8 +102,9 @@
                                                         href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                                 </h6>
                                                 <span>
-                                             <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                                   
+                                                    <i
+                                                        class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                                 </span>
                                             </div>
                                         </li>
@@ -135,8 +136,8 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span>   <i class="fa fa-clock-o"></i>
-                                                        {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
+                                                        <span> <i class="fa fa-clock-o"></i>
+                                                            {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
                                                 <!--LIST ITEM START-->

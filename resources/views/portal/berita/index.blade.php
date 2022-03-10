@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Berita - Teknik Elektro UNTAN')
+@section('title', 'Berita - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -51,13 +51,13 @@
                                                     <span>
                                                         {{ substr(date('F', strtotime($berita->release_date)), 0, 3) }}
                                                     </span>
-                                                    
+
                                                 </a>
                                             </li>
                                         </ul>
                                         <!--BLOG 3 SIDE BAR END-->
                                         <!--BLOG 3 DES START-->
-                                        <div class="blog_3_des" >
+                                        <div class="blog_3_des">
                                             <figure>
                                                 <img class="img-news" src="{{ url($berita->thumbnail) }}" alt="" />
                                                 <figcaption><a href="{{ url($berita->slug) }}"><i
@@ -65,12 +65,13 @@
                                                 </figcaption>
                                             </figure>
                                             <h5><a href="{{ url($berita->slug) }}">{{ $berita->judul }}</a></h5>
-                                            <li><i class="fa fa-calendar"></i>  {{ date(' Y', strtotime($berita->release_date)) }}</li>
+                                            <li><i class="fa fa-calendar"></i>
+                                                {{ date(' Y', strtotime($berita->release_date)) }}</li>
                                             <p>
                                                 @if (strlen(strip_tags($berita->teks)) > 256)
-                                                    {{ str_replace("&nbsp;", "",substr(strip_tags($berita->teks), 0, 256) . '...' )}}
+                                                    {{ str_replace('&nbsp;', '', substr(strip_tags($berita->teks), 0, 256) . '...') }}
                                                 @else
-                                                    {{ str_replace("&nbsp;", "",substr(strip_tags($berita->teks), 0, 256))}}
+                                                    {{ str_replace('&nbsp;', '', substr(strip_tags($berita->teks), 0, 256)) }}
                                                 @endif
                                             </p>
                                             <a class="readmore" href="{{ url($berita->slug) }}">
@@ -126,8 +127,8 @@
                                 <!--LIST ITEM START-->
                                 <li>
                                     <figure>
-                                        <img class="img-sidebar-info"
-                                            src="{{ asset($informasiTerbaru->thumbnail) }}" alt="">
+                                        <img class="img-sidebar-info" src="{{ asset($informasiTerbaru->thumbnail) }}"
+                                            alt="">
                                         <figcaption><a href="{{ url($informasiTerbaru->slug) }}"><i
                                                     class="fa fa-search-plus"></i></a></figcaption>
                                     </figure>
@@ -137,8 +138,9 @@
                                                 href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                         </h6>
                                         <span>
-                                        <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                            
+                                            <i
+                                                class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                         </span>
                                     </div>
                                 </li>
@@ -165,12 +167,11 @@
                                                 <figcaption><a href="{{ $aplikasiIntegrasi->url }}"><i
                                                             class="fa fa-search-plus"></i></a></figcaption>
                                             </figure>
-                                            <div class="kode-text"
-                                                style="padding-top : 10px;padding-right : 5px">
+                                            <div class="kode-text" style="padding-top : 10px;padding-right : 5px">
                                                 <h6><a
                                                         href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                 </h6>
-                                                <span>   
+                                                <span>
                                                     <i class="fa fa-clock-o"></i>
                                                     {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}
                                                 </span>
@@ -182,17 +183,17 @@
                             </div>
                         </ul>
                     </div>
-                    <a href="{{ url('aplikasi_integrasi') }}" style="font-size : 15px"
-                        class="button-pkm">Semua Aplikasi</a>
+                    <a href="{{ url('aplikasi_integrasi') }}" style="font-size : 15px" class="button-pkm">Semua
+                        Aplikasi</a>
                     <!--KF SIDEBAR RECENT POST WRAP END-->
                 </div>
             </div>
-                 
-        </div>
-            <!--KF EDU SIDEBAR WRAP END-->
+
+    </div>
+    <!--KF EDU SIDEBAR WRAP END-->
     </div>
     </div>
-</div>
+    </div>
     </section>
     <!--ABOUT UNIVERSITY END-->
     </div>

@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Repository Skripsi - Teknik Elektro UNTAN')
+@section('title', 'Repository Skripsi - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -50,13 +50,11 @@
                                     </li>
                                 </ul>
                                 <ul class="blog_detail_meta">
-                                    <li><a
-                                            href="#">Author : {{ $repositorySkripsi->author }}</a>
+                                    <li><a href="#">Author : {{ $repositorySkripsi->author }}</a>
                                     </li>
                                 </ul>
                                 <ul class="blog_detail_meta">
-                                    <li><a
-                                            href="#">Tahun : {{ $repositorySkripsi->tahun }}</a>
+                                    <li><a href="#">Tahun : {{ $repositorySkripsi->tahun }}</a>
                                     </li>
                                 </ul>
 
@@ -71,17 +69,17 @@
                             <section id="share-post">
                                 <div class="icons">
                                     <span>Bagikan ke :</span>
-                                   <a href="{{ Share::currentPage()->facebook()->getRawLinks() }}"
-                                        class="social-button" target="_blank" id="">
+                                    <a href="{{ Share::currentPage()->facebook()->getRawLinks() }}" class="social-button"
+                                        target="_blank" id="">
                                         <span class="fa fa-facebook-square"></span>
                                     </a>
-                
-                                    <a href="{{ Share::currentPage()->twitter()->getRawLinks() }}"
-                                        class="social-button " target="_blank" id="">
+
+                                    <a href="{{ Share::currentPage()->twitter()->getRawLinks() }}" class="social-button "
+                                        target="_blank" id="">
                                         <span class="fa fa-twitter-square"></span>
                                     </a>
-                                    <a href="{{ Share::currentPage()->whatsapp()->getRawLinks() }}"
-                                        class="social-button " target="_blank" id="">
+                                    <a href="{{ Share::currentPage()->whatsapp()->getRawLinks() }}" class="social-button "
+                                        target="_blank" id="">
                                         <span class="fa fa-whatsapp"></span>
                                     </a>
                                 </div><!-- /.icons -->

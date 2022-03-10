@@ -30,8 +30,8 @@
                                 <div class="row">
                                     <!-- form start -->
                                     <form class="from-prevent-multiple-submits"
-                                        action="{{ route('jadwal_kegiatan.update', $jadwalKegiatan) }}"
-                                        method="POST" enctype="multipart/form-data">
+                                        action="{{ route('jadwal_kegiatan.update', $jadwalKegiatan) }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @method('patch')
                                         @csrf
                                         <div class="card-body">
@@ -39,26 +39,26 @@
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul"
-                                                    value="{{ $jadwalKegiatan->judul }}" required>
+                                                    placeholder="Masukkan Judul" value="{{ $jadwalKegiatan->judul }}"
+                                                    maxlength="255" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="author">Pelaksana Kegiatan</label>
                                                 <input type="text" class="form-control" id="author" name="author"
-                                                    placeholder="Masukkan Pelaksana Kegiatan" value="{{ $jadwalKegiatan->author }}"
-                                                    required>
+                                                    placeholder="Masukkan Pelaksana Kegiatan"
+                                                    value="{{ $jadwalKegiatan->author }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tahun">Tahun</label>
-                                                <input type="text" class="form-control" id="tahun" name="tahun"
-                                                    placeholder="Masukkan Tahun Penelitian" value="{{ $jadwalKegiatan->tahun }}"
-                                                    required>
+                                                <input type="number" class="form-control" id="tahun" name="tahun"
+                                                    placeholder="Masukkan Tahun Penelitian"
+                                                    value="{{ $jadwalKegiatan->tahun }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="thumbnail">Thumbnail (Maksimal 2MB)</label>
                                                 <div class="form-group">
-                                                    <img src="{{ url($jadwalKegiatan->thumbnail) }}"
-                                                        alt="Image Missing" id="old_thumbnail" style="max-width: 200px;"
+                                                    <img src="{{ url($jadwalKegiatan->thumbnail) }}" alt="Image Missing"
+                                                        id="old_thumbnail" style="max-width: 200px;"
                                                         class="mt-2" />
                                                 </div>
                                                 <input type="file" accept="image/*" class="form-control mt-0"

@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Profil Lulusan - Teknik Elektro UNTAN')
+@section('title', 'Profil Lulusan - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -43,18 +43,26 @@
                                         <th>No</th>
                                         <th>Nama</th>
                                         <th>NIM</th>
-                                        <th>Angkatan</th>
+                                        <th>Periode Kelulusan</th>
                                         <th>Tahun Lulus</th>
+                                        <th>File</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($profilLulusans as $profilLulusan)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $profilLulusan->nama }}</th>
-                                            <th>{{ $profilLulusan->nim }}</th>
-                                            <th>{{ $profilLulusan->angkatan }}</th>
-                                            <th>{{ $profilLulusan->tahun_lulus }}</th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $profilLulusan->nama }}</td>
+                                            <td>{{ $profilLulusan->nim }}</td>
+                                            <td>{{ $profilLulusan->periode_kelulusan }}</td>
+                                            <td>{{ $profilLulusan->tahun_lulus }}</td>
+                                            <td>
+                                                <a href="{{ url($profilLulusan->nama_file) }}" download target="_blank">
+                                                    <div class="btn btn-success">
+                                                        Download
+                                                    </div>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -64,7 +72,7 @@
                     </div>
 
                     <!--KF_EDU_SIDEBAR_WRAP START-->
-                           <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="kf-sidebar">
 
                             <!--KF_SIDEBAR_SEARCH_WRAP START-->
@@ -99,8 +107,9 @@
                                                         href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                                 </h6>
                                                 <span>
-                                             <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                                   
+                                                    <i
+                                                        class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                                 </span>
                                             </div>
                                         </li>
@@ -132,8 +141,8 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span>   <i class="fa fa-clock-o"></i>
-                                                        {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
+                                                        <span> <i class="fa fa-clock-o"></i>
+                                                            {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
                                                 <!--LIST ITEM START-->

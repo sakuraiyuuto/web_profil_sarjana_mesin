@@ -52,11 +52,9 @@
                                             <tr>
                                                 <th>Nomor</th>
                                                 <th>Judul</th>
-                                                <th>Author</th>
                                                 <th>Tahun</th>
-                                                <th>Nomor/Volume</th>
+                                                <th>Volume</th>
                                                 <th>Link File</th>
-                                                <th>File</th>
                                                 <th>Jadwal Rilis</th>
                                                 <th>Status</th>
                                                 <th>Aksi</th>
@@ -67,12 +65,9 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $jurnal->judul }}</td>
-                                                    <td>{{ $jurnal->author }}</td>
                                                     <td>{{ $jurnal->tahun }}</td>
                                                     <td>{{ $jurnal->nomor_volume }}</td>
                                                     <td><a href="{{ $jurnal->url }}">{{ $jurnal->url }}</a></td>
-                                                    <td><a href="{{ url($jurnal->nama_file) }}" download
-                                                            target="_blank">{{ $jurnal->nama_file }}</a></td>
                                                     <td>{{ $jurnal->release_date }}</td>
                                                     @if ($jurnal->deleted_at == '')
                                                         @if ($jurnal->release_date <= date('Y-m-d'))
@@ -80,7 +75,7 @@
                                                         @else
                                                             <td>Belum Rilis</td>
                                                         @endif
-                                                    @else ($jurnal->deleted_at != "")
+                                                    @else
                                                         <td>Terhapus</td>
                                                     @endif
                                                     @if ($jurnal->deleted_at == '')
@@ -88,16 +83,13 @@
                                                             <button href="#formModalEdit" role="button" data-toggle="modal"
                                                                 data-id="{{ $jurnal->id }}"
                                                                 data-judul="{{ $jurnal->judul }}"
-                                                                data-author="{{ $jurnal->author }}"
                                                                 data-tahun="{{ $jurnal->tahun }}"
                                                                 data-nomor_volume="{{ $jurnal->nomor_volume }}"
                                                                 data-url="{{ $jurnal->url }}"
-                                                                data-nama_file="{{ $jurnal->nama_file }}"
                                                                 data-release_date="{{ $jurnal->release_date }}"
                                                                 class="btn btn-warning open-formModalEdit"><i
                                                                     class="fa fa-edit"></i> Edit</button>
-                                                            <form
-                                                                action="{{ route('jurnal.destroy', $jurnal) }}"
+                                                            <form action="{{ route('jurnal.destroy', $jurnal) }}"
                                                                 method="post">
                                                                 @method('delete')
                                                                 @csrf
@@ -150,39 +142,26 @@
                     <h5 class="modal-title" id="formModalLabel">Tambah Data Jurnal</h5>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">X</button>
                 </div>
-                <form id="formAdd" action="{{ url('/admin/jurnal') }}" method="post"
-                    enctype="multipart/form-data">
+                <form id="formAdd" action="{{ url('/admin/jurnal') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="modal-body">
                         <div class="form-group mt-2">
-                                <label for="judul">Judul</label>
-                                <input type="text" class="form-control mt-0" name="judul" required
-                                     placeholder=". . .">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="author">Author</label>
-                                <input type="text" class="form-control mt-0" name="author" required 
-                                    placeholder=". . .">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="tahun">Tahun</label>
-                                <input type="number" class="form-control mt-0" name="tahun" required maxlength="4"
-                                    placeholder=". . .">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="nomor_volume">Nomor/Volume</label>
-                                <input type="text" class="form-control mt-0" name="nomor_volume" required 
-                                    placeholder=". . .">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="url">Link File Jurnal</label>
-                                <input type="text" class="form-control mt-0" name="url" required 
-                                    placeholder=". . .">
-                            </div>
-                        <div class="form-group">
-                            <label for="nama_file">File Jurnal</label>
-                            <input type="file" class="form-control mt-0" name="nama_file"
-                                onchange="Filevalidation()">
+                            <label for="judul">Judul</label>
+                            <input type="text" class="form-control mt-0" maxlength="255" name="judul" required
+                                placeholder=". . .">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="tahun">Tahun</label>
+                            <input type="number" class="form-control mt-0" name="tahun" required maxlength="4"
+                                placeholder=". . .">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="nomor_volume">Nomor/Volume</label>
+                            <input type="text" class="form-control mt-0" name="nomor_volume" required placeholder=". . .">
+                        </div>
+                        <div class="form-group mt-2">
+                            <label for="url">Link File Jurnal</label>
+                            <input type="text" class="form-control mt-0" name="url" required placeholder=". . .">
                         </div>
                         <div class="form-group mt-2">
                             <label for="release_date">Jadwal Rilis</label>
@@ -218,32 +197,22 @@
                             <div class="form-group mt-2">
                                 <label for="judul">Judul</label>
                                 <input type="text" class="form-control mt-0" name="judul" id="judul" required
-                                     placeholder=". . .">
-                            </div>
-                            <div class="form-group mt-2">
-                                <label for="author">Author</label>
-                                <input type="text" class="form-control mt-0" name="author" id="author" required 
-                                    placeholder=". . .">
+                                    maxlength="255" placeholder=". . .">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="tahun">Tahun</label>
-                                <input type="number" class="form-control mt-0" name="tahun" id="tahun" required maxlength="4"
-                                    placeholder=". . .">
+                                <input type="number" class="form-control mt-0" name="tahun" id="tahun" required
+                                    maxlength="4" placeholder=". . .">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="nomor_volume">Nomor/Volume</label>
-                                <input type="text" class="form-control mt-0" name="nomor_volume" id="nomor_volume" required 
+                                <input type="text" class="form-control mt-0" name="nomor_volume" id="nomor_volume" required
                                     placeholder=". . .">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="url">Link File Jurnal</label>
-                                <input type="text" class="form-control mt-0" name="url" id="url" required 
+                                <input type="text" class="form-control mt-0" name="url" id="url" required
                                     placeholder=". . .">
-                            </div>
-                            <div class="form-group">
-                                <label for="nama_file">File Jurnal</label>
-                                <input type="file" class="form-control mt-0" name="nama_file" id="nama_file"
-                                    onchange="Filevalidation()">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="release_date">Jadwal Rilis</label>
@@ -282,21 +251,17 @@
         $(document).on("click", ".open-formModalEdit", function() {
             var id = $(this).data('id');
             var judul = $(this).data('judul');
-            var author = $(this).data('author');
             var tahun = $(this).data('tahun');
             var nomor_volume = $(this).data('nomor_volume');
             var url = $(this).data('url');
-            var nama_file = $(this).data('nama_file');
             var release_date = $(this).data('release_date');
 
             $(".modal-body #id").val(id);
             $(".modal-body #judul").val(judul);
-            $(".modal-body #author").val(author);
             $(".modal-body #tahun").val(tahun);
             $(".modal-body #nomor_volume").val(nomor_volume);
             $(".modal-body #url").val(url);
             $(".modal-body #release_date").val(release_date);
-            $(".modal-body #nama_file").val(nama_file);
         });
     </script>
 

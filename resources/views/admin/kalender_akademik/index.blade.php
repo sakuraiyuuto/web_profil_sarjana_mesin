@@ -138,7 +138,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="formModalLabel">Tambah Data Staf</h5>
+                    <h5 class="modal-title" id="formModalLabel">Tambah Data Kalender Akademik</h5>
                     <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <form id="formAdd" action="{{ url('/admin/kalender_akademik') }}" method="post"
@@ -152,7 +152,8 @@
                         </div>
                         <div class="form-group mt-2">
                             <label for="nama_file">PDF</label>
-                            <input type="file" class="form-control" name="nama_file" required accept="application/pdf">
+                            <input type="file" id="input_file_add" class="form-control" name="nama_file" required
+                                accept="application/pdf">
                         </div>
                         <div class="form-group mt-2">
                             <label for="release_date">Tanggal Rilis</label>
@@ -175,7 +176,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="formModalLabel">Ubah Data Staf</h5>
+                        <h5 class="modal-title" id="formModalLabel">Ubah Data Kalender Akademik</h5>
                         <button type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">X</button>
                     </div>
                     <form id="formEdit" action="{{ route('kalender_akademik.update', $kalenderAkademik->id) }}"
@@ -186,12 +187,13 @@
                             <input type="hidden" name="id" id="id">
                             <div class="form-group">
                                 <label for="judul">Judul</label>
-                                <input type="text" class="form-control mt-0" id="judul" name="judul"
+                                <input type="text" class="form-control mt-0" id="judul" name="judul" maxlength="255"
                                     placeholder="Masukkan Judul">
                             </div>
                             <div class="form-group">
-                                <label for="nama_file">PDF</label>
-                                <input type="file" class="form-control mt-0" name="nama_file" accept="application/pdf">
+                                <label for="nama_file">PDF (Maksimal 2MB)</label>
+                                <input type="file" id="input_file_edit" class="form-control mt-0" name="nama_file"
+                                    accept="application/pdf">
                                 <input type="hidden" name="old_file" id="old_file"
                                     value="{{ $kalenderAkademik->nama_file }}">
                             </div>
@@ -257,5 +259,25 @@
                 return false;
             });
         });
+    </script>
+
+    <!-- Validasi File 2MB -->
+    <script>
+        var uploadField = document.getElementById("input_file_add");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
+
+        //Form edit image validation
+        var uploadField = document.getElementById("input_file_edit");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
     </script>
 @endsection

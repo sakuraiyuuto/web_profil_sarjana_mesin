@@ -24,12 +24,16 @@ class InformasiTerbaru extends Model
         $informasi_beasiswas = DB::table('informasi_beasiswas')
             ->where('release_date', '<=', date('Y-m-d'))
             ->where('deleted_at', null);
+        $lowongan_pekerjaans = DB::table('lowongan_pekerjaans')
+            ->where('release_date', '<=', date('Y-m-d'))
+            ->where('deleted_at', null);
 
         $informasiTerbaru = DB::table('beritas')
             ->union($kerjasama_mitra_kolaborasis)
             ->union($hasil_karyas)
             ->union($layanan_mahasiswas)
             ->union($informasi_beasiswas)
+            ->union($lowongan_pekerjaans)
             ->where('release_date', '<=', date('Y-m-d'))
             ->where('deleted_at', null)
             ->orderBy('release_date', 'DESC');

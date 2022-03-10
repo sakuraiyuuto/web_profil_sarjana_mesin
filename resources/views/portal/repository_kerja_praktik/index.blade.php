@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Repository Kerja Praktik - Teknik Elektro UNTAN')
+@section('title', 'Repository Kerja Praktik - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -50,11 +50,12 @@
                                 <tbody>
                                     @foreach ($repositoryKerjaPraktiks as $repositoryKerjaPraktik)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $repositoryKerjaPraktik->judul }}</th>
-                                            <th>{{ $repositoryKerjaPraktik->author }}</th>
-                                            <th>{{ $repositoryKerjaPraktik->tahun }}</th>
-                                            <th><a class="btn btn-primary"href="{{ url($repositoryKerjaPraktik->slug) }}">Detail</a></th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $repositoryKerjaPraktik->judul }}</td>
+                                            <td>{{ $repositoryKerjaPraktik->author }}</td>
+                                            <td>{{ $repositoryKerjaPraktik->tahun }}</td>
+                                            <td><a class="btn btn-primary"
+                                                    href="{{ url($repositoryKerjaPraktik->slug) }}">Detail</a></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

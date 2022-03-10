@@ -23,7 +23,7 @@ class StafController extends Controller
     public function index()
     {
         $session_user = Auth::user();
-        $stafs = Staf::all();
+        $stafs = Staf::all()->sortDesc();
 
         return view('admin.staf.index', compact('stafs', 'session_user'));
     }
@@ -107,7 +107,7 @@ class StafController extends Controller
         $laboratoriumHeaders = Laboratorium::where('release_date', '<=', date('Y-m-d'))
             ->orderBy('release_date', 'DESC')
             ->get();
-        
+
         return view('portal.staf.index',  compact('stafs', 'kontak', 'informasiTerbarus', 'aplikasiIntegrasis',  'profilSingkat', 'laboratoriumHeaders'));
     }
 }

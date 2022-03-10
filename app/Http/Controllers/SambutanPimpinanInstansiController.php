@@ -33,13 +33,13 @@ class SambutanPimpinanInstansiController extends Controller
      * @param  \App\Models\SambutanPimpinanInstansi  $sambutanPimpinanInstansi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SambutanPimpinanInstansi $sambutanPimpinanInstansi)
+    public function update(Request $request, $id)
     {
         $this->validate($request, [
             'teks'     => 'required'
         ]);
 
-        SambutanPimpinanInstansi::where('id', $sambutanPimpinanInstansi->id)
+        SambutanPimpinanInstansi::where('id', $id)
             ->update([
                 'teks' => $request->teks
             ]);

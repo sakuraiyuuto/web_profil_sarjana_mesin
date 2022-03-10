@@ -33,6 +33,6 @@ class CreateLaboratoriumsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('himpunan_mahasiswas');
+        Schema::dropIfExists('laboratoriums');
     }
 }

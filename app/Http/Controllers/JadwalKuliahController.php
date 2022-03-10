@@ -78,7 +78,7 @@ class JadwalKuliahController extends Controller
                 'slug' => 'jadwal_kuliah/' . $slug,
                 'release_date' => $request->release_date,
             ]);
-            return redirect('/admin/jadwal_kuliah')->with('status', 'Dokumen Prodi Berhasil Ditambahkan');
+            return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Ditambahkan');
         }
     }
 
@@ -144,7 +144,7 @@ class JadwalKuliahController extends Controller
                         'release_date' => $request->release_date,
                     ]);
 
-                return redirect('/admin/jadwal_kuliah')->with('status', 'Dokumen Prodi Berhasil Diubah');
+                return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Diubah');
             } else {
                 $file = $jadwalKuliahs->nama_file;
                 if (file_exists($file)) {
@@ -170,7 +170,7 @@ class JadwalKuliahController extends Controller
                         'release_date' => $request->release_date,
                     ]);
 
-                return redirect('/admin/jadwal_kuliah')->with('status', 'Dokumen Prodi Berhasil Diubah');
+                return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Diubah');
             }
         }
     }
@@ -184,7 +184,7 @@ class JadwalKuliahController extends Controller
     public function destroy($id)
     {
         JadwalKuliah::destroy($id);
-        return redirect('/admin/jadwal_kuliah')->with('status', 'Dokumen Prodi Berhasil Dihapus');
+        return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Dihapus');
     }
 
     public function restore($id)
@@ -194,7 +194,7 @@ class JadwalKuliahController extends Controller
             ->first();
 
         $jadwalKuliah->restore();
-        return redirect('/admin/jadwal_kuliah')->with('status', 'Dokumen Prodi Berhasil Direstore');
+        return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Direstore');
     }
 
     public function delete($id)
@@ -210,7 +210,7 @@ class JadwalKuliahController extends Controller
         }
 
         $jadwalKuliah->forceDelete();
-        return redirect('/admin/jadwal_kuliah')->with('status', 'Dokumen Prodi Berhasil Dihapus Permanen');
+        return redirect('/admin/jadwal_kuliah')->with('status', 'Jadwal Kuliah Berhasil Dihapus Permanen');
     }
 
     public function menuJadwalKuliah()
@@ -228,7 +228,7 @@ class JadwalKuliahController extends Controller
             ->orderBy('release_date', 'DESC')
             ->take(3)
             ->get();
-        
+
         $laboratoriumHeaders = Laboratorium::where('release_date', '<=', date('Y-m-d'))
             ->orderBy('release_date', 'DESC')
             ->get();

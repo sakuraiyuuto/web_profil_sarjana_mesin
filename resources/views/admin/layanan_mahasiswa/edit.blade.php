@@ -40,7 +40,7 @@
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
                                                     placeholder="Masukkan Judul" value="{{ $layananMahasiswa->judul }}"
-                                                    required>
+                                                    maxlength="255" required>
                                             </div>
 
                                             <div class="form-group">
@@ -55,7 +55,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="teks">Teks</label>
-                                                <textarea id="teks" placeholder="Masukkan Deskripsi Video"
+                                                <textarea id="teks" placeholder="Masukkan Deskripsi"
                                                     name="teks">{{ $layananMahasiswa->teks }}</textarea>
                                             </div>
                                             <div class="form-group mt-2">

@@ -39,7 +39,7 @@
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul"
+                                                    placeholder="Masukkan Judul" maxlength="255"
                                                     value="{{ $repositorySkripsi->judul }}" required>
                                             </div>
                                             <div class="form-group">
@@ -50,9 +50,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="tahun">Tahun</label>
-                                                <input type="text" class="form-control" id="tahun" name="tahun"
-                                                    placeholder="Masukkan Tahun Penelitian" value="{{ $repositorySkripsi->tahun }}"
-                                                    required>
+                                                <input type="number" class="form-control" id="tahun" name="tahun"
+                                                    placeholder="Masukkan Tahun Penelitian"
+                                                    value="{{ $repositorySkripsi->tahun }}" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="teks">Abstrak</label>

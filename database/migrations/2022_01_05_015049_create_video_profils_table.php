@@ -17,7 +17,7 @@ class CreateVideoProfilsTable extends Migration
         Schema::create('video_profils', function (Blueprint $table) {
             $table->id();
             $table->string('judul', 255)->nullable(false);
-            $table->string('url', 255)->nullable(false);
+            $table->text('url')->nullable(false);
             $table->text('teks')->nullable(false);
             $table->softDeletes();
             $table->timestamps();

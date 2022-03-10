@@ -55,8 +55,7 @@
                                                 .zip)</label><br>
                                             <a href="{{ url($sidangAkhir->nama_file) }}" download
                                                 target="_blank">{{ $sidangAkhir->nama_file }}</a>
-                                            <input type="file" accept=".zip,.rar" class="form-control mt-0" name="nama_file"
-                                                id="nama_file" onchange="Filevalidation()">
+                                            <input type="file" class="form-control mt-0" name="nama_file" id="nama_file">
                                         </div>
                                         <button type="submit" class="btn btn-success"> Save </button>
                                     </form>
@@ -190,5 +189,16 @@
                 $('.from-prevent-multiple-submits').attr('disabled', 'true');
             })
         })();
+    </script>
+
+    <!-- Validasi File 2MB -->
+    <script>
+        var uploadField = document.getElementById("nama_file");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
     </script>
 @endsection

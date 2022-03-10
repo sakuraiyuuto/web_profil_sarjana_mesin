@@ -50,7 +50,8 @@
                                             <div class="form-group">
                                                 <label for="judul">Judul</label>
                                                 <input type="text" class="form-control" id="judul" name="judul"
-                                                    placeholder="Masukkan Judul Video" value="{{ $videoProfil->judul }}">
+                                                    maxlength="255" placeholder="Masukkan Judul Video"
+                                                    value="{{ $videoProfil->judul }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="url">ID Youtube</label>
@@ -58,10 +59,10 @@
                                                     placeholder="Masukkan Url Video" value="{{ $videoProfil->url }}">
                                             </div>
                                             <div class="form-group">
-                                                <label for="teks">Deskripsi Video</label>
-                                                <textarea id="teks" placeholder="Masukkan Deskripsi Video" name="teks">
-                                                                                                                        {{ $videoProfil->teks }}
-                                                                                                                        </textarea>
+                                                <label for="teks">Deskripsi</label>
+                                                <textarea id="teks" placeholder="Masukkan Deskripsi" name="teks">
+                                                                                                                                {{ $videoProfil->teks }}
+                                                                                                                                </textarea>
                                             </div>
                                         </div>
                                         <!-- /.card-body -->

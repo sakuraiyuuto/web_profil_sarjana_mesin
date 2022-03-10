@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Kurikulum - Teknik Elektro UNTAN')
+@section('title', 'Kurikulum - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -35,7 +35,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8">
-
+                        <div style="max-width: 40%; margin-bottom:20px;">
+                            <b>Semester</b> <span id="semester-search"></span>
+                        </div>
                         <div class="table-responsive">
                             <table id="tabel_kurikulum" class="table table-bordered table-striped">
                                 <thead>
@@ -45,18 +47,18 @@
                                         <th>Nama Mata Kuliah</th>
                                         <th>SKS</th>
                                         <th>Semester</th>
-                                        <th>Kelompok</th>
+                                        <th>Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($mataKuliahs as $mataKuliah)
                                         <tr>
-                                            <th>{{ $loop->iteration }}</th>
-                                            <th>{{ $mataKuliah->kode }}</th>
-                                            <th>{{ $mataKuliah->nama }}</th>
-                                            <th>{{ $mataKuliah->sks }}</th>
-                                            <th>{{ $mataKuliah->semester }}</th>
-                                            <th>{{ $mataKuliah->kelompok }}</th>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $mataKuliah->kode }}</td>
+                                            <td>{{ $mataKuliah->nama }}</td>
+                                            <td>{{ $mataKuliah->sks }}</td>
+                                            <td>{{ $mataKuliah->semester }}</td>
+                                            <td>{{ $mataKuliah->kelompok }}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -66,7 +68,7 @@
                     </div>
 
                     <!--KF_EDU_SIDEBAR_WRAP START-->
-                           <div class="col-md-4">
+                    <div class="col-md-4">
                         <div class="kf-sidebar">
 
                             <!--KF_SIDEBAR_SEARCH_WRAP START-->
@@ -101,8 +103,9 @@
                                                         href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                                 </h6>
                                                 <span>
-                                             <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                                   
+                                                    <i
+                                                        class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                                 </span>
                                             </div>
                                         </li>
@@ -134,8 +137,8 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span>   <i class="fa fa-clock-o"></i>
-                                                        {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
+                                                        <span> <i class="fa fa-clock-o"></i>
+                                                            {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
                                                 <!--LIST ITEM START-->
@@ -162,7 +165,30 @@
 @section('script')
     <script>
         $(document).ready(function() {
-            $('#tabel_kurikulum').DataTable();
+            var table = $('#tabel_kurikulum').DataTable({
+
+                initComplete: function() {
+                    var api = this.api();
+
+                    var column = api.column(4);
+
+                    var select = $('<select><option value="">Semua</option></select>')
+                        .appendTo($('#semester-search').empty())
+                        .on('change', function() {
+                            var val = $.fn.dataTable.util.escapeRegex(
+                                $(this).val()
+                            );
+
+                            column
+                                .search(val ? '^' + val + '$' : '', true, false)
+                                .draw();
+                        });
+
+                    column.data().unique().sort().each(function(d, j) {
+                        select.append('<option value="' + d + '">' + d + '</option>')
+                    });
+                }
+            });
         });
     </script>
 @endsection

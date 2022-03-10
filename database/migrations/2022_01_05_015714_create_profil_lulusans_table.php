@@ -19,8 +19,9 @@ class CreateProfilLulusansTable extends Migration
             $table->id();
             $table->string('nama', 255)->nullable(false);
             $table->string('nim', 15)->nullable(false);
-            $table->unsignedInteger('angkatan')->nullable(false);
+            $table->string('periode_kelulusan', 15)->nullable(false);
             $table->unsignedInteger('tahun_lulus')->nullable(false);
+            $table->text('nama_file')->nullable(false);
             $table->softDeletes();
             $table->timestamps();
         });
@@ -30,20 +31,23 @@ class CreateProfilLulusansTable extends Migration
                 [
                     'nama' => "Profil Lulusan 1",
                     'nim' => "D1111111111",
-                    'angkatan' => "2001",
+                    'periode_kelulusan' => "I",
                     'tahun_lulus' => "2002",
+                    'nama_file'  => 'files/profil_lulusan/1.pdf',
                 ],
                 [
                     'nama' => "Profil Lulusan 2",
                     'nim' => "D2222222222",
-                    'angkatan' => "2003",
+                    'periode_kelulusan' => "II",
                     'tahun_lulus' => "2004",
+                    'nama_file'  => 'files/profil_lulusan/2.pdf',
                 ],
                 [
                     'nama' => "Profil Lulusan 3",
                     'nim' => "D3333333333",
-                    'angkatan' => "2005",
+                    'periode_kelulusan' => "III",
                     'tahun_lulus' => "2006",
+                    'nama_file'  => 'files/profil_lulusan/3.pdf',
                 ],
             )
         );

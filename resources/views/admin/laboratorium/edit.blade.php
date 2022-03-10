@@ -42,23 +42,24 @@
                             <div class="card-body">
                                 <div class="row">
                                     <!-- form start -->
-                                    <form class="from-prevent-multiple-submits" action="{{ route('laboratorium.update', $laboratorium) }}"
-                                        method="POST" enctype="multipart/form-data">
+                                    <form class="from-prevent-multiple-submits"
+                                        action="{{ route('laboratorium.update', $laboratorium) }}" method="POST"
+                                        enctype="multipart/form-data">
                                         @method('patch')
                                         @csrf
                                         <div class="card-body">
                                             <input type="hidden" value="{{ $laboratorium->id }}" name="id">
                                             <div class="form-group">
-                                                <label for="nama">Nama Himpunan</label>
+                                                <label for="nama">Nama Laboratorium</label>
                                                 <input type="text" class="form-control" id="nama" name="nama"
-                                                    placeholder="Masukkan Nama Himpunan"
+                                                    placeholder="Masukkan Nama Laboratorium" maxlength="255"
                                                     value="{{ $laboratorium->nama }}">
                                             </div>
                                             <div class="form-group">
                                                 <label for="nama_foto">Thumbnail (Maksimal 2MB)</label>
                                                 <div class="form-group">
-                                                    <img src="{{ url($laboratorium->thumbnail) }}"
-                                                        alt="Image Missing" id="old_nama_foto" style="max-width: 200px;"
+                                                    <img src="{{ url($laboratorium->thumbnail) }}" alt="Image Missing"
+                                                        id="old_nama_foto" style="max-width: 200px;"
                                                         class="mt-2" />
                                                 </div>
                                                 <input type="file" accept="image/*" class="form-control mt-0"

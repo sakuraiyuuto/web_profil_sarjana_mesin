@@ -13,11 +13,9 @@ class Jurnal extends Model
 
     protected $fillable = [
         'judul',
-        'author',
         'tahun',
         'nomor_volume',
         'url',
-        'nama_file',
         'release_date',
     ];
 }

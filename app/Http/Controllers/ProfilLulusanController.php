@@ -13,6 +13,8 @@ use App\Models\ProfilLulusan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class ProfilLulusanController extends Controller
 {
@@ -40,11 +42,28 @@ class ProfilLulusanController extends Controller
         $request->validate([
             'nama' => 'required',
             'nim' => 'required',
-            'angkatan' => 'required',
-            'tahun_lulus' => 'required'
+            'periode_kelulusan' => 'required',
+            'tahun_lulus' => 'required',
+            'nama_file' => 'required'
         ]);
 
-        ProfilLulusan::create($request->all());
+        $path_url = 'files/profil_lulusan/';
+
+        $originName = $request->nama_file->getClientOriginalName();
+        $fileName = pathinfo($originName, PATHINFO_FILENAME);
+        $extension = $request->nama_file->getClientOriginalExtension();
+        $fileName = Str::slug($fileName) . '_' . time() . '.' . $extension;
+        $request->nama_file->move(public_path($path_url), $fileName);
+
+        ProfilLulusan::create(
+            [
+                'nama' => $request->nama,
+                'nim' => $request->nim,
+                'periode_kelulusan' => $request->periode_kelulusan,
+                'tahun_lulus' => $request->tahun_lulus,
+                'nama_file' => 'files/profil_lulusan/' . $fileName,
+            ]
+        );
 
         return redirect('/admin/profil_lulusan')->with('status', 'Profil Lulusan Berhasil Ditambah');
     }
@@ -61,17 +80,40 @@ class ProfilLulusanController extends Controller
         $request->validate([
             'nama' => 'required',
             'nim' => 'required',
-            'angkatan' => 'required',
+            'periode_kelulusan' => 'required',
             'tahun_lulus' => 'required'
         ]);
 
-        ProfilLulusan::where('id', $request->id)
-            ->update([
-                'nama' => $request->nama,
-                'nim' => $request->nim,
-                'angkatan' => $request->angkatan,
-                'tahun_lulus' => $request->tahun_lulus
-            ]);
+        if ($request->nama_file != "") {
+            $path_url = 'files/profil_lulusan/';
+
+            $originName = $request->nama_file->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->nama_file->getClientOriginalExtension();
+            $fileName = Str::slug($fileName) . '_' . time() . '.' . $extension;
+            $request->nama_file->move(public_path($path_url), $fileName);
+
+            if (File::exists(public_path($request->old_file))) {
+                File::delete(public_path($request->old_file));
+            }
+
+            ProfilLulusan::where('id', $request->id)
+                ->update([
+                    'nama' => $request->nama,
+                    'nim' => $request->nim,
+                    'periode_kelulusan' => $request->periode_kelulusan,
+                    'tahun_lulus' => $request->tahun_lulus,
+                    'nama_file' => $path_url . $fileName,
+                ]);
+        } else {
+            ProfilLulusan::where('id', $request->id)
+                ->update([
+                    'nama' => $request->nama,
+                    'nim' => $request->nim,
+                    'periode_kelulusan' => $request->periode_kelulusan,
+                    'tahun_lulus' => $request->tahun_lulus
+                ]);
+        }
 
         return redirect('/admin/profil_lulusan')->with('status', 'Profil Lulusan Berhasil Diubah');
     }
@@ -99,11 +141,15 @@ class ProfilLulusanController extends Controller
         return redirect('/admin/profil_lulusan')->with('status', 'Profil Lulusan Berhasil Direstore');
     }
 
-    public function delete($id)
+    public function delete(Request $request, $id)
     {
         $profilLulusan = ProfilLulusan::withTrashed()
             ->where('id', $id)
             ->first();
+
+        if (File::exists(public_path($request->nama_file))) {
+            File::delete(public_path($request->nama_file));
+        }
 
         $profilLulusan->forceDelete();
         return redirect('/admin/profil_lulusan')->with('status', 'Profil Lulusan Berhasil Dihapus Permanen');

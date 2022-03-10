@@ -1,6 +1,6 @@
 @extends('portal/layout/main')
 
-@section('title', 'Jadwal Kegiatan - Teknik Elektro UNTAN')
+@section('title', 'Jadwal Kegiatan - Teknik Mesin UNTAN')
 
 @section('container')
     <!--Banner Wrap Start-->
@@ -60,13 +60,11 @@
                                     </li>
                                 </ul>
                                 <ul class="blog_detail_meta">
-                                    <li><a
-                                            href="#">Pelaksana Kegiatan : {{ $jadwalKegiatan->author }}</a>
+                                    <li><a href="#">Pelaksana Kegiatan : {{ $jadwalKegiatan->author }}</a>
                                     </li>
                                 </ul>
                                 <ul class="blog_detail_meta">
-                                    <li><a
-                                            href="#">Tahun Kegiatan : {{ $jadwalKegiatan->tahun }}</a>
+                                    <li><a href="#">Tahun Kegiatan : {{ $jadwalKegiatan->tahun }}</a>
                                     </li>
                                 </ul>
 
@@ -79,17 +77,17 @@
                             <section id="share-post">
                                 <div class="icons">
                                     <span>Bagikan ke :</span>
-                                   <a href="{{ Share::currentPage()->facebook()->getRawLinks() }}"
-                                        class="social-button" target="_blank" id="">
+                                    <a href="{{ Share::currentPage()->facebook()->getRawLinks() }}" class="social-button"
+                                        target="_blank" id="">
                                         <span class="fa fa-facebook-square"></span>
                                     </a>
-                
-                                    <a href="{{ Share::currentPage()->twitter()->getRawLinks() }}"
-                                        class="social-button " target="_blank" id="">
+
+                                    <a href="{{ Share::currentPage()->twitter()->getRawLinks() }}" class="social-button "
+                                        target="_blank" id="">
                                         <span class="fa fa-twitter-square"></span>
                                     </a>
-                                    <a href="{{ Share::currentPage()->whatsapp()->getRawLinks() }}"
-                                        class="social-button " target="_blank" id="">
+                                    <a href="{{ Share::currentPage()->whatsapp()->getRawLinks() }}" class="social-button "
+                                        target="_blank" id="">
                                         <span class="fa fa-whatsapp"></span>
                                     </a>
                                 </div><!-- /.icons -->
@@ -132,12 +130,13 @@
                                             </figure>
                                             <div class="kode-text">
                                                 <h6>
-                                                <a
+                                                    <a
                                                         href="{{ url($informasiTerbaru->slug) }}">{{ $informasiTerbaru->judul }}</a>
                                                 </h6>
                                                 <span>
-                                             <i class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
-                                   
+                                                    <i
+                                                        class="fa fa-clock-o"></i>{{ date('d M, Y', strtotime($informasiTerbaru->release_date)) }}
+
                                                 </span>
                                             </div>
                                         </li>
@@ -169,8 +168,8 @@
                                                         <h6><a
                                                                 href="{{ $aplikasiIntegrasi->url }}">{{ $aplikasiIntegrasi->nama }}</a>
                                                         </h6>
-                                                        <span><i
-                                                                class="fa fa-clock-o"></i>  {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
+                                                        <span><i class="fa fa-clock-o"></i>
+                                                            {{ date('d M, Y', strtotime($aplikasiIntegrasi->release_date)) }}</span>
                                                     </div>
                                                 </li>
                                                 <!--LIST ITEM START-->

@@ -14,7 +14,8 @@ class ProfilLulusan extends Model
     protected $fillable = [
         'nama',
         'nim',
-        'angkatan',
-        'tahun_lulus'
+        'periode_kelulusan',
+        'tahun_lulus',
+        'nama_file'
     ];
 }

@@ -12,6 +12,7 @@ use App\Models\HimpunanMahasiswa;
 use App\Models\Laboratorium;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 
 class SejarahController extends Controller
 {

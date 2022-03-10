@@ -80,7 +80,7 @@ class JadwalUjianController extends Controller
                 'slug' => 'jadwal_ujian/' . $slug,
                 'release_date' => $request->release_date,
             ]);
-            return redirect('/admin/jadwal_ujian')->with('status', 'Dokumen Prodi Berhasil Ditambahkan');
+            return redirect('/admin/jadwal_ujian')->with('status', 'Jadwal Ujian Berhasil Ditambahkan');
         }
     }
 
@@ -148,7 +148,7 @@ class JadwalUjianController extends Controller
                         'release_date' => $request->release_date,
                     ]);
 
-                return redirect('/admin/jadwal_ujian')->with('status', 'Dokumen Prodi Berhasil Diubah');
+                return redirect('/admin/jadwal_ujian')->with('status', 'Jadwal Ujian Berhasil Diubah');
             } else {
                 $file = $jadwalUjians->nama_file;
                 if (file_exists($file)) {
@@ -175,7 +175,7 @@ class JadwalUjianController extends Controller
                         'release_date' => $request->release_date,
                     ]);
 
-                return redirect('/admin/jadwal_ujian')->with('status', 'Dokumen Prodi Berhasil Diubah');
+                return redirect('/admin/jadwal_ujian')->with('status', 'Jadwal Ujian Berhasil Diubah');
             }
         }
     }
@@ -189,7 +189,7 @@ class JadwalUjianController extends Controller
     public function destroy($id)
     {
         JadwalUjian::destroy($id);
-        return redirect('/admin/jadwal_ujian')->with('status', 'Dokumen Prodi Berhasil Dihapus');
+        return redirect('/admin/jadwal_ujian')->with('status', 'Jadwal Ujian Berhasil Dihapus');
     }
 
     public function restore($id)
@@ -199,7 +199,7 @@ class JadwalUjianController extends Controller
             ->first();
 
         $jadwalUjian->restore();
-        return redirect('/admin/jadwal_ujian')->with('status', 'Dokumen Prodi Berhasil Direstore');
+        return redirect('/admin/jadwal_ujian')->with('status', 'Jadwal Ujian Berhasil Direstore');
     }
 
     public function delete($id)
@@ -215,7 +215,7 @@ class JadwalUjianController extends Controller
         }
 
         $jadwalUjian->forceDelete();
-        return redirect('/admin/jadwal_ujian')->with('status', 'Dokumen Prodi Berhasil Dihapus Permanen');
+        return redirect('/admin/jadwal_ujian')->with('status', 'Jadwal Ujian Berhasil Dihapus Permanen');
     }
 
     public function menuJadwalUjian()
@@ -257,7 +257,7 @@ class JadwalUjianController extends Controller
             ->orderBy('release_date', 'DESC')
             ->take(3)
             ->get();
-        
+
         $laboratoriumHeaders = Laboratorium::where('release_date', '<=', date('Y-m-d'))
             ->orderBy('release_date', 'DESC')
             ->get();

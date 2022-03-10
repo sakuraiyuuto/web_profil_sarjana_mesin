@@ -76,7 +76,7 @@
                                                         @else
                                                             <td>Belum Rilis</td>
                                                         @endif
-                                                    @else ($jadwalUjian->deleted_at != "")
+                                                    @else
                                                         <td>Terhapus</td>
                                                     @endif
                                                     @if ($jadwalUjian->deleted_at == '')
@@ -150,7 +150,7 @@
                         <div class="form-group mt-2">
                             <label for="tipe_ujian">Tipe Ujian</label>
                             <select name="tipe_ujian" class="form-control" required>
-                                <option selected disable>Pilih Tipe Ujian</option>
+                                <option value="" selected disable>Pilih Tipe Ujian</option>
                                 <option value="Ujian Tengah Semester">Ujian Tengah Semester</option>
                                 <option value="Ujian Akhir Semester">Ujian Akhir Semester</option>
                             </select>
@@ -158,7 +158,7 @@
                         <div class="form-group mt-2">
                             <label for="semester">Semester</label>
                             <select name="semester" class="form-control" required>
-                                <option selected disable>Pilih Semester</option>
+                                <option value="" selected disable>Pilih Semester</option>
                                 <option value="Ganjil">Ganjil</option>
                                 <option value="Genap">Genap</option>
                             </select>
@@ -166,7 +166,7 @@
                         <div class="form-group mt-2">
                             <label for="tahun_ajaran">Tahun Ajaran</label>
                             <select name="tahun_ajaran" class="form-control" required>
-                                <option selected disable>Pilih Tahun Ajaran</option>
+                                <option value="" selected disable>Pilih Tahun Ajaran</option>
                                 <option value="2017/2018">2017/2018</option>
                                 <option value="2018/2019">2018/2019</option>
                                 <option value="2019/2020">2019/2020</option>
@@ -186,9 +186,9 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="nama_file">File Jadwal Ujian</label>
-                            <input type="file" class="form-control mt-0" name="nama_file" required
-                                onchange="Filevalidation()">
+                            <label for="nama_file">File Jadwal Ujian (Maksimal 2MB)</label>
+                            <input type="file" id="input_file_add" class="form-control mt-0" name="nama_file"
+                                accept="application/pdf" required>
                         </div>
                         <div class="form-group mt-2">
                             <label for="release_date">Jadwal Rilis</label>
@@ -224,7 +224,7 @@
                             <div class="form-group mt-2">
                                 <label for="tipe_ujian">Tipe Ujian</label>
                                 <select name="tipe_ujian" id="tipe_ujian" class="form-control" required>
-                                    <option selected disable>Pilih Tipe Ujian</option>
+                                    <option value="" selected disable>Pilih Tipe Ujian</option>
                                     <option value="Ujian Tengah Semester">Ujian Tengah Semester</option>
                                     <option value="Ujian Akhir Semester">Ujian Akhir Semester</option>
                                 </select>
@@ -232,7 +232,7 @@
                             <div class="form-group mt-2">
                                 <label for="semester">Semester</label>
                                 <select name="semester" id="semester" class="form-control" required>
-                                    <option selected disable>Pilih Semester</option>
+                                    <option value="" selected disable>Pilih Semester</option>
                                     <option value="Ganjil">Ganjil</option>
                                     <option value="Genap">Genap</option>
                                 </select>
@@ -240,7 +240,7 @@
                             <div class="form-group mt-2">
                                 <label for="tahun_ajaran">Tahun Ajaran</label>
                                 <select name="tahun_ajaran" id="tahun_ajaran" class="form-control" required>
-                                    <option selected disable>Pilih Tahun Ajaran</option>
+                                    <option value="" selected disable>Pilih Tahun Ajaran</option>
                                     <option value="2017/2018">2017/2018</option>
                                     <option value="2018/2019">2018/2019</option>
                                     <option value="2019/2020">2019/2020</option>
@@ -260,9 +260,9 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="nama_file">File Jadwal Ujian</label>
-                                <input type="file" class="form-control mt-0" name="nama_file" id="nama_file"
-                                    onchange="Filevalidation()">
+                                <label for="nama_file">File Jadwal Ujian (Maksimal 2MB)</label>
+                                <input type="file" id="input_file_edit" class="form-control mt-0" name="nama_file"
+                                    id="nama_file" accept="application/pdf">
                             </div>
                             <div class="form-group mt-2">
                                 <label for="release_date">Jadwal Rilis</label>
@@ -331,5 +331,25 @@
                 return false;
             });
         });
+    </script>
+
+    <!-- Validasi File 2MB -->
+    <script>
+        var uploadField = document.getElementById("input_file_add");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
+
+        //Form edit image validation
+        var uploadField = document.getElementById("input_file_edit");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 2000000) {
+                alert("Batas maksimum 2MB!");
+                this.value = "";
+            }
+        };
     </script>
 @endsection
