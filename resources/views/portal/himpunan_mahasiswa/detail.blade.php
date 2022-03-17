@@ -53,9 +53,10 @@
                                 <div class="blog-detl_heading">
                                     <h5>{{ $himpunanMahasiswa->nama }}</h5>
                                 </div>
+                                <div class="ck-style-image">
                                 <div class="ck-content">
                                     {!! $himpunanMahasiswa->teks !!}
-                                </div>
+                                </div> </div>
                             </div>
 
                             <ul class="contact_meta">

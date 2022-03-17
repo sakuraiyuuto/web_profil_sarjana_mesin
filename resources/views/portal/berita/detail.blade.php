@@ -58,9 +58,11 @@
                                             href="#">{{ date('d M, Y', strtotime($berita->release_date)) }}</a>
                                     </li>
                                 </ul>
+
+                                <div class="ck-style-image">
                                 <div class="ck-content">
                                     {!! $berita->teks !!}
-                                </div>
+                                </div> </div>
                             </div>
                             <!--Share Media Sosial -->
                             <section id="share-post">

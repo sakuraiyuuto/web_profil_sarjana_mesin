@@ -58,9 +58,10 @@
                                             href="#">{{ date('d M, Y', strtotime($laboratorium->release_date)) }}</a>
                                     </li>
                                 </ul>
+                                <div class="ck-style-image">
                                 <div class="ck-content">
                                     {!! $laboratorium->teks !!}
-                                </div>
+                                </div> </div>
                             </div>
 
                             <!--Share Media Sosial -->

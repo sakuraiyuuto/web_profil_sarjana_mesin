@@ -54,18 +54,156 @@
 */
 
 /*new added css for this */
+.sambutan_mesin {
+	position : relative;
+	background :linear-gradient(180deg, #1093B1 0%, #073C64 72.4%);
+	padding : 10rem;
+	vertical-align : center;
+	margin-top : 17rem;
+	text-align: center;
+	
+
 
 }
-color : white
+
+.sambutan_mesin h3{
+	color : white !important;
+	border : 2px solid #FCB913;
+	padding : 10px;
+}
+#myBtn {
+	width : 50px;
+	height : 50px;
+	display: none; /* Hidden by default */
+	position: fixed; /* Fixed/sticky position */
+	bottom: 20px; /* Place the button at the bottom of the page */
+	right: 30px; /* Place the button 30px from the right */
+	z-index: 99; /* Make sure it does not overlap */
+	border: none; /* Remove borders */
+	outline: none; /* Remove outline */
+	background-color: #04869d; /* Set a background color */
+	color: white; /* Text color */
+	cursor: pointer; /* Add a mouse pointer on hover */
+	
+	border-radius: 100%; /* Rounded corners */
+	font-size: 18px; /* Increase font size */
+  }
+  
+  #myBtn:hover {
+	background-color: #02363f; /* Add a dark-grey background on hover */
+	padding-bottom : 15px;
+  }
+.jumlah-tracer{
+	display : block;
+	border : 1px solid rgb(116, 116, 116);
+	padding : 10px;
+	background-color: #f9f9f9;
+	margin-bottom : 20px;
+	height : 145px;
+	border-radius : 5px;
+	color : black;
+	z-index : 100;
+	
+}
+.jumlah-tracer p{
+	font-weight: 500;
+}
+.jumlah-tracer h4{
+	font-weight: 800;
+}
+
+.ck-style-image .ck-content p img{
+	min-width : 200px;
+	width: 65%;
+	vertical-align: text-bottom;
+}
+.ck-style-image .ck-content .image{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ck-style-image .ck-content .image  img{
+	min-width : 0;
+	max-width: 65%;
+
+}
+.ck-style-image .ck-content .image_resized  img{
+	min-width : 100% !important;
+
+
+}
+.ck-style-image .ck-content .image.image_resized{
+
+	float : none;
+	margin-left : auto;
+	margin-right: auto;
+
+}
+.ck-style-image .ck-content .image.image_resized img{
+	float : none;
+
+
+}
+.ck-style-image .ck-content .image .image_resized a{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width : 100%;
+	height : 100%;
+	z-index: 100;
+}
+
+.ck-style-image .ck-content figure::before{
+	display : none;
+
+}
+.ck-style-image .ck-content .image a{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width : 100%;
+	height : 100%;
+	z-index: 10;
+}
+
+.ck-style-image .ck-content .image a img{
+	
+
+	width: 50rem;
+
+}
+
+.ck-style-image .ck-content .image-style-side{
+	left : 20%;
+	max-width: 100%; 
+	
+	width : 100%;
+}
+.ck-style-image .ck-content .image-style-side img{
+	
+	width: 65%;
+	left : 100%;
+}
+
+.ck-style-image .ck-content .image-style-side.image_resized img{
+	float : right !important;
+
+
+}
+
+
+
 .footer-color1{
-	background-color : #21c4b4 !important;
+	background-color : #013880 !important;
+	border :none;
 }
 .social-button {
 	font-size : 22px;
 	margin :5px;
 }
 .selengkapnya-more{
-	color : #F2AE00;
+	color : #FFC700;
 	font-weight: bold;
 }
 .selengkapnya-more:hover{
@@ -137,12 +275,12 @@ background-color : #f8f8f8;
     padding: 8px 34px;
     line-height: normal;
     text-transform: uppercase;
-	border-color: #e7d800 !important;
-	color :#e7d800;
+	border-color: #006B7F !important;
+	color :#006B7F;
 }
 .button-pkm:hover{
 	color :white;
-	background-color :#e7d800;
+	background-color :#006B7F;
 
 }
 .img-galeri{
@@ -160,7 +298,7 @@ footer{
 	width:100%;
 }
 footer{
-	background-color: #1b1b1b;
+	background-color: #073C64;
 	padding: 40px 0 30px;
 }
 
@@ -1171,7 +1309,8 @@ section,
 }
 .kf_edu2_intro_wrap:before{
 	content: "";
-	left: 0;
+
+	left: 50%;
 	width: 50%;
 	top: 0;
 	bottom: 0;
@@ -1181,7 +1320,7 @@ section,
 	position: absolute;
 }
 .kf_intro_des_wrap{
-	float: right;
+	float: left;
 	width: 50%;
 	padding:0 30px; 
 }

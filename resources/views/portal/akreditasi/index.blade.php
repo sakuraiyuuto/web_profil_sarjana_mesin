@@ -48,9 +48,10 @@
                                 </div>
 
                                 <div class="abt_univ_des">
-                                    <div class="ck-content">
+                                    <div class="ck-style-image">
+                                <div class="ck-content">
                                         {!! $akreditasiText->teks !!}
-                                    </div>
+                                    </div> </div>
                                 </div>
 
                                 <p>Dokumen Akreditasi Prodi :</p>

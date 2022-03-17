@@ -166,7 +166,7 @@ class BeritaController extends Controller
 
                 $berita = Berita::where('id', $request->id)->first();;
 
-                $response = Http::post('https://teknik.untan.ac.id/api/updateBerita', [
+                $response = Http::post('http://teknik.untan.ac.id/api/updateBerita', [
                     'judul' => $request->judul,
                     'password' => 's1teXUnT4n2022',
                     'thumbnail' => 'kosong',

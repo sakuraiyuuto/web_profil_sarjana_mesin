@@ -24,6 +24,10 @@
 =================================================
 */ 
 @media (min-width: 991px) {
+	.ck-style-image .ck-content  .image-style-side.image_resized{
+		left : 0%;
+		float : right !important;
+	} 
 	.kf_cur_catg_des {
 height :  25rem;
 	}
@@ -57,7 +61,7 @@ height :  25rem;
 		font-size: 18px;
 	}
 	.kf_edu2_intro_wrap::before{
-		width: 40%;
+		left : 60%;
 	}
 	.kf_intro_des_wrap{
 		width: 60%;
@@ -125,8 +129,81 @@ height :  25rem;
 */ 
 @media (max-width: 991px) {
 
+	.no-float{
+		float : none !important;
+	}
+	.sambutan_mesin {
+		margin : 0;
+		padding : 4rem;
+	}
+	.sambutan_mesin h3{
+		font-size : 100%;
+	}
+.height-banner{
+	height : 50vw;
+}
+
+	
+.ck-style-image .ck-content p img{
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width : 50rem;
+
+
+}
+.ck-style-image .ck-content .image{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ck-style-image .ck-content .image  img{
+	
+
+	width: 100%;
+
+}
+
+.ck-style-image .ck-content .image a{
+
+	width : 100%;
+	height : 100%;
+	z-index: 10;
+}
+
+.ck-style-image .ck-content .image a img{
+
+	width: 50rem;
+
+}
+
+.ck-style-image .ck-content .image-style-side{
+	left : 0%;
+	max-width: 100%; 
+width : 100%;
+}
+.ck-style-image .ck-content .image-style-side img{
+
+	width: 100%;
+	left : 0;
+}
+/**link**/
+.ck-style-image .ck-content .image-style-side{
+	left : 0;
+	max-width: 100%; 
+width : 100%;
+}
+.ck-style-image .ck-content .image-style-side img{
+	
+	width: 100%;
+	left : 0;
+}
+
 	#nav li.active span{
-        background: #0082BD;
+        background: #00A8A8;
  
       
       }
@@ -160,7 +237,7 @@ height :  25rem;
 		font-size: 40px;
 	}
 	.kf_edu2_intro_wrap::before{
-		width: 30%;
+		left : 65%;
 	}
 	.kf_intro_des_wrap{
 		width: 70%;
@@ -178,7 +255,7 @@ height :  25rem;
 	}
 	footer .widget{
 		margin-bottom: 30px;
-		border-bottom: solid 1px rgba(0,,0)
+	
 	}
 	.edu2_copyright_wrap{
 		text-align: center;
@@ -277,6 +354,9 @@ height :  25rem;
 
 
 @media (max-width: 767px) {
+	.kf_edu2_intro_wrap::before{
+		left : 0;
+	}
 	.edu2_main_bn_wrap figcaption span{
 		display : block;
 	}
@@ -312,7 +392,7 @@ height :  25rem;
 	}
 	.kf_edu2_intro_wrap::before{
 		width:100%;
-		opacity: 0.1
+		opacity: 0.1;
 	}
 	.edu2_counter_des{
 		width: 100%;

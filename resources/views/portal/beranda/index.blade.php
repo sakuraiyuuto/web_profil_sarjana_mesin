@@ -3,24 +3,34 @@
 @section('title', 'Beranda - Prodi Mesin Teknik UNTAN')
 
 @section('container')
-    <div class="edu2_main_bn_wrap">
-        <div id="owl-demo-main" class="owl-carousel owl-theme">
-            @foreach ($banners as $banner)
-                <div class="item">
-                    <figure>
-                        <img class="height-banner" src="{{ $banner->nama_foto }}" alt=""
-                            style="	max-height : 75rem;object-fit : cover" />
-                        <figcaption>
-                            <span>
-                                <h2>{{ $banner->teks }}</h2>
-                            </span>
-                        </figcaption>
-                    </figure>
+<div class="col-md-12" style="padding : none;">
+    <div class="row">
+        <div class="col-md-6" style="padding : 0;">
+            <div class="edu2_main_bn_wrap no-float">
+                <div id="owl-demo-main" class="owl-carousel owl-theme no-float">
+                    @foreach ($banners as $banner)
+                        <div class="item">
+                            <figure>
+                                <img class="height-banner" src="{{ $banner->nama_foto }}" alt=""
+                                    style="	max-height : 75rem;object-fit : cover" />
+                                <figcaption>
+                                    <span>
+                                        <h2>{{ $banner->teks }}</h2>
+                                    </span>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
+            </div>
         </div>
-    </div>
-
+        <div class="col-md-6" style="padding : 0;">
+            <div class="sambutan_mesin">
+               <h3> Selamat Datang di Website Teknik Mesin</h3>
+            </div>
+        </div>
+</div>
+</div>
     <div class="kf_content_wrap">
         <!--KF COURSES CATEGORIES WRAP START-->
         <section class="new_info  bg_new_info">

@@ -58,9 +58,10 @@
                                             href="#">{{ date('d M, Y', strtotime($informasiBeasiswa->release_date)) }}</a>
                                     </li>
                                 </ul>
+                                <div class="ck-style-image">
                                 <div class="ck-content">
                                     {!! $informasiBeasiswa->teks !!}
-                                </div>
+                                </div> </div>
                             </div>
 
                             <!--Share Media Sosial -->

@@ -67,9 +67,10 @@
                                     <li><a href="#">Tahun Penelitian : {{ $penelitian->tahun }}</a>
                                     </li>
                                 </ul>
+                                <div class="ck-style-image">
                                 <div class="ck-content">
                                     {!! $penelitian->teks !!}
-                                </div>
+                                </div></div>
                             </div>
 
                             <!--Share Media Sosial -->

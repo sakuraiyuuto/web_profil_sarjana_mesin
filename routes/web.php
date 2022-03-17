@@ -67,7 +67,7 @@ use App\Http\Controllers\PencarianController;
 use App\Http\Controllers\LaboratoriumSingkatController;
 use App\Http\Controllers\UnduhanController;
 use App\Http\Controllers\LowonganPekerjaanController;
-
+use App\Http\Controllers\TracerStudyController;
 //Admin
 Route::get('/admin', [LoginController::class, 'index']);
 
@@ -356,3 +356,4 @@ Route::get('jadwal_seminar_hasil', [JadwalSeminarHasilController::class, 'menuJa
 Route::get('jadwal_sidang_akhir', [JadwalSidangAkhirController::class, 'menuJadwalSidangAkhir']);
 Route::get('jadwal_seminar_proposal', [JadwalSeminarProposalController::class, 'menuJadwalSeminarProposal']);
 Route::get('jadwal_praktikum', [JadwalPraktikumController::class, 'menuJadwalPraktikum']);
+Route::get('tracer_study', [TracerStudyController::class, 'menuTracerStudy']);

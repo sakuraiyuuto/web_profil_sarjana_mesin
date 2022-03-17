@@ -41,9 +41,10 @@
                             <!-- HEADING 1 END-->
 
                             <div class="abt_univ_des">
+                                <div class="ck-style-image">
                                 <div class="ck-content">
                                     {!! $seminarProposal->teks !!}
-                                </div>
+                                </div></div>
                             </div>
                             <div class="download_btn">
                                 <b>Dokumen : </b>

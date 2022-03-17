@@ -763,7 +763,7 @@
         <footer class="main-footer">
 
             <div class="float-right d-none d-sm-inline-block">
-                2022 © Jurusan Informatika, Universitas Tanjungpura.
+                2022 © Tim IT Fakultas Teknik, Universitas Tanjungpura.
             </div>
         </footer>
 
