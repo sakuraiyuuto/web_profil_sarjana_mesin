@@ -261,8 +261,8 @@ max-height : 0;
     .hidden-menu2 span:hover, .hidden-menu2 span:hover,.hidden-menu2 span:hover{
         background :#006B7F !important;
     }
-    .hidden-menu2 .is-active{  background :#00A8A8 !important;}
-    .hidden-menu2 .active{  background :#00A8A8 !important;}
+    .hidden-menu2 .is-active{  background :#006a6a !important;}
+    .hidden-menu2 .active{  background :#006a6a !important;}
     .hidden-menu2 ul.submenu a{
         padding-left: 50px !important;
     }

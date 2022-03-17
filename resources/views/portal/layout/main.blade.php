@@ -163,7 +163,7 @@
                                                 </ul>
                                             </li>
 
-                                            <li class="hidden-menu2"><span class="submenu level"> Pengabdian Kepada
+                                            <li class="hidden-menu2"><span class="submenu level {{ request()->is('pkm_mahasiswa', 'pkm_dosen', 'pkm_mahasiswa/*', 'pkm_dosen/*') ? 'active' : '' }}"> Pengabdian Kepada
                                                     Masyarakat
                                                     <i class="fa fa-angle-down"></i></span>
                                                 <ul class="submenu">
@@ -235,7 +235,7 @@
                                                 </ul>
                                             </li>
 
-                                            <li class="hidden-menu2"><span class="submenu level"> Jadwal Seminar <i
+                                            <li class="hidden-menu2"><span class="submenu level {{ request()->is('jadwal_seminar_kerja_praktik','jadwal_seminar_proposal','jadwal_seminar_hasil','jadwal_sidang_akhir','jadwal_seminar_kerja_praktik/*','jadwal_seminar_proposal/*','jadwal_seminar_hasil/*','jadwal_seminar_sidang_akhir/*')? 'active': '' }}"> Jadwal Seminar <i
                                                         class="fa fa-angle-down"></i></span>
                                                 <ul class="submenu">
                                                     <li>
@@ -309,7 +309,7 @@
                                                 </ul>
                                             </li>
 
-                                            <li class="hidden-menu2"><span class="submenu level"> Laboratorium <i
+                                            <li class="hidden-menu2"><span class="submenu level  {{ request()->is('laboratorium', 'laboratorium/*') ? 'active' : '' }}"> Laboratorium <i
                                                         class="fa fa-angle-down"></i></span>
                                                 <ul class="submenu">
                                                     <li><a class=" {{ request()->is('laboratorium', 'laboratorium/*') ? 'sub-active' : '' }}"
@@ -369,7 +369,7 @@
                                         </ul>
                                     </li>
 
-                                    <li class="hidden-menu2"><span class="submenu level"> SOP <i
+                                    <li class="hidden-menu2"><span class="submenu level {{ request()->is('kerja_praktik', 'seminar_proposal', 'seminar_hasil', 'sidang_akhir') ? 'active' : '' }}"> SOP <i
                                                 class="fa fa-angle-down"></i></span>
                                         <ul class="submenu">
                                             <li>

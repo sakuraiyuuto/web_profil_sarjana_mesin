@@ -41,26 +41,26 @@
                             <!--KF_BLOG DETAIL_DES START-->
                             <div class="kf_blog_detail_des">
                                 <div class="blog-detl_heading">
-                                    <h5>{{ $repositoryKerjaPraktik->judul }}</h5>
+                                    <h5>{{ $repositoryRepositoryKerjaPraktik->judul }}</h5>
                                 </div>
 
                                 <ul class="blog_detail_meta">
                                     <li><i class="fa fa-calendar"></i><a
-                                            href="#">{{ date('d M, Y', strtotime($repositoryKerjaPraktik->release_date)) }}</a>
+                                            href="#">{{ date('d M, Y', strtotime($repositoryRepositoryKerjaPraktik->release_date)) }}</a>
                                     </li>
                                 </ul>
                                 <ul class="blog_detail_meta">
-                                    <li><a href="#">Author : {{ $repositoryKerjaPraktik->author }}</a>
+                                    <li><a href="#">Author : {{ $repositoryRepositoryKerjaPraktik->author }}</a>
                                     </li>
                                 </ul>
                                 <ul class="blog_detail_meta">
-                                    <li><a href="#">Tahun : {{ $repositoryKerjaPraktik->tahun }}</a>
+                                    <li><a href="#">Tahun : {{ $repositoryRepositoryKerjaPraktik->tahun }}</a>
                                     </li>
                                 </ul>
 
                                 <h5>Abstrak : </h5><br>
 
-                                <p>{!! $repositoryKerjaPraktik->teks !!}
+                                <p>{!! $repositoryRepositoryKerjaPraktik->teks !!}
 
 
                             </div>
